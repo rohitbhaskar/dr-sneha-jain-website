@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arthemii Ionaere — Contemporary stained glass artist exploring abstract art through light, color, and form.">
+    <meta name="theme-color" content="#fafafa">
+    <title>Arthemii Ionaere — Contemporary Stained Glass</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://www.youtube.com">
+
+    <!-- Fonts: Hahmlet variable font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://arthemii.com/wp-content/uploads/2024/05/cropped-Screenshot-2024-05-25-at-06.54.34-32x32.jpg" sizes="32x32">
+    <link rel="icon" href="https://arthemii.com/wp-content/uploads/2024/05/cropped-Screenshot-2024-05-25-at-06.54.34-192x192.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://arthemii.com/wp-content/uploads/2024/05/cropped-Screenshot-2024-05-25-at-06.54.34-180x180.jpg">
+
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f2f2f0;
+            --bg-elevated: #ffffff;
+            --text: #111111;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999999;
+            --border: #e5e5e3;
+            --border-strong: #ccccca;
+
+            --font-sans: 'Hahmlet', Georgia, 'Times New Roman', serif;
+            --font-serif: 'Hahmlet', Georgia, serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 100px;
+
+            --container-max: 1400px;
+            --header-height: 72px;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-md); }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ========== LOADER ========== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            opacity: 0;
+            animation: loaderFade 0.8s ease 0.2s forwards;
+        }
+
+        .loader__bar {
+            width: 60px;
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 0;
+            animation: loaderFade 0.8s ease 0.4s forwards;
+        }
+
+        .loader__bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--text);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes loaderFade {
+            to { opacity: 1; }
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transform: translateY(-100%);
+            animation: headerSlide 0.8s var(--ease-out-expo) 1.2s forwards;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .header.is-scrolled {
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        @keyframes headerSlide {
+            to { transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 var(--spacing-md); }
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__logo:hover { opacity: 0.7; }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+        }
+
+        .header__link {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .header__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .header__link:hover { color: var(--text); }
+        .header__link:hover::after { width: 100%; }
+
+        .header__lang {
+            display: flex;
+            gap: 2px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+        }
+
+        .header__lang-btn {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            color: var(--text-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .header__lang-btn.is-active {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        /* Mobile menu button */
+        .header__menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .header__menu-btn span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .header__menu-btn span:first-child { top: 35%; }
+        .header__menu-btn span:last-child { bottom: 35%; }
+
+        @media (max-width: 768px) {
+            .header__menu-btn { display: block; }
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .mobile-nav.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav__link {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav__link:hover { opacity: 0.5; }
+
+        .mobile-nav__close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav__close::before,
+        .mobile-nav__close::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+        }
+
+        .mobile-nav__close::before { transform: rotate(45deg); }
+        .mobile-nav__close::after { transform: rotate(-45deg); }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: var(--spacing-2xl);
+            padding-top: calc(var(--header-height) + var(--spacing-3xl));
+            padding-bottom: var(--spacing-3xl);
+            padding-left: var(--spacing-xl);
+            padding-right: var(--spacing-xl);
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-left: var(--spacing-md);
+                padding-right: var(--spacing-md);
+            }
+        }
+
+        .hero__content {
+            max-width: 600px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero__content { max-width: 100%; }
+        }
+
+        .hero__eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-out-expo) 1.6s forwards;
+        }
+
+        .hero__title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.75rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin-bottom: var(--spacing-md);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s var(--ease-out-expo) 1.8s forwards;
+        }
+
+        .hero__subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1.0625rem, 2vw, 1.375rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-out-expo) 2s forwards;
+        }
+
+        .hero__desc {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-out-expo) 2.2s forwards;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-out-expo) 2.4s forwards;
+        }
+
+        .hero__image {
+            position: relative;
+            aspect-ratio: 3/4;
+            max-width: 520px;
+            justify-self: end;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 1s var(--ease-out-expo) 2s forwards;
+        }
+
+        @media (max-width: 1024px) {
+            .hero__image { display: none; }
+        }
+
+        .hero__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+
+        .hero__image-caption {
+            position: absolute;
+            bottom: -2.5rem;
+            left: 0;
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .btn--primary:hover {
+            background: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn--outline:hover {
+            border-color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        /* ========== MARQUEE ========== */
+        .marquee {
+            padding: var(--spacing-md) 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .marquee__inner {
+            display: flex;
+            animation: marqueeScroll 30s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee__item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: 0 var(--spacing-lg);
+            font-family: var(--font-serif);
+            font-size: 1.0625rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .marquee__dot {
+            width: 4px;
+            height: 4px;
+            background: var(--text-tertiary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .section__header {
+            max-width: 700px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section__header--center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section__label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section__desc {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .section__divider {
+            height: 1px;
+            background: var(--border);
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        /* ========== VIDEO ========== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+
+        .video-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .video-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-card__embed {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-alt);
+        }
+
+        .video-card__embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-card__info {
+            padding-top: var(--spacing-sm);
+        }
+
+        .video-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .video-card__desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== ABOUT ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
+
+        .about-text p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-text p strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .about-quote {
+            padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md);
+            border-left: 2px solid var(--text);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .about-quote p {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0 !important;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat {
+            padding: var(--spacing-md);
+            background: var(--bg-alt);
+            border-radius: var(--radius-sm);
+        }
+
+        .stat__number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .stat__label {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .about-image {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .about-image img { width: 100%; height: auto; }
+
+        .about-image__caption {
+            margin-top: var(--spacing-sm);
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ========== WORKS ========== */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 1024px) {
+            .works-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .works-grid { grid-template-columns: 1fr; }
+        }
+
+        .work-card {
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .work-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card__image {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-alt);
+        }
+
+        .work-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .work-card:hover .work-card__image img {
+            transform: scale(1.05);
+        }
+
+        .work-card__info {
+            padding-top: var(--spacing-sm);
+        }
+
+        .work-card__category {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.375rem;
+        }
+
+        .work-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .work-card__desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== QUOTE ========== */
+        .quote {
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quote__mark {
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            font-style: italic;
+            font-weight: 200;
+            line-height: 1;
+            color: var(--border);
+            margin-bottom: -1.5rem;
+        }
+
+        .quote__text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .quote__author {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-tertiary);
+        }
+
+        /* ========== PHILOSOPHY ========== */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .philosophy-grid { grid-template-columns: 1fr; }
+        }
+
+        .philosophy-card {
+            padding: var(--spacing-lg);
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .philosophy-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .philosophy-card__num {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: var(--border-strong);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .philosophy-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .philosophy-card__text {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery__scroll {
+            display: flex;
+            gap: var(--spacing-sm);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .gallery__scroll::-webkit-scrollbar { display: none; }
+
+        .gallery__item {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            width: 300px;
+            aspect-ratio: 3/4;
+            background: var(--bg-alt);
+        }
+
+        .gallery__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .gallery__item:hover img { transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .gallery__item { width: 260px; }
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .contact-form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 640px) {
+            .contact-form__row { grid-template-columns: 1fr; }
+        }
+
+        .contact-form__label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-form__input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form__input:focus {
+            outline: none;
+            border-color: var(--text);
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        }
+
+        .contact-form__textarea {
+            min-height: 160px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .contact-form__submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--text);
+            color: var(--bg);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form__submit:hover {
+            background: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        .contact-form__submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .footer__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer__brand {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer__link {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover { color: var(--text); }
+
+        .footer__copy {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ========== SCROLL REVEAL ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <!-- ========== LOADER ========== -->
+    <div class="loader" id="loader">
+        <div class="loader__title">Arthemii Ionaere</div>
+        <div class="loader__bar">
+            <div class="loader__bar-fill" id="loaderBar"></div>
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <a href="#home" class="header__logo">Arthemii Ionaere</a>
+
+        <nav class="header__nav">
+            <a href="#about" class="header__link" data-i18n="nav_about">About</a>
+            <a href="#works" class="header__link" data-i18n="nav_works">Works</a>
+            <a href="#philosophy" class="header__link" data-i18n="nav_philosophy">Philosophy</a>
+            <a href="#contact" class="header__link" data-i18n="nav_contact">Contact</a>
+            <div class="header__lang" role="group" aria-label="Language selector">
+                <button class="header__lang-btn is-active" data-lang="en" aria-label="English">EN</button>
+                <button class="header__lang-btn" data-lang="es" aria-label="Español">ES</button>
+            </div>
+        </nav>
+
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu"></button>
+        <a href="#about" class="mobile-nav__link" data-i18n="nav_about">About</a>
+        <a href="#works" class="mobile-nav__link" data-i18n="nav_works">Works</a>
+        <a href="#philosophy" class="mobile-nav__link" data-i18n="nav_philosophy">Philosophy</a>
+        <a href="#contact" class="mobile-nav__link" data-i18n="nav_contact">Contact</a>
+        <div class="header__lang" role="group">
+            <button class="header__lang-btn is-active" data-lang="en">EN</button>
+            <button class="header__lang-btn" data-lang="es">ES</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="hero" id="home">
+            <div class="hero__content">
+                <div class="hero__eyebrow" data-i18n="hero_eyebrow">Contemporary Stained Glass Artist — Est. 2016</div>
+                <h1 class="hero__title">Arthemii<br>Ionaere</h1>
+                <p class="hero__subtitle" data-i18n="hero_subtitle">Abstract stained glass through light, color, and form</p>
+                <p class="hero__desc" data-i18n="hero_desc">Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.</p>
+                <div class="hero__actions">
+                    <a href="#works" class="btn btn--primary" data-i18n="hero_cta_works">View Works</a>
+                    <a href="#contact" class="btn btn--outline" data-i18n="hero_cta_contact">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism — Arthemii Ionaere, 2024">
+                <div class="hero__image-caption" data-i18n="hero_caption">"Prism" — 2024</div>
+            </div>
+        </section>
+
+        <!-- ========== MARQUEE ========== -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee__inner">
+                <div class="marquee__item"><span data-i18n="marquee_1">Stained Glass</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_2">Abstract Art</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_3">Light & Color</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_4">Kinetic Objects</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_5">Visual Poetry</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_1">Stained Glass</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_2">Abstract Art</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_3">Light & Color</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_4">Kinetic Objects</span><div class="marquee__dot"></div></div>
+                <div class="marquee__item"><span data-i18n="marquee_5">Visual Poetry</span><div class="marquee__dot"></div></div>
+            </div>
+        </div>
+
+        <!-- ========== ABOUT ========== -->
+        <section class="section" id="about">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label" data-i18n="about_label">About</div>
+                    <h2 class="section__title" data-i18n="about_title">Redefining stained glass through contemporary abstraction</h2>
+                </header>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p data-i18n="about_p1">The abstract and contemporary approach to the use of glass and color departs from the traditional Christian symbolism of stained glass, which usually features concrete depictions of saints, biblical scenes, or symbols. However, even in this abstract form, the exploration of potential symbolism and meanings through an innovative approach to symbolism remains relevant.</p>
+
+                        <p data-i18n="about_p2">Contemporary studies of stained glass art allow us to analyze the impact of abstraction on perception and interpretation. Changing styles and techniques can have an impact on aesthetic and spiritual perception, offering new forms to be integrated into contemporary art and architecture.</p>
+
+                        <blockquote class="about-quote">
+                            <p data-i18n="about_quote">Of particular importance in abstract stained glass is the viewer's personal immersion in the work. Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.</p>
+                        </blockquote>
+
+                        <p data-i18n="about_p3">These personal revelations and interactions enrich the emotional and intellectual sides of perception, making the stained glass not just an object of observation, but an active participant in a dialog with the viewer.</p>
+
+                        <div class="about-stats">
+                            <div class="stat">
+                                <div class="stat__number">50+</div>
+                                <div class="stat__label" data-i18n="stat_1">Artworks Created</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__number">8+</div>
+                                <div class="stat__label" data-i18n="stat_2">Years of Practice</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__number">20+</div>
+                                <div class="stat__label" data-i18n="stat_3">Exhibitions</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat__number">∞</div>
+                                <div class="stat__label" data-i18n="stat_4">Personal Interpretations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal">
+                        <figure class="about-image">
+                            <img src="https://arthemii.com/wp-content/uploads/2025/07/04490baf-0116-4f87-a7df-6c27f136d6e3.png" alt="Arthemii Ionaere portrait, 2025" loading="lazy">
+                            <figcaption class="about-image__caption" data-i18n="about_image_caption">Portrait of the artist — 2025</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== VIDEO ========== -->
+        <section class="section" id="videos">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label" data-i18n="video_label">Video</div>
+                    <h2 class="section__title" data-i18n="video_title">Moving images and stories</h2>
+                    <p class="section__desc" data-i18n="video_desc">Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.</p>
+                </header>
+
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/Uxb35qkESOg" title="Vortex Void — Arthemii Ionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Vortex Void</h3>
+                            <p class="video-card__desc" data-i18n="video_1_desc">Abstract visual exploration — 2024</p>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/Hn2z6ov6tIU" title="Kinetic Art Objects — Arthemii Ionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title" data-i18n="video_2_title">Kinetic Art Objects</h3>
+                            <p class="video-card__desc" data-i18n="video_2_desc">Movement and form in harmony — 2024</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== WORKS ========== -->
+        <section class="section" id="works">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label" data-i18n="works_label">Selected Works</div>
+                    <h2 class="section__title" data-i18n="works_title">Portfolio of light and color</h2>
+                    <p class="section__desc" data-i18n="works_desc">A selection of significant works spanning stained glass, digital art, photography, and design.</p>
+                </header>
+
+                <div class="works-grid">
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_1_cat">Digital Art</div>
+                            <h3 class="work-card__title" data-i18n="work_1_title">Visual Narratives</h3>
+                            <p class="work-card__desc" data-i18n="work_1_desc">Digital concepts and narrative structures</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8428-scaled.jpg" alt="Vertical Horizons" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_2_cat">Photography</div>
+                            <h3 class="work-card__title" data-i18n="work_2_title">Vertical Horizons</h3>
+                            <p class="work-card__desc" data-i18n="work_2_desc">Portrait orientation study</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8977-Enhanced-NR-scaled.jpg" alt="Refined Reality" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_3_cat">Enhanced</div>
+                            <h3 class="work-card__title" data-i18n="work_3_title">Refined Reality</h3>
+                            <p class="work-card__desc" data-i18n="work_3_desc">Post-processed imagery</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.09.10.png" alt="Screen Captures" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_4_cat">Digital</div>
+                            <h3 class="work-card__title" data-i18n="work_4_title">Screen Captures</h3>
+                            <p class="work-card__desc" data-i18n="work_4_desc">Digital documentation of creative process</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process Documentation" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_5_cat">Archive</div>
+                            <h3 class="work-card__title" data-i18n="work_5_title">Process Documentation</h3>
+                            <p class="work-card__desc" data-i18n="work_5_desc">Records of the creative journey</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-card__image">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-18.57.04.png" alt="Evening Sessions" loading="lazy">
+                        </div>
+                        <div class="work-card__info">
+                            <div class="work-card__category" data-i18n="work_6_cat">Study</div>
+                            <h3 class="work-card__title" data-i18n="work_6_title">Evening Sessions</h3>
+                            <p class="work-card__desc" data-i18n="work_6_desc">Late night creativity</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== QUOTE ========== -->
+        <div class="quote reveal">
+            <div class="container">
+                <div class="quote__mark" aria-hidden="true">"</div>
+                <blockquote class="quote__text" data-i18n="quote_text">Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.</blockquote>
+                <div class="quote__author">— Arthemii Ionaere</div>
+            </div>
+        </div>
+
+        <!-- ========== PHILOSOPHY ========== -->
+        <section class="section" id="philosophy">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label" data-i18n="philosophy_label">Philosophy</div>
+                    <h2 class="section__title" data-i18n="philosophy_title">The art of immersion</h2>
+                    <p class="section__desc" data-i18n="philosophy_desc">Three pillars of artistic practice that guide every work and define the relationship between artwork and viewer.</p>
+                </header>
+
+                <div class="philosophy-grid">
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">01</div>
+                        <h3 class="philosophy-card__title" data-i18n="phil_1_title">Personal Immersion</h3>
+                        <p class="philosophy-card__text" data-i18n="phil_1_text">Each viewer finds their own symbols, archetypes, and interpretations within the abstract work. Every encounter is unique and deeply personal. The artwork becomes a mirror of the viewer's inner world — a space of self-reflection and contemplative absorption.</p>
+                    </article>
+
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">02</div>
+                        <h3 class="philosophy-card__title" data-i18n="phil_2_title">Abstract Innovation</h3>
+                        <p class="philosophy-card__text" data-i18n="phil_2_text">Departing from traditional concrete depictions opens new paths of exploration through innovative approaches to color, light, and geometric abstraction. Stained glass becomes an experimental platform where new visual languages are explored and developed.</p>
+                    </article>
+
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">03</div>
+                        <h3 class="philosophy-card__title" data-i18n="phil_3_title">Spiritual Perception</h3>
+                        <p class="philosophy-card__text" data-i18n="phil_3_text">Changing styles and techniques influence aesthetic and spiritual perception, offering new forms for integration into contemporary art and architecture. Glass becomes a medium between light consciousness and spatial experience.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== GALLERY ========== -->
+        <section class="section" id="gallery">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label" data-i18n="gallery_label">Gallery</div>
+                    <h2 class="section__title" data-i18n="gallery_title">Extended collection</h2>
+                </header>
+            </div>
+            <div class="gallery__scroll">
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.20.32.png" alt="Gallery work" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0981.jpg" alt="Gallery work" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2025/07/Screenshot-2025-07-22-at-13.52.55.png" alt="Gallery work" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/arthemii-ionaere-professional-camera-depth__77285.png" alt="Gallery work" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-dsaaiHHk1.png" alt="Gallery work" loading="lazy"></div>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== CONTACT ========== -->
+        <section class="section" id="contact">
+            <div class="container">
+                <header class="section__header section__header--center reveal">
+                    <div class="section__label" data-i18n="contact_label">Contact</div>
+                    <h2 class="section__title" data-i18n="contact_title">Let's create together</h2>
+                    <p class="section__desc" data-i18n="contact_desc">Whether you're interested in collaboration, discussing a project, or simply sharing your thoughts — I'd love to hear from you.</p>
+                </header>
+
+                <div class="contact">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="contact-form__row">
+                            <div>
+                                <label class="contact-form__label" for="name" data-i18n="form_name">Name</label>
+                                <input class="contact-form__input" type="text" id="name" name="name" required autocomplete="name">
+                            </div>
+                            <div>
+                                <label class="contact-form__label" for="email" data-i18n="form_email">Email</label>
+                                <input class="contact-form__input" type="email" id="email" name="email" required autocomplete="email">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="contact-form__label" for="subject" data-i18n="form_subject">Subject</label>
+                            <input class="contact-form__input" type="text" id="subject" name="subject">
+                        </div>
+                        <div>
+                            <label class="contact-form__label" for="message" data-i18n="form_message">Message</label>
+                            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" required></textarea>
+                        </div>
+                        <button class="contact-form__submit" type="submit" data-i18n="form_submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">Arthemii Ionaere</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="#about" class="footer__link" data-i18n="nav_about">About</a>
+                    <a href="#works" class="footer__link" data-i18n="nav_works">Works</a>
+                    <a href="#philosophy" class="footer__link" data-i18n="nav_philosophy">Philosophy</a>
+                    <a href="#contact" class="footer__link" data-i18n="nav_contact">Contact</a>
+                </nav>
+                <div class="footer__copy">© 2026</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        'use strict';
+
+        /* ===== I18N TRANSLATIONS ===== */
+        const translations = {
+            en: {
+                nav_about: 'About',
+                nav_works: 'Works',
+                nav_philosophy: 'Philosophy',
+                nav_contact: 'Contact',
+                hero_eyebrow: 'Contemporary Stained Glass Artist — Est. 2016',
+                hero_subtitle: 'Abstract stained glass through light, color, and form',
+                hero_desc: 'Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.',
+                hero_cta_works: 'View Works',
+                hero_cta_contact: 'Get in Touch',
+                hero_caption: '"Prism" — 2024',
+                marquee_1: 'Stained Glass',
+                marquee_2: 'Abstract Art',
+                marquee_3: 'Light & Color',
+                marquee_4: 'Kinetic Objects',
+                marquee_5: 'Visual Poetry',
+                about_label: 'About',
+                about_title: 'Redefining stained glass through contemporary abstraction',
+                about_p1: 'The abstract and contemporary approach to the use of glass and color departs from the traditional Christian symbolism of stained glass, which usually features concrete depictions of saints, biblical scenes, or symbols. However, even in this abstract form, the exploration of potential symbolism and meanings through an innovative approach to symbolism remains relevant.',
+                about_p2: 'Contemporary studies of stained glass art allow us to analyze the impact of abstraction on perception and interpretation. Changing styles and techniques can have an impact on aesthetic and spiritual perception, offering new forms to be integrated into contemporary art and architecture.',
+                about_quote: 'Of particular importance in abstract stained glass is the viewer\'s personal immersion in the work. Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.',
+                about_p3: 'These personal revelations and interactions enrich the emotional and intellectual sides of perception, making the stained glass not just an object of observation, but an active participant in a dialog with the viewer.',
+                stat_1: 'Artworks Created',
+                stat_2: 'Years of Practice',
+                stat_3: 'Exhibitions',
+                stat_4: 'Personal Interpretations',
+                about_image_caption: 'Portrait of the artist — 2025',
+                video_label: 'Video',
+                video_title: 'Moving images and stories',
+                video_desc: 'Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.',
+                video_1_desc: 'Abstract visual exploration — 2024',
+                video_2_title: 'Kinetic Art Objects',
+                video_2_desc: 'Movement and form in harmony — 2024',
+                works_label: 'Selected Works',
+                works_title: 'Portfolio of light and color',
+                works_desc: 'A selection of significant works spanning stained glass, digital art, photography, and design.',
+                work_1_cat: 'Digital Art', work_1_title: 'Visual Narratives', work_1_desc: 'Digital concepts and narrative structures',
+                work_2_cat: 'Photography', work_2_title: 'Vertical Horizons', work_2_desc: 'Portrait orientation study',
+                work_3_cat: 'Enhanced', work_3_title: 'Refined Reality', work_3_desc: 'Post-processed imagery',
+                work_4_cat: 'Digital', work_4_title: 'Screen Captures', work_4_desc: 'Digital documentation of creative process',
+                work_5_cat: 'Archive', work_5_title: 'Process Documentation', work_5_desc: 'Records of the creative journey',
+                work_6_cat: 'Study', work_6_title: 'Evening Sessions', work_6_desc: 'Late night creativity',
+                quote_text: 'Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.',
+                philosophy_label: 'Philosophy',
+                philosophy_title: 'The art of immersion',
+                philosophy_desc: 'Three pillars of artistic practice that guide every work and define the relationship between artwork and viewer.',
+                phil_1_title: 'Personal Immersion', phil_1_text: 'Each viewer finds their own symbols, archetypes, and interpretations within the abstract work. Every encounter is unique and deeply personal. The artwork becomes a mirror of the viewer\'s inner world — a space of self-reflection and contemplative absorption.',
+                phil_2_title: 'Abstract Innovation', phil_2_text: 'Departing from traditional concrete depictions opens new paths of exploration through innovative approaches to color, light, and geometric abstraction. Stained glass becomes an experimental platform where new visual languages are explored and developed.',
+                phil_3_title: 'Spiritual Perception', phil_3_text: 'Changing styles and techniques influence aesthetic and spiritual perception, offering new forms for integration into contemporary art and architecture. Glass becomes a medium between light consciousness and spatial experience.',
+                gallery_label: 'Gallery',
+                gallery_title: 'Extended collection',
+                contact_label: 'Contact',
+                contact_title: 'Let\'s create together',
+                contact_desc: 'Whether you\'re interested in collaboration, discussing a project, or simply sharing your thoughts — I\'d love to hear from you.',
+                form_name: 'Name',
+                form_email: 'Email',
+                form_subject: 'Subject',
+                form_message: 'Message',
+                form_submit: 'Send Message',
+                form_success: 'Thank you! I will get back to you soon.'
+            },
+            es: {
+                nav_about: 'Acerca de',
+                nav_works: 'Obras',
+                nav_philosophy: 'Filosofía',
+                nav_contact: 'Contacto',
+                hero_eyebrow: 'Artista Contemporáneo de Vidrieras — Est. 2016',
+                hero_subtitle: 'Vidrieras abstractas a través de la luz, el color y la forma',
+                hero_desc: 'Explorando la intersección del arte abstracto y las vidrieras contemporáneas. Cada pieza crea una experiencia inmersiva donde la luz transforma el color y la geometría en un lenguaje visual profundamente personal.',
+                hero_cta_works: 'Ver Obras',
+                hero_cta_contact: 'Contacto',
+                hero_caption: '"Prisma" — 2024',
+                marquee_1: 'Vidrieras',
+                marquee_2: 'Arte Abstracto',
+                marquee_3: 'Luz y Color',
+                marquee_4: 'Objetos Cinéticos',
+                marquee_5: 'Poesía Visual',
+                about_label: 'Acerca de',
+                about_title: 'Redefiniendo las vidrieras a través de la abstracción contemporánea',
+                about_p1: 'El enfoque abstracto y contemporáneo del uso del vidrio y el color se aparta del simbolismo cristiano tradicional de las vidrieras, que generalmente presenta representaciones concretas de santos, escenas bíblicas o símbolos. Sin embargo, incluso en esta forma abstracta, la exploración del simbolismo y los significados potenciales sigue siendo relevante.',
+                about_p2: 'Los estudios contemporáneos del arte de las vidrieras nos permiten analizar el impacto de la abstracción en la percepción y la interpretación. Los estilos y técnicas cambiantes pueden tener un impacto en la percepción estética y espiritual, ofreciendo nuevas formas para integrar en el arte y la arquitectura contemporáneos.',
+                about_quote: 'De particular importancia en las vidrieras abstractas es la inmersión personal del espectador en la obra. Debido a la naturaleza abierta de la abstracción, cada espectador puede encontrar sus propios símbolos, arquetipos o interpretaciones dentro de ella, haciendo que cada visión sea una experiencia única.',
+                about_p3: 'Estas revelaciones e interacciones personales enriquecen los lados emocional e intelectual de la percepción, haciendo que la vidriera no sea solo un objeto de observación, sino un participante activo en un diálogo con el espectador.',
+                stat_1: 'Obras Creadas',
+                stat_2: 'Años de Práctica',
+                stat_3: 'Exposiciones',
+                stat_4: 'Interpretaciones Personales',
+                about_image_caption: 'Retrato del artista — 2025',
+                video_label: 'Video',
+                video_title: 'Imágenes en movimiento e historias',
+                video_desc: 'Trabajos de video que exploran el mundo abstracto de la luz y el movimiento, desde objetos de arte cinético hasta exploraciones visuales inmersivas.',
+                video_1_desc: 'Exploración visual abstracta — 2024',
+                video_2_title: 'Objetos de Arte Cinético',
+                video_2_desc: 'Movimiento y forma en armonía — 2024',
+                works_label: 'Obras Seleccionadas',
+                works_title: 'Portafolio de luz y color',
+                works_desc: 'Una selección de obras significativas que abarcan vidrieras, arte digital, fotografía y diseño.',
+                work_1_cat: 'Arte Digital', work_1_title: 'Narrativas Visuales', work_1_desc: 'Conceptos digitales y estructuras narrativas',
+                work_2_cat: 'Fotografía', work_2_title: 'Horizontes Verticales', work_2_desc: 'Estudio en orientación vertical',
+                work_3_cat: 'Mejorado', work_3_title: 'Realidad Refinada', work_3_desc: 'Imaginería posprocesada',
+                work_4_cat: 'Digital', work_4_title: 'Capturas de Pantalla', work_4_desc: 'Documentación digital del proceso creativo',
+                work_5_cat: 'Archivo', work_5_title: 'Documentación del Proceso', work_5_desc: 'Registros del viaje creativo',
+                work_6_cat: 'Estudio', work_6_title: 'Sesiones Nocturnas', work_6_desc: 'Creatividad nocturna',
+                quote_text: 'Debido a la naturaleza abierta de la abstracción, cada espectador puede encontrar sus propios símbolos, arquetipos o interpretaciones dentro de ella, haciendo que cada visión sea una experiencia única.',
+                philosophy_label: 'Filosofía',
+                philosophy_title: 'El arte de la inmersión',
+                philosophy_desc: 'Tres pilares de la práctica artística que guían cada obra y definen la relación entre la obra y el espectador.',
+                phil_1_title: 'Inmersión Personal', phil_1_text: 'Cada espectador encuentra sus propios símbolos, arquetipos e interpretaciones dentro de la obra abstracta. Cada encuentro es único y profundamente personal.',
+                phil_2_title: 'Innovación Abstracta', phil_2_text: 'Alejarse de las representaciones concretas tradicionales abre nuevos caminos de exploración a través de enfoques innovadores del color, la luz y la abstracción geométrica.',
+                phil_3_title: 'Percepción Espiritual', phil_3_text: 'Los estilos y técnicas cambiantes influyen en la percepción estética y espiritual, ofreciendo nuevas formas de integración en el arte y la arquitectura contemporáneos.',
+                gallery_label: 'Galería',
+                gallery_title: 'Colección extendida',
+                contact_label: 'Contacto',
+                contact_title: 'Creemos juntos',
+                contact_desc: 'Ya sea que esté interesado en colaborar, discutir un proyecto o simplemente compartir sus pensamientos, me encantaría saber de usted.',
+                form_name: 'Nombre',
+                form_email: 'Correo',
+                form_subject: 'Asunto',
+                form_message: 'Mensaje',
+                form_submit: 'Enviar Mensaje',
+                form_success: '¡Gracias! Me pondré en contacto pronto.'
+            }
+        };
+
+        let currentLang = 'en';
+
+        /* ===== LANGUAGE TOGGLE ===== */
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll(`[data-lang]`).forEach(btn => {
+                btn.classList.toggle('is-active', btn.dataset.lang === lang);
+            });
+
+            try { localStorage.setItem('lang', lang); } catch (e) {}
+        }
+
+        document.querySelectorAll('[data-lang]').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Restore saved language
+        try {
+            const saved = localStorage.getItem('lang');
+            if (saved && translations[saved]) setLanguage(saved);
+        } catch (e) {}
+
+        /* ===== LOADER ===== */
+        const loader = document.getElementById('loader');
+        const loaderBar = document.getElementById('loaderBar');
+
+        window.addEventListener('load', () => {
+            if (loaderBar) loaderBar.style.width = '100%';
+            setTimeout(() => {
+                if (loader) loader.classList.add('is-hidden');
+            }, 800);
+        });
+
+        // Animate loader bar
+        let loaderProgress = 0;
+        const loaderInterval = setInterval(() => {
+            loaderProgress += Math.random() * 20;
+            if (loaderProgress >= 90) {
+                loaderProgress = 90;
+                clearInterval(loaderInterval);
+            }
+            if (loaderBar) loaderBar.style.width = loaderProgress + '%';
+        }, 150);
+
+        /* ===== HEADER SCROLL STATE ===== */
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (header) {
+                header.classList.toggle('is-scrolled', window.pageYOffset > 50);
+            }
+        }, { passive: true });
+
+        /* ===== MOBILE NAV ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => mobileNav.classList.add('is-open'));
+        }
+
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+        }
+
+        if (mobileNav) {
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+            });
+        }
+
+        /* ===== SMOOTH SCROLL ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* ===== SCROLL REVEAL (IntersectionObserver) ===== */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        /* ===== CONTACT FORM ===== */
+        const contactForm = document.getElementById('contactForm');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = this.querySelector('#name').value.trim();
+                const email = this.querySelector('#email').value.trim();
+                const message = this.querySelector('#message').value.trim();
+
+                if (!name || !email || !message) {
+                    return;
+                }
+
+                const submitBtn = this.querySelector('.contact-form__submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = '...';
+
+                setTimeout(() => {
+                    alert(translations[currentLang].form_success);
+                    this.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }, 1200);
+            });
+        }
+
+        /* ===== ACTIVE NAV HIGHLIGHT ===== */
+        const sections = document.querySelectorAll('section[id]');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.header__link, .footer__link').forEach(link => {
+                        const href = link.getAttribute('href');
+                        link.style.color = href === `#${id}` ? 'var(--text)' : '';
+                    });
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.marquee__inner').forEach(el => {
+                el.style.animation = 'none';
+            });
+            document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card').forEach(el => {
+                el.classList.add('is-visible');
+                el.style.transition = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
