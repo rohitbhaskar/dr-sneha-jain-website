@@ -601,55 +601,58 @@
             padding: 0 var(--spacing-xl);
         }
 
-        /* ========== VIDEO ========== */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
+        /* ========== VIDEO SCROLL ========== */
+        .video-scroll {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .video-scroll::-webkit-scrollbar { display: none; }
+
+        .video-card {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: 360px;
         }
 
         @media (max-width: 768px) {
-            .video-grid { grid-template-columns: 1fr; }
-        }
-
-        .video-card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s var(--ease-out-expo);
-        }
-
-        .video-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+            .video-card { width: 300px; }
         }
 
         .video-card__embed {
             position: relative;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/10;
             border-radius: var(--radius-md);
             overflow: hidden;
-            background: var(--bg-alt);
+            background: #000;
         }
 
+        .video-card__embed video,
         .video-card__embed iframe {
             width: 100%;
             height: 100%;
+            object-fit: cover;
             border: none;
         }
 
         .video-card__info {
-            padding-top: var(--spacing-sm);
+            padding-top: var(--spacing-xs);
         }
 
         .video-card__title {
             font-family: var(--font-serif);
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.125rem;
         }
 
         .video-card__desc {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: var(--text-secondary);
         }
 
@@ -731,30 +734,27 @@
         }
 
         /* ========== WORKS ========== */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .works-scroll {
+            display: flex;
             gap: var(--spacing-md);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        @media (max-width: 1024px) {
-            .works-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-            .works-grid { grid-template-columns: 1fr; }
-        }
+        .works-scroll::-webkit-scrollbar { display: none; }
 
         .work-card {
+            flex-shrink: 0;
+            scroll-snap-align: start;
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s var(--ease-out-expo);
+            width: 280px;
         }
 
-        .work-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 768px) {
+            .work-card { width: 240px; }
         }
 
         .work-card__image {
@@ -777,7 +777,7 @@
         }
 
         .work-card__info {
-            padding-top: var(--spacing-sm);
+            padding-top: var(--spacing-xs);
         }
 
         .work-card__category {
@@ -786,18 +786,18 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-tertiary);
-            margin-bottom: 0.375rem;
+            margin-bottom: 0.25rem;
         }
 
         .work-card__title {
             font-family: var(--font-serif);
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.125rem;
         }
 
         .work-card__desc {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: var(--text-secondary);
         }
 
@@ -1198,24 +1198,185 @@
                     <p class="section__desc" data-i18n="video_desc">Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.</p>
                 </header>
 
-                <div class="video-grid">
+                <div class="video-scroll">
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/Uxb35qkESOg" title="Vortex Void — Arthemii Ionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe src="https://www.youtube.com/embed/Uxb35qkESOg" title="Vortex Void" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Vortex Void</h3>
-                            <p class="video-card__desc" data-i18n="video_1_desc">Abstract visual exploration — 2024</p>
+                            <p class="video-card__desc">Abstract visual exploration — 2024</p>
                         </div>
                     </article>
-
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/Hn2z6ov6tIU" title="Kinetic Art Objects — Arthemii Ionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <iframe src="https://www.youtube.com/embed/Hn2z6ov6tIU" title="Kinetic Art Objects" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
                         <div class="video-card__info">
-                            <h3 class="video-card__title" data-i18n="video_2_title">Kinetic Art Objects</h3>
-                            <p class="video-card__desc" data-i18n="video_2_desc">Movement and form in harmony — 2024</p>
+                            <h3 class="video-card__title">Kinetic Art Objects</h3>
+                            <p class="video-card__desc">Movement and form in harmony — 2024</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/chromatic-flow.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Chromatic Flow</h3>
+                            <p class="video-card__desc">Color transitions through glass — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/glass-rotation.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Glass Rotation</h3>
+                            <p class="video-card__desc">Spinning light through stained glass — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/installation-orbit.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Installation Orbit</h3>
+                            <p class="video-card__desc">Camera movement around glass installation — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/light-passage.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Light Passage</h3>
+                            <p class="video-card__desc">Rays filtering through colored panels — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/prismatic-dance.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Prismatic Dance</h3>
+                            <p class="video-card__desc">Refracted light in motion — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/spectrum-shift.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Spectrum Shift</h3>
+                            <p class="video-card__desc">Color spectrum transformations — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/glass-meditation.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Glass Meditation</h3>
+                            <p class="video-card__desc">Contemplative glass study — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/studio-fragment.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Studio Fragment</h3>
+                            <p class="video-card__desc">Behind the scenes in the studio — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/amber-reflections.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Amber Reflections</h3>
+                            <p class="video-card__desc">Warm tones and reflective surfaces — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/geometric-harmony.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Geometric Harmony</h3>
+                            <p class="video-card__desc">Balance of geometric glass forms — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/crystal-structure.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Crystal Structure</h3>
+                            <p class="video-card__desc">Structural clarity in glass composition — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/luminous-grid.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Luminous Grid</h3>
+                            <p class="video-card__desc">Grid patterns illuminated from within — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/color-field.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Color Field</h3>
+                            <p class="video-card__desc">Saturated color planes in glass — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/stained-mosaic.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Stained Mosaic</h3>
+                            <p class="video-card__desc">Mosaic patterns in stained glass — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/light-architecture.mp4" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Light Architecture</h3>
+                            <p class="video-card__desc">Architectural light through glass — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/radiant-forms.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Radiant Forms</h3>
+                            <p class="video-card__desc">Glowing abstract shapes — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/color-convergence.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Color Convergence</h3>
+                            <p class="video-card__desc">Colors merging through light — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <video src="videos/translucent-depths.m4v" muted loop playsinline preload="none"></video>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Translucent Depths</h3>
+                            <p class="video-card__desc">Layered transparency in glass — 2025</p>
                         </div>
                     </article>
                 </div>
@@ -1233,7 +1394,7 @@
                     <p class="section__desc" data-i18n="works_desc">A selection of significant works spanning stained glass, digital art, photography, and design.</p>
                 </header>
 
-                <div class="works-grid">
+                <div class="works-scroll">
                     <article class="work-card">
                         <div class="work-card__image">
                             <img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives" loading="lazy">
@@ -1707,6 +1868,31 @@
         }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
 
         sections.forEach(section => sectionObserver.observe(section));
+
+        /* ===== VIDEO HOVER PLAY ===== */
+        document.querySelectorAll('.video-card').forEach(card => {
+            const video = card.querySelector('video');
+            if (!video) return;
+            card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+            card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+        });
+
+        // Auto-play videos when scrolled into view on mobile
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target.querySelector('video');
+                if (!video) return;
+                if (entry.isIntersecting) {
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.video-card').forEach(card => videoObserver.observe(card));
+        }
 
         /* ===== PREFERS REDUCED MOTION ===== */
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
