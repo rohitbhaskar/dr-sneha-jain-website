@@ -883,159 +883,206 @@
         }
 
         /* ========== EXHIBITIONS ========== */
-        .exhibitions-scroll {
-            display: flex;
-            gap: var(--spacing-md);
-            overflow-x: auto;
-            padding-bottom: var(--spacing-sm);
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        .exhibition-block {
+            margin-bottom: var(--spacing-2xl);
         }
 
-        .exhibitions-scroll::-webkit-scrollbar { display: none; }
+        .exhibition-block:last-child {
+            margin-bottom: 0;
+        }
 
-        .exhibition-card {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 400px;
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            overflow: hidden;
+        .exhibition-block__header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            align-items: start;
         }
 
         @media (max-width: 768px) {
-            .exhibition-card { width: 320px; }
+            .exhibition-block__header { grid-template-columns: 1fr; }
         }
 
-        .exhibition-card__image {
-            aspect-ratio: 16/10;
-            overflow: hidden;
-            background: #e0e0e0;
-        }
-
-        .exhibition-card__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .exhibition-card__body {
-            padding: var(--spacing-md);
-        }
-
-        .exhibition-card__date {
+        .exhibition-block__date {
             font-size: 0.6875rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-tertiary);
             margin-bottom: 0.375rem;
         }
 
-        .exhibition-card__title {
+        .exhibition-block__type {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--text);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .exhibition-block__title {
             font-family: var(--font-serif);
-            font-size: 1.125rem;
-            font-weight: 500;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
             line-height: 1.3;
             margin-bottom: var(--spacing-xs);
         }
 
-        .exhibition-card__location {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-xs);
-            font-style: italic;
-        }
-
-        .exhibition-card__desc {
+        .exhibition-block__location {
             font-size: 0.875rem;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .exhibition-block__desc {
+            font-size: 0.9375rem;
+            line-height: 1.7;
             color: var(--text-secondary);
         }
 
-        .exhibition-card__stats {
+        .exhibition-block__stats {
             display: flex;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-sm);
-            padding-top: var(--spacing-sm);
-            border-top: 1px solid var(--border);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
         }
 
-        .exhibition-card__stat {
+        .exhibition-block__stat {
+            text-align: center;
+        }
+
+        .exhibition-block__stat-num {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            display: block;
+        }
+
+        .exhibition-block__stat-label {
             font-size: 0.75rem;
             color: var(--text-tertiary);
         }
 
-        .exhibition-card__stat strong {
-            color: var(--text);
-            font-weight: 600;
+        .exhibition-block__photos {
+            display: flex;
+            gap: var(--spacing-xs);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: var(--spacing-xs);
         }
 
-        /* ========== TECHNOLOGIES ========== */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
+        .exhibition-block__photos::-webkit-scrollbar { display: none; }
+
+        .exhibition-block__photo {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: 320px;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-alt);
         }
 
         @media (max-width: 768px) {
-            .tech-grid { grid-template-columns: 1fr; }
+            .exhibition-block__photo { width: 260px; }
         }
 
-        .tech-card {
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-        }
-
-        @media (max-width: 640px) {
-            .tech-card { grid-template-columns: 1fr; }
-        }
-
-        .tech-card__image {
-            overflow: hidden;
-            background: #e0e0e0;
-        }
-
-        .tech-card__image img {
+        .exhibition-block__photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        @media (max-width: 640px) {
-            .tech-card__image { aspect-ratio: 16/9; }
+        .exhibition-block__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
         }
 
-        .tech-card__body {
-            padding: var(--spacing-md);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        /* ========== TECHNOLOGIES ========== */
+        .tech-block {
+            margin-bottom: var(--spacing-2xl);
         }
 
-        .tech-card__num {
+        .tech-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .tech-block__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .tech-block__inner { grid-template-columns: 1fr; }
+        }
+
+        .tech-block__num {
             font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 300;
             color: var(--border-strong);
             margin-bottom: var(--spacing-xs);
         }
 
-        .tech-card__title {
+        .tech-block__title {
             font-family: var(--font-serif);
-            font-size: 1.125rem;
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
             font-weight: 500;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
         }
 
-        .tech-card__desc {
-            font-size: 0.875rem;
-            line-height: 1.6;
+        .tech-block__desc {
+            font-size: 0.9375rem;
+            line-height: 1.75;
             color: var(--text-secondary);
+        }
+
+        .tech-block__photos {
+            display: flex;
+            gap: var(--spacing-xs);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tech-block__photos::-webkit-scrollbar { display: none; }
+
+        .tech-block__photo {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: 240px;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-alt);
+        }
+
+        @media (max-width: 768px) {
+            .tech-block__photo { width: 200px; }
+        }
+
+        .tech-block__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tech-block__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
         }
 
         /* ========== RESIDENCY ========== */
@@ -1310,7 +1357,7 @@
                 <div class="hero__eyebrow" data-i18n="hero_eyebrow">Contemporary Stained Glass Artist — Est. 2016</div>
                 <h1 class="hero__title">Arthemii<br>Ionaere</h1>
                 <p class="hero__subtitle" data-i18n="hero_subtitle">Abstract stained glass through light, color, and form</p>
-                <p class="hero__desc" data-i18n="hero_desc">Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.</p>
+                <p class="hero__desc" data-i18n="hero_desc">Chaos striving for symmetry. Architectural discovery through a personal psychological method focused on unconscious mechanisms of form generation. Fusing classical Gothic aesthetics and abstract art into a new, dynamic visual language through colored glass.</p>
                 <div class="hero__actions">
                     <a href="#works" class="btn btn--primary" data-i18n="hero_cta_works">View Works</a>
                     <a href="#contact" class="btn btn--outline" data-i18n="hero_cta_contact">Get in Touch</a>
@@ -1580,6 +1627,42 @@
                             <p class="video-card__desc">Layered transparency in glass — 2025</p>
                         </div>
                     </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/RKBr6lzgKU8?autoplay=1&mute=1&loop=1&playlist=RKBr6lzgKU8&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Neo-Gothic Exhibition" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Neo-Gothic Exhibition</h3>
+                            <p class="video-card__desc">Enter the Void — Bashmet Centre, 2023</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/5ePSaUFmFHs?autoplay=1&mute=1&loop=1&playlist=5ePSaUFmFHs&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Stained Glass Artwork" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Stained Glass Kaleidoscope</h3>
+                            <p class="video-card__desc">18 works — chaos forming harmonious composition</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/lsR-ovRNJD4?autoplay=1&mute=1&loop=1&playlist=lsR-ovRNJD4&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Club der Visionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Club der Visionäre</h3>
+                            <p class="video-card__desc">Glass installation — Berlin, 2024</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <iframe src="https://www.youtube.com/embed/nUtuL68gty0?autoplay=1&mute=1&loop=1&playlist=nUtuL68gty0&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Glass Sculptures" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Light Sculptures</h3>
+                            <p class="video-card__desc">Colored glass and light — 2024</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1592,73 +1675,128 @@
                 <header class="section__header reveal">
                     <div class="section__label">Exhibitions</div>
                     <h2 class="section__title">Architecture of Light</h2>
-                    <p class="section__desc">Solo and group exhibitions across Europe — from neo-Gothic mansions to Parisian galleries.</p>
+                    <p class="section__desc">Solo and group exhibitions across Europe — from neo-Gothic mansions to Parisian galleries and Berlin's legendary venues.</p>
                 </header>
-            </div>
-            <div class="container">
-                <div class="exhibitions-scroll">
-                    <article class="exhibition-card">
-                        <div class="exhibition-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-24-at-22.11.40.png" alt="Architecture of Light exhibition" loading="lazy">
-                        </div>
-                        <div class="exhibition-card__body">
-                            <div class="exhibition-card__date">01.11.2024 — 03.11.2024</div>
-                            <h3 class="exhibition-card__title">Architecture of Light: Form and Reflections of Reality</h3>
-                            <div class="exhibition-card__location">Personal exhibition</div>
-                            <p class="exhibition-card__desc">Exploring the interplay between light and colored glass, creating visually-optical architecture. Six kinetic sculptures utilizing refraction, light reflection, and diffraction.</p>
-                            <div class="exhibition-card__stats">
-                                <span class="exhibition-card__stat"><strong>35</strong> works</span>
-                                <span class="exhibition-card__stat"><strong>7</strong> halls</span>
-                                <span class="exhibition-card__stat"><strong>6</strong> kinetic sculptures</span>
+
+                <!-- Exhibition 1: Architecture of Light -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">01.11.2024 — 03.11.2024</div>
+                            <span class="exhibition-block__type">Solo Exhibition</span>
+                            <h3 class="exhibition-block__title">Architecture of Light: Form and Reflections of Reality</h3>
+                            <p class="exhibition-block__desc">Exhibition exploring the interplay between light and colored glass, which together create a visually-optical architecture. Features six kinetic sculptures from summer 2024 utilizing refraction, light reflection, and diffraction. 35 works across 7 halls, uniting static and kinetic sculptures plus stained-glass installations.</p>
+                            <div class="exhibition-block__stats">
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">35</span><span class="exhibition-block__stat-label">Works</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">7</span><span class="exhibition-block__stat-label">Halls</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">6</span><span class="exhibition-block__stat-label">Kinetic Sculptures</span></div>
                             </div>
                         </div>
-                    </article>
-
-                    <article class="exhibition-card">
-                        <div class="exhibition-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Paris exhibition" loading="lazy">
-                        </div>
-                        <div class="exhibition-card__body">
-                            <div class="exhibition-card__date">19.04.2024 — 22.04.2024</div>
-                            <h3 class="exhibition-card__title">L'Art et ses Sources d'Inspiration</h3>
-                            <div class="exhibition-card__location">5, rue Duvivier — 75007 Paris, France</div>
-                            <p class="exhibition-card__desc">Group exhibition during Journees portes ouvertes de printemps 2024. Painting and drawing exploring the sources of artistic inspiration.</p>
-                        </div>
-                    </article>
-
-                    <article class="exhibition-card">
-                        <div class="exhibition-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Encrypted Subconscious exhibition" loading="lazy">
-                        </div>
-                        <div class="exhibition-card__body">
-                            <div class="exhibition-card__date">16.04.2024 — 19.04.2024</div>
-                            <h3 class="exhibition-card__title">Encrypted Subconscious</h3>
-                            <div class="exhibition-card__location">Noisy-le-Grand, Microcredit Paris, France</div>
-                            <p class="exhibition-card__desc">Research on interactions between viewers and neuroArt, the search for subconsciousness in machines. Viewers documented observations below artworks; data was fed to AI neural networks for machine interpretation.</p>
-                            <div class="exhibition-card__stats">
-                                <span class="exhibition-card__stat"><strong>4</strong> stained-glass pieces</span>
-                                <span class="exhibition-card__stat"><strong>30+</strong> graphic drawings</span>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-23-at-21.42.49.png" alt="Architecture of Light" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.53.36.png" alt="Exhibition hall" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.19.19.png" alt="Light reflections" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-24-at-22.11.40.png" alt="Installation view" loading="lazy"></div>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
 
-                    <article class="exhibition-card">
-                        <div class="exhibition-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Enter the Void exhibition" loading="lazy">
+                <!-- Exhibition 2: Paris -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">19.04.2024 — 22.04.2024</div>
+                            <span class="exhibition-block__type">Group Exhibition</span>
+                            <h3 class="exhibition-block__title">L'Art et ses Sources d'Inspiration</h3>
+                            <div class="exhibition-block__location">5, rue Duvivier — 75007 Paris, France</div>
+                            <p class="exhibition-block__desc">Exposition de Peinture & Dessin — Journées portes ouvertes de printemps 2024. Painting and drawing exploring the sources of artistic inspiration. Vladimir Kouptsov Privalov dit Arthemii.</p>
                         </div>
-                        <div class="exhibition-card__body">
-                            <div class="exhibition-card__date">19.10.2023 — 27.10.2023</div>
-                            <h3 class="exhibition-card__title">Enter the Void</h3>
-                            <div class="exhibition-card__location">Neo-Gothic Mansion, Bashmet Centre</div>
-                            <p class="exhibition-card__desc">Colored glass sculptures demonstrating fusion of Gothic and futuristic aesthetics. Live ambient and experimental music. Kaleidoscope "Vortex Void" (2x4 meters).</p>
-                            <div class="exhibition-card__stats">
-                                <span class="exhibition-card__stat"><strong>24</strong> artworks</span>
-                                <span class="exhibition-card__stat"><strong>15</strong> musicians</span>
-                                <span class="exhibition-card__stat"><strong>~1000</strong> visitors</span>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Paris exhibition" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.23.43.png" alt="Gallery view" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.16.20.png" alt="Artwork display" loading="lazy"></div>
                             </div>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
+
+                <!-- Exhibition 3: Encrypted Subconscious -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">16.04.2024 — 19.04.2024</div>
+                            <span class="exhibition-block__type">Solo Exhibition</span>
+                            <h3 class="exhibition-block__title">Encrypted Subconscious</h3>
+                            <div class="exhibition-block__location">Noisy-le-Grand, Microcredit Paris, France</div>
+                            <p class="exhibition-block__desc">Research on interactions between viewers and neuroArt. Part of ongoing research on human interaction with artificial intelligence and the search for subconsciousness in machines. Participants documented observations below artworks — noticed symbols, architecture, situations, and archetypes. Data was fed to AI neural networks to train machine interpretation skills through human perception examples.</p>
+                            <div class="exhibition-block__stats">
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">4</span><span class="exhibition-block__stat-label">Stained-glass</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">30+</span><span class="exhibition-block__stat-label">Graphic Drawings</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Encrypted Subconscious" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.50.20-1.png" alt="Exhibition view" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.52.48-1.png" alt="Viewer interaction" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
+
+                <!-- Exhibition 4: Enter the Void -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">19.10.2023 — 27.10.2023</div>
+                            <span class="exhibition-block__type">Solo Exhibition</span>
+                            <h3 class="exhibition-block__title">Enter the Void</h3>
+                            <div class="exhibition-block__location">Neo-Gothic Mansion — Bashmet Centre</div>
+                            <p class="exhibition-block__desc">A captivating showcase of colored glass sculptures demonstrating a masterful fusion of Gothic and futuristic aesthetics. The historical ambiance of the mansion perfectly complemented the modern designs of the glass artworks. Each piece, through its placement and the play of light, narrated a story of its own, casting vibrant colors and intriguing shadows that animated the grand old spaces. Live ambient and experimental music shows throughout the exhibition.</p>
+                            <div class="exhibition-block__stats">
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">24</span><span class="exhibition-block__stat-label">Artworks</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">15</span><span class="exhibition-block__stat-label">Musicians</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">~1000</span><span class="exhibition-block__stat-label">Visitors</span></div>
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">2×4m</span><span class="exhibition-block__stat-label">Vortex Void</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Enter the Void" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7350.jpg" alt="Glass sculptures" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1112.jpg" alt="Exhibition hall" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1387-1.jpg" alt="Light and shadow" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2354.jpg" alt="Falling shadows" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
+
+                <!-- Exhibition 5: Club der Visionaere -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">2024</div>
+                            <span class="exhibition-block__type">Installation</span>
+                            <h3 class="exhibition-block__title">Club der Visionäre — Berlin</h3>
+                            <div class="exhibition-block__location">Club der Visionäre, Berlin, Germany</div>
+                            <p class="exhibition-block__desc">A vibrant and futuristic glass sculpture installation designed to reflect the dynamic energy and eclectic spirit of the venue. Each piece of colored glass is meticulously crafted to capture and play with natural and artificial lights. As sunlight streams through during the day, the installation casts a mosaic of vivid, dancing colors across the wooden beams. By night, the pieces glow under the club's lights, creating a flowing river of color that mirrors the famous waterfront setting.</p>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Club der Visionaere installation" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp" loading="lazy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1673,51 +1811,84 @@
                     <p class="section__desc">Four distinct approaches to working with colored glass — from traditional Tiffany technique to experimental shadow prism installations.</p>
                 </header>
 
-                <div class="tech-grid">
-                    <article class="tech-card reveal">
-                        <div class="tech-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1008-300x225.jpg" alt="Tiffany vitrage process" loading="lazy">
+                <!-- Tech 1: Tiffany -->
+                <article class="tech-block reveal">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">01</div>
+                            <h3 class="tech-block__title">Tiffany Vitrage</h3>
+                            <p class="tech-block__desc">The copper foil method perfected by Louis Comfort Tiffany. The process begins with detailed drawings divided into individual pieces. Colored glass sheets are chosen, traced, and cut precisely. Each piece is wrapped with adhesive copper foil, then assembled and soldered with tin-lead solder. Works (60×90 cm or 80×120 cm) are installed in custom light boxes with LED backlighting — warm colours create comfort and joy, cooler colors induce calm and contemplation.</p>
                         </div>
-                        <div class="tech-card__body">
-                            <div class="tech-card__num">01</div>
-                            <h3 class="tech-card__title">Tiffany Vitrage</h3>
-                            <p class="tech-card__desc">Glass selection and precision cutting, copper foil wrapping, assembly and soldering. Works installed in custom light boxes with adjustable LED backlighting for consistent illumination.</p>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1008.jpg" alt="Glass cutting" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1012.jpg" alt="Foiling process" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1013.jpg" alt="Soldering" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2361.jpg" alt="Finished piece" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1010.jpg" alt="Light box" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_6880.jpg" alt="Installation" loading="lazy"></div>
                         </div>
-                    </article>
+                    </div>
+                    <div class="tech-block__divider"></div>
+                </article>
 
-                    <article class="tech-card reveal">
-                        <div class="tech-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7522-224x300.jpg" alt="Falling shadows installation" loading="lazy">
+                <!-- Tech 2: Falling Shadows -->
+                <article class="tech-block reveal">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">02</div>
+                            <h3 class="tech-block__title">Falling Shadows</h3>
+                            <p class="tech-block__desc">Shadow prism technology designed for easy transport and quick installation. Specially prepared glass elements are assembled on-site to create sculptures functioning as prisms. When illuminated, the glass refracts light to cast mesmerizing patterns of light and shadow onto surrounding surfaces. Setup can be completed within days before the event — approximately 2-3 hours per installation. Ideal for temporary exhibitions and immersive environments.</p>
                         </div>
-                        <div class="tech-card__body">
-                            <div class="tech-card__num">02</div>
-                            <h3 class="tech-card__title">Falling Shadows</h3>
-                            <p class="tech-card__desc">Shadow prism technology — glass elements assembled on-site as prisms that refract light into mesmerizing patterns on surrounding surfaces. Quick installation (~2-3 hours), ideal for temporary exhibitions.</p>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7255.jpeg" alt="Shadow prism" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7291.jpeg" alt="Light patterns" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/Untitled.jpg" alt="Shadow installation" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2352.jpg" alt="Prism assembly" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7250.jpg" alt="Falling shadows result" loading="lazy"></div>
                         </div>
-                    </article>
+                    </div>
+                    <div class="tech-block__divider"></div>
+                </article>
 
-                    <article class="tech-card reveal">
-                        <div class="tech-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1013-300x225.jpg" alt="Metal frame sculpting" loading="lazy">
+                <!-- Tech 3: Metal Frame -->
+                <article class="tech-block reveal">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">03</div>
+                            <h3 class="tech-block__title">Metal Frame Sculpting</h3>
+                            <p class="tech-block__desc">Specialized metal forms serve as the skeleton for stained glass, crafted using a proprietary "edge" technique for precise angles and durability. Metal forms are bent to the required radius for each design. Glass elements are kiln-fired to match the metal framework's curvature. Nearly all creations feature integrated electrical wiring for lighting elements. Can be installed on ceilings, floors, or walls. Approximately 1.5 months from initial design to final implementation.</p>
                         </div>
-                        <div class="tech-card__body">
-                            <div class="tech-card__num">03</div>
-                            <h3 class="tech-card__title">Metal Frame Sculpting</h3>
-                            <p class="tech-card__desc">Proprietary "edge" technique for precise angles and durability. Kiln-fired glass matched to metal framework curvature. Integrated electrical wiring for lighting. ~1.5 months from design to completion.</p>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Metal frame" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1542.jpeg" alt="Frame bending" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1546.jpeg" alt="Glass fitting" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1548.jpeg" alt="Assembly" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1555.jpg" alt="Finished sculpture" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3.jpg" alt="Lit sculpture" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.24.31.png" alt="Design detail" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.06.png" alt="Final piece" loading="lazy"></div>
                         </div>
-                    </article>
+                    </div>
+                    <div class="tech-block__divider"></div>
+                </article>
 
-                    <article class="tech-card reveal">
-                        <div class="tech-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1012-300x225.jpg" alt="Glass parts sculpting" loading="lazy">
+                <!-- Tech 4: Glass Parts -->
+                <article class="tech-block reveal">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">04</div>
+                            <h3 class="tech-block__title">Glass Parts Sculpting</h3>
+                            <p class="tech-block__desc">Sculptures constructed from numerous glass elements meticulously soldered together. A metallic frame is crafted first, incorporating electrical wiring for lighting fixtures. Glass pieces are framed within a special edging for interconnection. These sculptures embrace the freedom of artistic expression — glass placement follows creative intuition rather than rigid plans. Pieces exhibit chaotic forms striving toward symmetry, capturing a dynamic blend of structure and spontaneity.</p>
                         </div>
-                        <div class="tech-card__body">
-                            <div class="tech-card__num">04</div>
-                            <h3 class="tech-card__title">Glass Parts Sculpting</h3>
-                            <p class="tech-card__desc">Sculptures from numerous glass elements soldered together on a metallic frame with integrated lighting. Embraces freedom of artistic expression — glass placement follows creative intuition rather than rigid plans.</p>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.18.png" alt="Glass parts" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7517.jpg" alt="Soldering process" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.05.png" alt="Assembly" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/23b3926c-da00-4b16-af7b-1eee929d9fb8.jpeg" alt="Finished form" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.20.png" alt="Detail" loading="lazy"></div>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -1733,7 +1904,7 @@
                     <div class="residency-banner__body">
                         <div class="section__label">Residency</div>
                         <h3 class="residency-banner__title">Arena Contemporary — Berlin, Treptow</h3>
-                        <p class="residency-banner__desc">1500m&sup2; independent art space at Berlin Arena Treptow. Emphasis on performing and contemporary arts with artist studios, rehearsing rooms and 4D sound. Breaking the stillness of established art institutions.</p>
+                        <p class="residency-banner__desc">1500m&sup2; independent art space joining the expansive operations of Berlin Arena Treptow. With a strong emphasis on performing and contemporary arts, equipped with artist studios, rehearsing rooms and 4D sound. Independent and inspired by modern hybrid cultural spaces such as Gaîté Lyrique and Palais de Tokyo (Paris), Arena Contemporary aims to break the stillness of established art institutions and build a bridge of opportunity, inspiration, and participation towards the higher arts.</p>
                     </div>
                 </div>
             </div>
@@ -1893,8 +2064,33 @@
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process documentation" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.05.09.png" alt="Glass composition study" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0981.jpg" alt="Stained glass artwork" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1010-300x225.jpg" alt="Tiffany technique detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_6880-300x159.jpg" alt="Glass workshop" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Coloured-glass-sculpture-scaled.jpg" alt="Colored glass sculpture" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Huerrytop.jpg" alt="Huerrytop sculpture" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Shteryit.jpg" alt="Shteryit piece" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-huweado.jpg" alt="Huweado artwork" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Artjemii-Ionaere-epsylon-scaled.jpg" alt="Epsylon sculpture" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9028-Enhanced-NR-scaled.jpg" alt="Enhanced glass work" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9199-Enhanced-NR-scaled.jpg" alt="Glass composition" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9352-Enhanced-NR-scaled.jpg" alt="Light study" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9373-Enhanced-NR-scaled.jpg" alt="Glass detail" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9376-Enhanced-NR-scaled.jpg" alt="Stained glass detail" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9484-Enhanced-NR-scaled.jpg" alt="Glass texture" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9528-Enhanced-NR-scaled.jpg" alt="Color and light" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1574.jpeg" alt="Glass framework" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_3762.jpg" alt="Workshop scene" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7252.jpeg" alt="Shadow prism" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0054.jpg" alt="Studio artwork" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0179-scaled.jpg" alt="Glass installation" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0445-scaled.jpg" alt="Artwork detail" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7127-scaled.jpg" alt="Exhibition piece" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7158-scaled.jpg" alt="Light installation" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7175-scaled.jpg" alt="Glass and shadow" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7198-scaled.jpg" alt="Colored light" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7268-scaled.jpg" alt="Prism effect" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7349-scaled.jpg" alt="Exhibition view" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled.jpg" alt="Sculpture detail" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled.jpg" alt="Glass artwork" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled.jpg" alt="Lit sculpture" loading="lazy"></div>
             </div>
         </section>
 
@@ -2195,7 +2391,7 @@
             rootMargin: '0px 0px -40px 0px'
         });
 
-        document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-card, .tech-card').forEach(el => {
+        document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
             revealObserver.observe(el);
         });
 
@@ -2275,7 +2471,7 @@
             document.querySelectorAll('.marquee__inner').forEach(el => {
                 el.style.animation = 'none';
             });
-            document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-card, .tech-card').forEach(el => {
+            document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
                 el.classList.add('is-visible');
                 el.style.transition = 'none';
             });
