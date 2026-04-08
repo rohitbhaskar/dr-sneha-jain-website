@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Colored light — Arthemii Ionaere stained glass artwork">
+    <meta name="description" content="Colored light — contemporary stained glass artwork by Arthemii Ionaere.">
     <meta name="theme-color" content="#fafafa">
     <title>Colored light — Arthemii Ionaere</title>
-    <link rel="dns-prefetch" href="https://i.ytimg.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
@@ -14,7 +13,7 @@
     <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
-    <header class="header" id="header" style="transform:none;animation:none">
+    <header class="header" style="transform:none;animation:none">
         <a href="../../" class="header__logo">Arthemii Ionaere</a>
         <nav class="header__nav">
             <a href="../../about/" class="header__link">About</a>
@@ -22,32 +21,31 @@
             <a href="../../exhibitions/" class="header__link">Exhibitions</a>
             <a href="../../technologies/" class="header__link">Technologies</a>
             <a href="../../gallery/" class="header__link">Gallery</a>
-            <a href="../../video-files/" class="header__link">Videos</a>
+            <a href="../../videos/" class="header__link">Videos</a>
             <a href="../../contact/" class="header__link">Contact</a>
         </nav>
-        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
-            <span></span><span></span>
-        </button>
+        <button class="header__menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span></button>
     </header>
-    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
-        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu"></button>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close"></button>
         <a href="../../about/" class="mobile-nav__link">About</a>
         <a href="../../works/" class="mobile-nav__link">Works</a>
         <a href="../../exhibitions/" class="mobile-nav__link">Exhibitions</a>
         <a href="../../technologies/" class="mobile-nav__link">Technologies</a>
         <a href="../../gallery/" class="mobile-nav__link">Gallery</a>
-        <a href="../../video-files/" class="mobile-nav__link">Videos</a>
+        <a href="../../videos/" class="mobile-nav__link">Videos</a>
         <a href="../../contact/" class="mobile-nav__link">Contact</a>
     </div>
-    <main>
-        <section class="section" style="padding-top:calc(var(--header-height) + var(--spacing-xl))">
-            <div class="container" style="max-width:900px">
-                <a href="../../gallery/" style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:var(--spacing-md);display:inline-block">&larr; Back to Gallery</a>
+    <main style="padding-top:calc(72px + 2rem)">
+        <section class="section">
+            <div class="container" style="max-width:1000px">
+                <a href="../" style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:var(--spacing-md);display:inline-block">&larr; Gallery</a>
                 <div style="border-radius:var(--radius-md);overflow:hidden;margin-bottom:var(--spacing-md)">
                     <img decoding="async" src="../../img/2024-05-IMG_7198-scaled.jpg" alt="Colored light" style="width:100%;height:auto;display:block">
                 </div>
-                <h1 style="font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2rem);font-weight:400;margin-bottom:var(--spacing-xs)">Colored light</h1>
-                <p style="color:var(--text-secondary);font-size:0.9375rem">Arthemii Ionaere — Contemporary Stained Glass</p>
+                <h1 style="font-family:var(--font-serif);font-size:clamp(1.25rem,3vw,1.75rem);font-weight:400;margin-bottom:var(--spacing-xs)">Colored light</h1>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;line-height:1.7">Colored light — contemporary stained glass artwork by Arthemii Ionaere.</p>
+                <p style="color:var(--text-tertiary);font-size:0.8125rem;margin-top:var(--spacing-sm)">Arthemii Ionaere — Contemporary Stained Glass</p>
             </div>
         </section>
     </main>
@@ -56,10 +54,9 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__brand">Arthemii Ionaere</div>
-                <nav class="footer__nav" aria-label="Footer navigation">
+                <nav class="footer__nav">
                     <a href="../../about/" class="footer__link">About</a>
                     <a href="../../works/" class="footer__link">Works</a>
-                    <a href="../../exhibitions/" class="footer__link">Exhibitions</a>
                     <a href="../../gallery/" class="footer__link">Gallery</a>
                     <a href="../../contact/" class="footer__link">Contact</a>
                 </nav>
@@ -67,6 +64,31 @@
             </div>
         </div>
     </footer>
-    <script src="../../script.js"></script>
+    <script>
+    // Mobile nav
+    const mb=document.getElementById('menuBtn'),mn=document.getElementById('mobileNav'),mc=document.getElementById('mobileNavClose');
+    if(mb&&mn)mb.onclick=()=>mn.classList.add('is-open');
+    if(mc&&mn)mc.onclick=()=>mn.classList.remove('is-open');
+    if(mn)mn.querySelectorAll('a').forEach(a=>a.onclick=()=>mn.classList.remove('is-open'));
+    // YT lazy
+    document.querySelectorAll('.yt-placeholder').forEach(el=>{
+        el.onclick=function(){
+            const id=this.dataset.yt;
+            const iframe=document.createElement('iframe');
+            iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&mute=0&controls=1&rel=0';
+            iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+            iframe.allowFullscreen=true;
+            iframe.style.cssText='width:100%;height:100%;border:none';
+            this.replaceWith(iframe);
+        };
+    });
+    // Video hover play
+    document.querySelectorAll('.video-card').forEach(c=>{
+        const v=c.querySelector('video');
+        if(!v)return;
+        c.onmouseenter=()=>v.play().catch(()=>{});
+        c.onmouseleave=()=>{v.pause();v.currentTime=0;};
+    });
+    </script>
 </body>
 </html>
