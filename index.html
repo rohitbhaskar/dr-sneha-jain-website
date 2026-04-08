@@ -9,6 +9,8 @@
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="dns-prefetch" href="https://arthemii.com">
 
     <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -664,6 +666,35 @@
             height: 100%;
             object-fit: cover;
             border: none;
+        }
+
+        .video-card__embed .yt-placeholder {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-card__embed .yt-placeholder::after {
+            content: '▶';
+            font-size: 2.5rem;
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            width: 60px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .video-card__embed .yt-placeholder:hover::after {
+            background: rgba(255,0,0,0.85);
         }
 
         .video-card__info {
@@ -1529,7 +1560,7 @@
                 <div class="video-scroll">
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/Uxb35qkESOg?autoplay=1&mute=1&loop=1&playlist=Uxb35qkESOg&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Vortex Void" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="Uxb35qkESOg" style="background-image:url(https://i.ytimg.com/vi/Uxb35qkESOg/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Vortex Void</h3>
@@ -1538,7 +1569,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/Hn2z6ov6tIU?autoplay=1&mute=1&loop=1&playlist=Hn2z6ov6tIU&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Kinetic Art Objects" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="Hn2z6ov6tIU" style="background-image:url(https://i.ytimg.com/vi/Hn2z6ov6tIU/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Kinetic Art Objects</h3>
@@ -1709,7 +1740,25 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/RKBr6lzgKU8?autoplay=1&mute=1&loop=1&playlist=RKBr6lzgKU8&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Neo-Gothic Exhibition" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="2gF1fXEd0kY" style="background-image:url(https://i.ytimg.com/vi/2gF1fXEd0kY/hqdefault.jpg)"></div>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Glass Artwork Process</h3>
+                            <p class="video-card__desc">Creative process — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <div class="yt-placeholder" data-yt="IXjQng5fbfo" style="background-image:url(https://i.ytimg.com/vi/IXjQng5fbfo/hqdefault.jpg)"></div>
+                        </div>
+                        <div class="video-card__info">
+                            <h3 class="video-card__title">Glass Sculpture</h3>
+                            <p class="video-card__desc">Sculptural glass work — 2025</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-card__embed">
+                            <div class="yt-placeholder" data-yt="RKBr6lzgKU8" style="background-image:url(https://i.ytimg.com/vi/RKBr6lzgKU8/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Neo-Gothic Exhibition</h3>
@@ -1718,7 +1767,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/5ePSaUFmFHs?autoplay=1&mute=1&loop=1&playlist=5ePSaUFmFHs&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Stained Glass Artwork" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="5ePSaUFmFHs" style="background-image:url(https://i.ytimg.com/vi/5ePSaUFmFHs/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Stained Glass Kaleidoscope</h3>
@@ -1727,7 +1776,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/lsR-ovRNJD4?autoplay=1&mute=1&loop=1&playlist=lsR-ovRNJD4&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Club der Visionaere" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="lsR-ovRNJD4" style="background-image:url(https://i.ytimg.com/vi/lsR-ovRNJD4/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Club der Visionäre</h3>
@@ -1736,7 +1785,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <iframe src="https://www.youtube.com/embed/nUtuL68gty0?autoplay=1&mute=1&loop=1&playlist=nUtuL68gty0&controls=0&modestbranding=1&showinfo=0&rel=0&disablekb=1" title="Glass Sculptures" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            <div class="yt-placeholder" data-yt="nUtuL68gty0" style="background-image:url(https://i.ytimg.com/vi/nUtuL68gty0/hqdefault.jpg)"></div>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Light Sculptures</h3>
@@ -2503,6 +2552,19 @@
         }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
 
         sections.forEach(section => sectionObserver.observe(section));
+
+        /* ===== YOUTUBE LAZY LOAD ===== */
+        document.querySelectorAll('.yt-placeholder').forEach(el => {
+            el.addEventListener('click', function() {
+                const id = this.dataset.yt;
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=1&modestbranding=1&rel=0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.style.cssText = 'width:100%;height:100%;border:none';
+                this.replaceWith(iframe);
+            });
+        });
 
         /* ===== VIDEO HOVER PLAY ===== */
         document.querySelectorAll('.video-card').forEach(card => {
