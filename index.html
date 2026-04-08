@@ -8,9 +8,8 @@
     <title>Arthemii Ionaere — Contemporary Stained Glass</title>
 
     <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://i.ytimg.com">
-    <link rel="dns-prefetch" href="https://arthemii.com">
+    <link rel="preconnect" href="https://arthemii.com">
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
 
     <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1050,29 +1049,16 @@
         }
 
         .exhibition-block__photos {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-xs);
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding-bottom: var(--spacing-xs);
         }
-
-        .exhibition-block__photos::-webkit-scrollbar { display: none; }
 
         .exhibition-block__photo {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 320px;
-            aspect-ratio: 4/3;
             border-radius: var(--radius-sm);
             overflow: hidden;
+            aspect-ratio: 4/3;
             background: var(--bg-alt);
-        }
-
-        @media (max-width: 768px) {
-            .exhibition-block__photo { width: 260px; }
         }
 
         .exhibition-block__photo img {
@@ -1129,28 +1115,24 @@
         }
 
         .tech-block__photos {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: var(--spacing-xs);
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
 
-        .tech-block__photos::-webkit-scrollbar { display: none; }
+        @media (max-width: 768px) {
+            .tech-block__photos { grid-template-columns: repeat(2, 1fr); }
+        }
 
         .tech-block__photo {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 240px;
-            aspect-ratio: 4/3;
             border-radius: var(--radius-sm);
             overflow: hidden;
+            aspect-ratio: 4/3;
             background: var(--bg-alt);
         }
 
         @media (max-width: 768px) {
-            .tech-block__photo { width: 200px; }
+            .tech-block__photo { }
 
             .tech-block {
                 margin-bottom: var(--spacing-lg);
@@ -1475,7 +1457,7 @@
                 </div>
             </div>
             <div class="hero__image">
-                <img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism — Arthemii Ionaere, 2024">
+                <img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism — Arthemii Ionaere, 2024" fetchpriority="high">
                 <div class="hero__image-caption" data-i18n="hero_caption">"Prism" — 2024</div>
             </div>
         </section>
