@@ -628,27 +628,22 @@
             padding: 0 var(--spacing-xl);
         }
 
-        /* ========== VIDEO SCROLL ========== */
-        .video-scroll {
-            display: flex;
+        /* ========== VIDEO GRID ========== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--spacing-md);
-            overflow-x: auto;
-            padding-bottom: var(--spacing-sm);
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
 
-        .video-scroll::-webkit-scrollbar { display: none; }
-
-        .video-card {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 360px;
+        @media (max-width: 1024px) {
+            .video-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .video-card { width: 280px; }
+            .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); }
+        }
+
+        .video-card {
         }
 
         .video-card__embed {
@@ -702,13 +697,13 @@
 
         .video-card__title {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 500;
             margin-bottom: 0.125rem;
         }
 
         .video-card__desc {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
         }
 
@@ -790,27 +785,22 @@
         }
 
         /* ========== WORKS ========== */
-        .works-scroll {
-            display: flex;
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: var(--spacing-md);
-            overflow-x: auto;
-            padding-bottom: var(--spacing-sm);
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
 
-        .works-scroll::-webkit-scrollbar { display: none; }
+        @media (max-width: 1024px) {
+            .works-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .works-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); }
+        }
 
         .work-card {
-            flex-shrink: 0;
-            scroll-snap-align: start;
             cursor: pointer;
-            width: 280px;
-        }
-
-        @media (max-width: 768px) {
-            .work-card { width: 240px; }
         }
 
         .work-card__image {
@@ -1520,7 +1510,7 @@
 
                     <div class="reveal">
                         <figure class="about-image">
-                            <img src="https://arthemii.com/wp-content/uploads/2025/07/04490baf-0116-4f87-a7df-6c27f136d6e3.png" alt="Arthemii Ionaere portrait, 2025" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2025/07/04490baf-0116-4f87-a7df-6c27f136d6e3.png" alt="Arthemii Ionaere portrait, 2025">
                             <figcaption class="about-image__caption" data-i18n="about_image_caption">Portrait of the artist — 2025</figcaption>
                         </figure>
                     </div>
@@ -1539,7 +1529,7 @@
                     <p class="section__desc" data-i18n="video_desc">Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.</p>
                 </header>
 
-                <div class="video-scroll">
+                <div class="video-grid">
                     <article class="video-card">
                         <div class="video-card__embed">
                             <div class="yt-placeholder" data-yt="Uxb35qkESOg" style="background-image:url(https://i.ytimg.com/vi/Uxb35qkESOg/hqdefault.jpg)"></div>
@@ -1560,7 +1550,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/chromatic-flow.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/chromatic-flow.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Chromatic Flow</h3>
@@ -1569,7 +1559,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/glass-rotation.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/glass-rotation.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Glass Rotation</h3>
@@ -1578,7 +1568,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/installation-orbit.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/installation-orbit.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Installation Orbit</h3>
@@ -1587,7 +1577,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/light-passage.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/light-passage.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Light Passage</h3>
@@ -1596,7 +1586,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/prismatic-dance.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/prismatic-dance.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Prismatic Dance</h3>
@@ -1605,7 +1595,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/spectrum-shift.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/spectrum-shift.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Spectrum Shift</h3>
@@ -1614,7 +1604,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/glass-meditation.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/glass-meditation.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Glass Meditation</h3>
@@ -1623,7 +1613,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/studio-fragment.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/studio-fragment.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Studio Fragment</h3>
@@ -1632,7 +1622,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/amber-reflections.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/amber-reflections.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Amber Reflections</h3>
@@ -1641,7 +1631,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/geometric-harmony.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/geometric-harmony.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Geometric Harmony</h3>
@@ -1650,7 +1640,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/crystal-structure.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/crystal-structure.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Crystal Structure</h3>
@@ -1659,7 +1649,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/luminous-grid.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/luminous-grid.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Luminous Grid</h3>
@@ -1668,7 +1658,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/color-field.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/color-field.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Color Field</h3>
@@ -1677,7 +1667,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/stained-mosaic.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/stained-mosaic.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Stained Mosaic</h3>
@@ -1686,7 +1676,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/light-architecture.mp4" muted loop playsinline preload="none"></video>
+                            <video src="videos/light-architecture.mp4" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Light Architecture</h3>
@@ -1695,7 +1685,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/radiant-forms.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/radiant-forms.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Radiant Forms</h3>
@@ -1704,7 +1694,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/color-convergence.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/color-convergence.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Color Convergence</h3>
@@ -1713,7 +1703,7 @@
                     </article>
                     <article class="video-card">
                         <div class="video-card__embed">
-                            <video src="videos/translucent-depths.m4v" muted loop playsinline preload="none"></video>
+                            <video src="videos/translucent-depths.m4v" muted loop playsinline preload="metadata"></video>
                         </div>
                         <div class="video-card__info">
                             <h3 class="video-card__title">Translucent Depths</h3>
@@ -1805,10 +1795,10 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-23-at-21.42.49.png" alt="Architecture of Light" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.53.36.png" alt="Exhibition hall" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.19.19.png" alt="Light reflections" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-24-at-22.11.40.png" alt="Installation view" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-23-at-21.42.49.png" alt="Architecture of Light"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.53.36.png" alt="Exhibition hall"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.19.19.png" alt="Light reflections"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/Screenshot-2024-11-24-at-22.11.40.png" alt="Installation view"></div>
                             </div>
                         </div>
                     </div>
@@ -1827,9 +1817,9 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Paris exhibition" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.23.43.png" alt="Gallery view" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.16.20.png" alt="Artwork display" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Paris exhibition"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.23.43.png" alt="Gallery view"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-26-at-12.16.20.png" alt="Artwork display"></div>
                             </div>
                         </div>
                     </div>
@@ -1852,9 +1842,9 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Encrypted Subconscious" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.50.20-1.png" alt="Exhibition view" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.52.48-1.png" alt="Viewer interaction" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Encrypted Subconscious"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.50.20-1.png" alt="Exhibition view"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-16.52.48-1.png" alt="Viewer interaction"></div>
                             </div>
                         </div>
                     </div>
@@ -1879,11 +1869,11 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Enter the Void" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7350.jpg" alt="Glass sculptures" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1112.jpg" alt="Exhibition hall" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1387-1.jpg" alt="Light and shadow" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2354.jpg" alt="Falling shadows" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Enter the Void"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7350.jpg" alt="Glass sculptures"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1112.jpg" alt="Exhibition hall"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1387-1.jpg" alt="Light and shadow"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2354.jpg" alt="Falling shadows"></div>
                             </div>
                         </div>
                     </div>
@@ -1902,8 +1892,8 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Club der Visionaere installation" loading="lazy"></div>
-                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp" loading="lazy"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Club der Visionaere installation"></div>
+                                <div class="exhibition-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp"></div>
                             </div>
                         </div>
                     </div>
@@ -1931,12 +1921,12 @@
                             <p class="tech-block__desc">The copper foil method perfected by Louis Comfort Tiffany. The process begins with detailed drawings divided into individual pieces. Colored glass sheets are chosen, traced, and cut precisely. Each piece is wrapped with adhesive copper foil, then assembled and soldered with tin-lead solder. Works (60×90 cm or 80×120 cm) are installed in custom light boxes with LED backlighting — warm colours create comfort and joy, cooler colors induce calm and contemplation.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1008.jpg" alt="Glass cutting" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1012.jpg" alt="Foiling process" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1013.jpg" alt="Soldering" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2361.jpg" alt="Finished piece" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1010.jpg" alt="Light box" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_6880.jpg" alt="Installation" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1008.jpg" alt="Glass cutting"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1012.jpg" alt="Foiling process"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1013.jpg" alt="Soldering"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2361.jpg" alt="Finished piece"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_1010.jpg" alt="Light box"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_6880.jpg" alt="Installation"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -1951,11 +1941,11 @@
                             <p class="tech-block__desc">Shadow prism technology designed for easy transport and quick installation. Specially prepared glass elements are assembled on-site to create sculptures functioning as prisms. When illuminated, the glass refracts light to cast mesmerizing patterns of light and shadow onto surrounding surfaces. Setup can be completed within days before the event — approximately 2-3 hours per installation. Ideal for temporary exhibitions and immersive environments.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7255.jpeg" alt="Shadow prism" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7291.jpeg" alt="Light patterns" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/Untitled.jpg" alt="Shadow installation" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2352.jpg" alt="Prism assembly" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7250.jpg" alt="Falling shadows result" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7255.jpeg" alt="Shadow prism"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7291.jpeg" alt="Light patterns"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/Untitled.jpg" alt="Shadow installation"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_2352.jpg" alt="Prism assembly"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7250.jpg" alt="Falling shadows result"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -1970,14 +1960,14 @@
                             <p class="tech-block__desc">Specialized metal forms serve as the skeleton for stained glass, crafted using a proprietary "edge" technique for precise angles and durability. Metal forms are bent to the required radius for each design. Glass elements are kiln-fired to match the metal framework's curvature. Nearly all creations feature integrated electrical wiring for lighting elements. Can be installed on ceilings, floors, or walls. Approximately 1.5 months from initial design to final implementation.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Metal frame" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1542.jpeg" alt="Frame bending" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1546.jpeg" alt="Glass fitting" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1548.jpeg" alt="Assembly" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1555.jpg" alt="Finished sculpture" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3.jpg" alt="Lit sculpture" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.24.31.png" alt="Design detail" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.06.png" alt="Final piece" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Metal frame"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1542.jpeg" alt="Frame bending"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1546.jpeg" alt="Glass fitting"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1548.jpeg" alt="Assembly"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1555.jpg" alt="Finished sculpture"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3.jpg" alt="Lit sculpture"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.24.31.png" alt="Design detail"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.06.png" alt="Final piece"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -1992,11 +1982,11 @@
                             <p class="tech-block__desc">Sculptures constructed from numerous glass elements meticulously soldered together. A metallic frame is crafted first, incorporating electrical wiring for lighting fixtures. Glass pieces are framed within a special edging for interconnection. These sculptures embrace the freedom of artistic expression — glass placement follows creative intuition rather than rigid plans. Pieces exhibit chaotic forms striving toward symmetry, capturing a dynamic blend of structure and spontaneity.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.18.png" alt="Glass parts" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7517.jpg" alt="Soldering process" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.05.png" alt="Assembly" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/23b3926c-da00-4b16-af7b-1eee929d9fb8.jpeg" alt="Finished form" loading="lazy"></div>
-                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.20.png" alt="Detail" loading="lazy"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-22.25.18.png" alt="Glass parts"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7517.jpg" alt="Soldering process"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.05.png" alt="Assembly"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/02/23b3926c-da00-4b16-af7b-1eee929d9fb8.jpeg" alt="Finished form"></div>
+                            <div class="tech-block__photo"><img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-21.58.20.png" alt="Detail"></div>
                         </div>
                     </div>
                 </article>
@@ -2010,7 +2000,7 @@
             <div class="container">
                 <div class="residency-banner reveal">
                     <div class="residency-banner__image">
-                        <img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-17.18.33.png" alt="Arena Contemporary Berlin" loading="lazy">
+                        <img src="https://arthemii.com/wp-content/uploads/2024/05/Screenshot-2024-05-25-at-17.18.33.png" alt="Arena Contemporary Berlin">
                     </div>
                     <div class="residency-banner__body">
                         <div class="section__label">Residency</div>
@@ -2032,10 +2022,10 @@
                     <p class="section__desc" data-i18n="works_desc">A selection of significant works spanning stained glass, digital art, photography, and design.</p>
                 </header>
 
-                <div class="works-scroll">
+                <div class="works-grid">
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_1_cat">Digital Art</div>
@@ -2046,7 +2036,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8428-scaled.jpg" alt="Vertical Horizons" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8428-scaled.jpg" alt="Vertical Horizons">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_2_cat">Photography</div>
@@ -2057,7 +2047,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8977-Enhanced-NR-scaled.jpg" alt="Refined Reality" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8977-Enhanced-NR-scaled.jpg" alt="Refined Reality">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_3_cat">Enhanced</div>
@@ -2068,7 +2058,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.09.10.png" alt="Screen Captures" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.09.10.png" alt="Screen Captures">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_4_cat">Digital</div>
@@ -2079,7 +2069,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process Documentation" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process Documentation">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_5_cat">Archive</div>
@@ -2090,7 +2080,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-18.57.04.png" alt="Evening Sessions" loading="lazy">
+                            <img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-18.57.04.png" alt="Evening Sessions">
                         </div>
                         <div class="work-card__info">
                             <div class="work-card__category" data-i18n="work_6_cat">Study</div>
@@ -2155,53 +2145,53 @@
                 </header>
             <div class="container">
                 <div class="gallery__grid">
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Stained glass composition" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/06C52AD8-82B2-46BB-B951-3B6548D050B4.jpeg" alt="Glass artwork detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Dichroic glass piece" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.20.32.png" alt="Light installation" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/arthemii-ionaere-professional-camera-depth__77285.png" alt="Glass depth study" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-dsaaiHHk1.png" alt="Abstract glass composition" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Exhibition installation" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Olymp glass sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8428-scaled.jpg" alt="Vertical glass work" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8977-Enhanced-NR-scaled.jpg" alt="Enhanced glass study" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2025/07/Screenshot-2025-07-22-at-13.52.55.png" alt="Recent glass work" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Light installation with deep colored shadows" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Glass sculpture detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.09.10.png" alt="Studio process" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-18.57.04.png" alt="Evening studio session" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process documentation" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.05.09.png" alt="Glass composition study" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0981.jpg" alt="Stained glass artwork" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Coloured-glass-sculpture-scaled.jpg" alt="Colored glass sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Huerrytop.jpg" alt="Huerrytop sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Shteryit.jpg" alt="Shteryit piece" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-huweado.jpg" alt="Huweado artwork" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Artjemii-Ionaere-epsylon-scaled.jpg" alt="Epsylon sculpture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9028-Enhanced-NR-scaled.jpg" alt="Enhanced glass work" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9199-Enhanced-NR-scaled.jpg" alt="Glass composition" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9352-Enhanced-NR-scaled.jpg" alt="Light study" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9373-Enhanced-NR-scaled.jpg" alt="Glass detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9376-Enhanced-NR-scaled.jpg" alt="Stained glass detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9484-Enhanced-NR-scaled.jpg" alt="Glass texture" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9528-Enhanced-NR-scaled.jpg" alt="Color and light" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1574.jpeg" alt="Glass framework" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_3762.jpg" alt="Workshop scene" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7252.jpeg" alt="Shadow prism" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0054.jpg" alt="Studio artwork" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0179-scaled.jpg" alt="Glass installation" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0445-scaled.jpg" alt="Artwork detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7127-scaled.jpg" alt="Exhibition piece" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7158-scaled.jpg" alt="Light installation" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7175-scaled.jpg" alt="Glass and shadow" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7198-scaled.jpg" alt="Colored light" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7268-scaled.jpg" alt="Prism effect" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7349-scaled.jpg" alt="Exhibition view" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled.jpg" alt="Sculpture detail" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled.jpg" alt="Glass artwork" loading="lazy"></div>
-                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled.jpg" alt="Lit sculpture" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Stained glass composition"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/06C52AD8-82B2-46BB-B951-3B6548D050B4.jpeg" alt="Glass artwork detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Aerthemii-ionaere-diachrr-fpik.png" alt="Dichroic glass piece"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.20.32.png" alt="Light installation"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/arthemii-ionaere-professional-camera-depth__77285.png" alt="Glass depth study"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-dsaaiHHk1.png" alt="Abstract glass composition"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/11/IMG_7791.jpg" alt="Exhibition installation"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-olymp.png" alt="Olymp glass sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8428-scaled.jpg" alt="Vertical glass work"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_8977-Enhanced-NR-scaled.jpg" alt="Enhanced glass study"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2025/07/Screenshot-2025-07-22-at-13.52.55.png" alt="Recent glass work"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Light installation with deep colored shadows"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.14.57.png" alt="Glass sculpture detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.09.10.png" alt="Studio process"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-18.57.04.png" alt="Evening studio session"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.32.58.png" alt="Process documentation"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Screenshot-2024-12-24-at-01.05.09.png" alt="Glass composition study"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0981.jpg" alt="Stained glass artwork"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Coloured-glass-sculpture-scaled.jpg" alt="Colored glass sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Huerrytop.jpg" alt="Huerrytop sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-Shteryit.jpg" alt="Shteryit piece"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-huweado.jpg" alt="Huweado artwork"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Artjemii-Ionaere-epsylon-scaled.jpg" alt="Epsylon sculpture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9028-Enhanced-NR-scaled.jpg" alt="Enhanced glass work"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9199-Enhanced-NR-scaled.jpg" alt="Glass composition"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9352-Enhanced-NR-scaled.jpg" alt="Light study"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9373-Enhanced-NR-scaled.jpg" alt="Glass detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9376-Enhanced-NR-scaled.jpg" alt="Stained glass detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9484-Enhanced-NR-scaled.jpg" alt="Glass texture"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/IMG_9528-Enhanced-NR-scaled.jpg" alt="Color and light"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1574.jpeg" alt="Glass framework"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_3762.jpg" alt="Workshop scene"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_7252.jpeg" alt="Shadow prism"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0054.jpg" alt="Studio artwork"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0179-scaled.jpg" alt="Glass installation"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_0445-scaled.jpg" alt="Artwork detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7127-scaled.jpg" alt="Exhibition piece"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7158-scaled.jpg" alt="Light installation"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7175-scaled.jpg" alt="Glass and shadow"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7198-scaled.jpg" alt="Colored light"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7268-scaled.jpg" alt="Prism effect"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/IMG_7349-scaled.jpg" alt="Exhibition view"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled.jpg" alt="Sculpture detail"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled.jpg" alt="Glass artwork"></div>
+                <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled.jpg" alt="Lit sculpture"></div>
                 </div>
             </div>
         </section>
