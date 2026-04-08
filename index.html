@@ -1200,25 +1200,24 @@
         }
 
         /* ========== GALLERY ========== */
-        .gallery__scroll {
-            display: flex;
-            gap: var(--spacing-sm);
-            overflow-x: auto;
-            padding-bottom: var(--spacing-sm);
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        .gallery__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xs);
         }
 
-        .gallery__scroll::-webkit-scrollbar { display: none; }
+        @media (max-width: 1024px) {
+            .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+        }
 
         .gallery__item {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             overflow: hidden;
-            width: 300px;
-            aspect-ratio: 3/4;
+            aspect-ratio: 1;
             background: var(--bg-alt);
         }
 
@@ -1229,11 +1228,7 @@
             transition: transform 0.6s var(--ease-out-expo);
         }
 
-        .gallery__item:hover img { transform: scale(1.05); }
-
-        @media (max-width: 768px) {
-            .gallery__item { width: 260px; }
-        }
+        .gallery__item:hover img { transform: scale(1.08); }
 
         /* ========== CONTACT ========== */
         .contact {
@@ -2127,8 +2122,8 @@
                     <div class="section__label" data-i18n="gallery_label">Gallery</div>
                     <h2 class="section__title" data-i18n="gallery_title">Extended collection</h2>
                 </header>
-            </div>
-            <div class="gallery__scroll">
+            <div class="container">
+                <div class="gallery__grid">
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/02/IMG_1539.jpeg" alt="Stained glass composition" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-Ionaere-prizmas.jpg" alt="Prism sculpture" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/12/Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp sculpture" loading="lazy"></div>
@@ -2176,6 +2171,7 @@
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled.jpg" alt="Sculpture detail" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled.jpg" alt="Glass artwork" loading="lazy"></div>
                 <div class="gallery__item"><img src="https://arthemii.com/wp-content/uploads/2024/05/D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled.jpg" alt="Lit sculpture" loading="lazy"></div>
+                </div>
             </div>
         </section>
 
