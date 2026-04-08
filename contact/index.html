@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Arthemii Ionaere">
+    <meta name="theme-color" content="#fafafa">
+    <title>Contact — Arthemii Ionaere</title>
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="../img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-32x32.jpg" sizes="32x32">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="header" id="header" style="transform:none;animation:none">
+        <a href="../" class="header__logo">Arthemii Ionaere</a>
+        <nav class="header__nav">
+            <a href="../about/" class="header__link">About</a>
+            <a href="../works/" class="header__link">Works</a>
+            <a href="../exhibitions/" class="header__link">Exhibitions</a>
+            <a href="../technologies/" class="header__link">Technologies</a>
+            <a href="../gallery/" class="header__link">Gallery</a>
+            <a href="../video-files/" class="header__link">Videos</a>
+            <a href="../contact/" class="header__link">Contact</a>
+        </nav>
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span><span></span>
+        </button>
+    </header>
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu"></button>
+        <a href="../about/" class="mobile-nav__link">About</a>
+        <a href="../works/" class="mobile-nav__link">Works</a>
+        <a href="../exhibitions/" class="mobile-nav__link">Exhibitions</a>
+        <a href="../technologies/" class="mobile-nav__link">Technologies</a>
+        <a href="../gallery/" class="mobile-nav__link">Gallery</a>
+        <a href="../video-files/" class="mobile-nav__link">Videos</a>
+        <a href="../contact/" class="mobile-nav__link">Contact</a>
+    </div>
+    <main>
+<!-- ========== CONTACT ========== -->
+        <section class="section" id="contact">
+            <div class="container">
+                <header class="section__header section__header--center reveal">
+                    <div class="section__label" data-i18n="contact_label">Contact</div>
+                    <h2 class="section__title" data-i18n="contact_title">Let's create together</h2>
+                    <p class="section__desc" data-i18n="contact_desc">Whether you're interested in collaboration, discussing a project, or simply sharing your thoughts — I'd love to hear from you.</p>
+                </header>
+
+                <div class="contact">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="contact-form__row">
+                            <div>
+                                <label class="contact-form__label" for="name" data-i18n="form_name">Name</label>
+                                <input class="contact-form__input" type="text" id="name" name="name" required autocomplete="name">
+                            </div>
+                            <div>
+                                <label class="contact-form__label" for="email" data-i18n="form_email">Email</label>
+                                <input class="contact-form__input" type="email" id="email" name="email" required autocomplete="email">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="contact-form__label" for="subject" data-i18n="form_subject">Subject</label>
+                            <input class="contact-form__input" type="text" id="subject" name="subject">
+                        </div>
+                        <div>
+                            <label class="contact-form__label" for="message" data-i18n="form_message">Message</label>
+                            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" required></textarea>
+                        </div>
+                        <button class="contact-form__submit" type="submit" data-i18n="form_submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">Arthemii Ionaere</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="../about/" class="footer__link">About</a>
+                    <a href="../works/" class="footer__link">Works</a>
+                    <a href="../exhibitions/" class="footer__link">Exhibitions</a>
+                    <a href="../gallery/" class="footer__link">Gallery</a>
+                    <a href="../contact/" class="footer__link">Contact</a>
+                </nav>
+                <div class="footer__copy">&copy; 2026</div>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>
