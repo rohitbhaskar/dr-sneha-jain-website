@@ -11,9 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-32x32.jpg" sizes="32x32">
     <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .header { transform: none !important; animation: none !important; }
+        .reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block {
+            opacity: 1 !important; transform: none !important; transition: none !important;
+        }
+        .hero__eyebrow, .hero__title, .hero__subtitle, .hero__desc, .hero__actions, .hero__image {
+            opacity: 1 !important; transform: none !important; animation: none !important;
+        }
+    </style>
 </head>
 <body>
-    <header class="header" style="transform:none;animation:none">
+    <header class="header">
         <a href="../../" class="header__logo">Arthemii Ionaere</a>
         <nav class="header__nav">
             <a href="../../about/" class="header__link">About</a>
@@ -39,9 +48,9 @@
     <main style="padding-top:calc(72px + 2rem)">
         <section class="section">
             <div class="container" style="max-width:1000px">
-                <a href="../" style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:var(--spacing-md);display:inline-block">&larr; Gallery</a>
-                <div style="border-radius:var(--radius-md);overflow:hidden;margin-bottom:var(--spacing-md)">
-                    <img decoding="async" src="../../img/2024-05-IMG_0445-scaled.jpg" alt="Artwork detail" style="width:100%;height:auto;display:block">
+                <a href="../" style="font-size:0.875rem;color:var(--text-secondary);display:inline-block;margin-bottom:var(--spacing-md)">&larr; Back to Gallery</a>
+                <div style="border-radius:12px;overflow:hidden;margin-bottom:var(--spacing-md);background:var(--bg-alt)">
+                    <img src="../../img/2024-05-IMG_0445-scaled.jpg" alt="Artwork detail" style="width:100%;display:block">
                 </div>
                 <h1 style="font-family:var(--font-serif);font-size:clamp(1.25rem,3vw,1.75rem);font-weight:400;margin-bottom:var(--spacing-xs)">Artwork detail</h1>
                 <p style="color:var(--text-secondary);font-size:0.9375rem;line-height:1.7">Artwork detail — contemporary stained glass artwork by Arthemii Ionaere.</p>
@@ -57,38 +66,37 @@
                 <nav class="footer__nav">
                     <a href="../../about/" class="footer__link">About</a>
                     <a href="../../works/" class="footer__link">Works</a>
+                    <a href="../../exhibitions/" class="footer__link">Exhibitions</a>
                     <a href="../../gallery/" class="footer__link">Gallery</a>
                     <a href="../../contact/" class="footer__link">Contact</a>
                 </nav>
-                <div class="footer__copy">&copy; 2026</div>
+                <div class="footer__copy">&copy; 2026 Arthemii Ionaere</div>
             </div>
         </div>
     </footer>
     <script>
-    // Mobile nav
-    const mb=document.getElementById('menuBtn'),mn=document.getElementById('mobileNav'),mc=document.getElementById('mobileNavClose');
-    if(mb&&mn)mb.onclick=()=>mn.classList.add('is-open');
-    if(mc&&mn)mc.onclick=()=>mn.classList.remove('is-open');
-    if(mn)mn.querySelectorAll('a').forEach(a=>a.onclick=()=>mn.classList.remove('is-open'));
-    // YT lazy
-    document.querySelectorAll('.yt-placeholder').forEach(el=>{
+    var mb=document.getElementById("menuBtn"),mn=document.getElementById("mobileNav"),mc=document.getElementById("mobileNavClose");
+    if(mb&&mn)mb.onclick=function(){mn.classList.add("is-open")};
+    if(mc&&mn)mc.onclick=function(){mn.classList.remove("is-open")};
+    if(mn){var ls=mn.querySelectorAll("a");for(var i=0;i<ls.length;i++)ls[i].onclick=function(){mn.classList.remove("is-open")}};
+    var yts=document.querySelectorAll(".yt-placeholder");
+    for(var i=0;i<yts.length;i++){(function(el){
         el.onclick=function(){
-            const id=this.dataset.yt;
-            const iframe=document.createElement('iframe');
-            iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&mute=0&controls=1&rel=0';
-            iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
-            iframe.allowFullscreen=true;
-            iframe.style.cssText='width:100%;height:100%;border:none';
-            this.replaceWith(iframe);
+            var id=this.getAttribute("data-yt");
+            var f=document.createElement("iframe");
+            f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&mute=0&controls=1&rel=0";
+            f.allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture";
+            f.allowFullscreen=true;
+            f.style.cssText="width:100%;height:100%;border:none";
+            this.parentNode.replaceChild(f,this);
         };
-    });
-    // Video hover play
-    document.querySelectorAll('.video-card').forEach(c=>{
-        const v=c.querySelector('video');
-        if(!v)return;
-        c.onmouseenter=()=>v.play().catch(()=>{});
-        c.onmouseleave=()=>{v.pause();v.currentTime=0;};
-    });
+    })(yts[i])};
+    var vcs=document.querySelectorAll(".video-card");
+    for(var i=0;i<vcs.length;i++){(function(c){
+        var v=c.querySelector("video");if(!v)return;
+        c.onmouseenter=function(){v.play().catch(function(){})};
+        c.onmouseleave=function(){v.pause();v.currentTime=0};
+    })(vcs[i])};
     </script>
 </body>
 </html>
