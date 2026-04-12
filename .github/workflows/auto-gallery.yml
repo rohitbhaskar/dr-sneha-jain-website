@@ -1,0 +1,77 @@
+name: Auto-update gallery from uploaded photos
+
+on:
+  push:
+    paths:
+      - 'img/uploads/exhibitions/**'
+      - 'img/uploads/side-products/**'
+      - 'img/uploads/workspace/**'
+      - 'img/uploads/gallery/**'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate exhibitions JSON from folders
+        run: |
+          python3 << 'PYEOF'
+          import json, os, glob
+
+          # === EXHIBITIONS ===
+          exhibitions_file = '_data/exhibitions.json'
+          if os.path.exists(exhibitions_file):
+              with open(exhibitions_file) as f:
+                  data = json.load(f)
+
+              for item in data.get('items', []):
+                  # Create folder name from title
+                  folder_name = item['title'].lower()
+                  for ch in [' ', ':', "'", '"', '—', '–']:
+                      folder_name = folder_name.replace(ch, '-')
+                  folder_name = folder_name.strip('-')
+
+                  upload_dir = f'img/uploads/exhibitions/{folder_name}'
+                  if os.path.isdir(upload_dir):
+                      uploaded = sorted(glob.glob(f'{upload_dir}/*.*'))
+                      uploaded = [f for f in uploaded if f.lower().endswith(('.jpg','.jpeg','.png','.webp','.gif'))]
+                      if uploaded:
+                          # Add new uploads to existing photos (avoid duplicates)
+                          existing = set(item.get('photos', []))
+                          for img in uploaded:
+                              if img not in existing:
+                                  item.setdefault('photos', []).append(img)
+
+              with open(exhibitions_file, 'w') as f:
+                  json.dump(data, f, indent=2, ensure_ascii=False)
+
+          # === SIDE PRODUCTS ===
+          sp_dir = 'img/uploads/side-products'
+          sp_file = '_data/side_products.json'
+          if os.path.isdir(sp_dir):
+              uploaded = sorted(glob.glob(f'{sp_dir}/*.*'))
+              uploaded = [f for f in uploaded if f.lower().endswith(('.jpg','.jpeg','.png','.webp','.gif'))]
+              if uploaded and os.path.exists(sp_file):
+                  with open(sp_file) as f:
+                      data = json.load(f)
+                  existing_images = {item['image'] for item in data.get('items', [])}
+                  for img in uploaded:
+                      if img not in existing_images:
+                          name = os.path.splitext(os.path.basename(img))[0].replace('-', ' ').replace('_', ' ').title()
+                          data['items'].append({'image': img, 'alt': name})
+                  with open(sp_file, 'w') as f:
+                      json.dump(data, f, indent=2, ensure_ascii=False)
+
+          print("Done updating data files")
+          PYEOF
+
+      - name: Commit updated data
+        run: |
+          git config user.name "Auto Gallery Bot"
+          git config user.email "bot@arthemii.com"
+          git add _data/
+          git diff --staged --quiet || git commit -m "Auto-update gallery data from uploaded photos"
+          git push
