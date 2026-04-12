@@ -1,0 +1,131 @@
+backend:
+  name: github
+  repo: vasiliiberezinart-ops/arthemii-website
+  branch: main
+  auth_type: pkce
+  app_id: arthemii-cms
+
+# Where uploaded media goes
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+# Localization
+locale: "en"
+
+collections:
+  # ========== EXHIBITIONS ==========
+  - name: "exhibitions"
+    label: "Exhibitions"
+    description: "Manage exhibition photos and descriptions"
+    folder: "_data/exhibitions"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: ["Solo Exhibition", "Group Exhibition", "Installation"] }
+      - { label: "Date Start", name: "date_start", widget: "string", hint: "Format: DD.MM.YYYY" }
+      - { label: "Date End", name: "date_end", widget: "string", hint: "Format: DD.MM.YYYY" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Stats"
+        name: "stats"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Number", name: "num", widget: "string" }
+          - { label: "Label", name: "label", widget: "string" }
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        field:
+          label: "Photo"
+          name: "image"
+          widget: "image"
+
+  # ========== GALLERY ==========
+  - name: "gallery"
+    label: "Gallery"
+    description: "Manage gallery images"
+    folder: "_data/gallery"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Alt text", name: "alt", widget: "string", required: false }
+      - { label: "Year", name: "year", widget: "string", required: false }
+
+  # ========== SIDE PRODUCTS ==========
+  - name: "side_products"
+    label: "Side Products"
+    description: "Glass off-cuts and small forms"
+    folder: "_data/side-products"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+
+  # ========== VIDEOS ==========
+  - name: "videos"
+    label: "Videos"
+    description: "Manage video works"
+    folder: "_data/videos"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Poster image", name: "poster", widget: "image" }
+      - { label: "Video file", name: "video", widget: "file", required: false }
+      - { label: "YouTube ID", name: "youtube_id", widget: "string", required: false }
+
+  # ========== SITE SETTINGS ==========
+  - name: "settings"
+    label: "Site Settings"
+    description: "Edit about, contact, and general site info"
+    files:
+      - label: "About"
+        name: "about"
+        file: "_data/settings/about.json"
+        fields:
+          - { label: "Artist Name", name: "name", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Portrait", name: "portrait", widget: "image" }
+      - label: "Contact"
+        name: "contact"
+        file: "_data/settings/contact.json"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Telegram", name: "telegram", widget: "string", required: false }
+
+  # ========== WORKSPACE ==========
+  - name: "workspace"
+    label: "Workspace"
+    description: "Studio photos and video"
+    files:
+      - label: "Workspace"
+        name: "workspace"
+        file: "_data/settings/workspace.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            field:
+              label: "Photo"
+              name: "image"
+              widget: "image"
