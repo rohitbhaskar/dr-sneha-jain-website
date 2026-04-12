@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth/v1/authorize
+  site_domain: arthemii-oauth.netlify.app
 
 media_folder: "img/uploads"
 public_folder: "img/uploads"
