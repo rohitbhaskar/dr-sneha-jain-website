@@ -3,7 +3,7 @@ backend:
   repo: vasiliiberezinart-ops/arthemii-website
   branch: main
   auth_type: pkce
-  app_id: arthemii-cms
+  app_id: Ov23li5nI2UQMCATAhQQ
 
 # Where uploaded media goes
 media_folder: "img/uploads"
