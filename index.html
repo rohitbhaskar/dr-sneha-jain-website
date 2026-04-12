@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1783,133 +1785,34 @@
                     <p class="section__desc">Solo and group exhibitions across Europe — from neo-Gothic mansions to Parisian galleries and Berlin's legendary venues.</p>
                 </header>
 
-                <!-- Exhibition 1: Architecture of Light -->
+                {% for ex in site.data.exhibitions.items %}
                 <article class="exhibition-block reveal">
                     <div class="exhibition-block__header">
                         <div>
-                            <div class="exhibition-block__date">01.11.2024 — 03.11.2024</div>
-                            <span class="exhibition-block__type">Solo Exhibition</span>
-                            <h3 class="exhibition-block__title">Architecture of Light: Form and Reflections of Reality</h3>
-                            <p class="exhibition-block__desc">Exhibition exploring the interplay between light and colored glass, which together create a visually-optical architecture. Features six kinetic sculptures from summer 2024 utilizing refraction, light reflection, and diffraction. 35 works across 7 halls, uniting static and kinetic sculptures plus stained-glass installations.</p>
+                            <div class="exhibition-block__date">{{ ex.date_start }}{% if ex.date_end != "" %} — {{ ex.date_end }}{% endif %}</div>
+                            <span class="exhibition-block__type">{{ ex.type }}</span>
+                            <h3 class="exhibition-block__title">{{ ex.title }}</h3>
+                            {% if ex.location %}<div class="exhibition-block__location">{{ ex.location }}</div>{% endif %}
+                            <p class="exhibition-block__desc">{{ ex.description }}</p>
+                            {% if ex.stats.size > 0 %}
                             <div class="exhibition-block__stats">
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">35</span><span class="exhibition-block__stat-label">Works</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">7</span><span class="exhibition-block__stat-label">Halls</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">6</span><span class="exhibition-block__stat-label">Kinetic Sculptures</span></div>
+                                {% for s in ex.stats %}
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">{{ s.num }}</span><span class="exhibition-block__stat-label">{{ s.label }}</span></div>
+                                {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/glass-meditation.jpg" alt="Architecture of Light — display cases in mansion hall"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/luminous-grid.jpg" alt="Architecture of Light — illuminated sculpture in red room"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/prismatic-dance.jpg" alt="Architecture of Light — refractive prism sculpture"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/color-convergence.jpg" alt="Architecture of Light — red and blue striped sculpture"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/amber-reflections.jpg" alt="Architecture of Light — kinetic glass sculpture with shadows"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/spectrum-shift.jpg" alt="Architecture of Light — striped glass sculpture by window"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/crystal-structure.jpg" alt="Architecture of Light — stained glass panel in gallery"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/studio-fragment.jpg" alt="Architecture of Light — large grid stained glass installation"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/installation-orbit.jpg" alt="Architecture of Light — installation by gallery windows"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/glass-rotation.jpg" alt="Architecture of Light — kinetic sculpture with light effects"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/radiant-forms.jpg" alt="Architecture of Light — sculpture against open sky"></div>
+                                {% for photo in ex.photos %}
+                                <div class="exhibition-block__photo"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                    <div class="exhibition-block__divider"></div>
+                    {% unless forloop.last %}<div class="exhibition-block__divider"></div>{% endunless %}
                 </article>
-
-                <!-- Exhibition 2: Paris -->
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">19.04.2024 — 22.04.2024</div>
-                            <span class="exhibition-block__type">Group Exhibition</span>
-                            <h3 class="exhibition-block__title">L'Art et ses Sources d'Inspiration</h3>
-                            <div class="exhibition-block__location">5, rue Duvivier — 75007 Paris, France</div>
-                            <p class="exhibition-block__desc">Exposition de Peinture & Dessin — Journées portes ouvertes de printemps 2024. Painting and drawing exploring the sources of artistic inspiration. Vladimir Kouptsov Privalov dit Arthemii.</p>
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-01.jpg" alt="Red and black stained glass in window — Paris exhibition"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-02.jpg" alt="Gallery room with paintings and stained glass"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-03.jpg" alt="Hanging stained glass panels in interior"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-04.jpg" alt="Black and green stained glass in window"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-05.jpg" alt="Blue and black stained glass close-up"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-lart-06.jpg" alt="Colored stained glass panel"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="exhibition-block__divider"></div>
-                </article>
-
-                <!-- Exhibition 3: Encrypted Subconscious -->
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">16.04.2024 — 19.04.2024</div>
-                            <span class="exhibition-block__type">Solo Exhibition</span>
-                            <h3 class="exhibition-block__title">Encrypted Subconscious</h3>
-                            <div class="exhibition-block__location">Noisy-le-Grand, Microcredit Paris, France</div>
-                            <p class="exhibition-block__desc">Research on interactions between viewers and neuroArt. Part of ongoing research on human interaction with artificial intelligence and the search for subconsciousness in machines. Participants documented observations below artworks — noticed symbols, architecture, situations, and archetypes. Data was fed to AI neural networks to train machine interpretation skills through human perception examples.</p>
-                            <div class="exhibition-block__stats">
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">4</span><span class="exhibition-block__stat-label">Stained-glass</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">30+</span><span class="exhibition-block__stat-label">Graphic Drawings</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-noisy-01.jpg" alt="Encrypted Subconscious — gallery wall with works"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-noisy-02.jpg" alt="Encrypted Subconscious — grid composition wall"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/new-noisy-03.jpg" alt="Encrypted Subconscious — illuminated glass close-up"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="exhibition-block__divider"></div>
-                </article>
-
-                <!-- Exhibition 4: Enter the Void -->
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">19.10.2023 — 27.10.2023</div>
-                            <span class="exhibition-block__type">Solo Exhibition</span>
-                            <h3 class="exhibition-block__title">Enter the Void</h3>
-                            <div class="exhibition-block__location">Neo-Gothic Mansion — Bashmet Centre</div>
-                            <p class="exhibition-block__desc">A captivating showcase of colored glass sculptures demonstrating a masterful fusion of Gothic and futuristic aesthetics. The historical ambiance of the mansion perfectly complemented the modern designs of the glass artworks. Each piece, through its placement and the play of light, narrated a story of its own, casting vibrant colors and intriguing shadows that animated the grand old spaces. Live ambient and experimental music shows throughout the exhibition.</p>
-                            <div class="exhibition-block__stats">
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">24</span><span class="exhibition-block__stat-label">Artworks</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">15</span><span class="exhibition-block__stat-label">Musicians</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">~1000</span><span class="exhibition-block__stat-label">Visitors</span></div>
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">2×4m</span><span class="exhibition-block__stat-label">Vortex Void</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.14.57.png" alt="Encrypted Subconscious"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-25-at-16.50.20-1.png" alt="Exhibition view"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-25-at-16.52.48-1.png" alt="Viewer interaction"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="exhibition-block__divider"></div>
-                </article>
-
-                <!-- Exhibition 5: Club der Visionaere -->
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">2024</div>
-                            <span class="exhibition-block__type">Installation</span>
-                            <h3 class="exhibition-block__title">Club der Visionäre — Berlin</h3>
-                            <div class="exhibition-block__location">Club der Visionäre, Berlin, Germany</div>
-                            <p class="exhibition-block__desc">A vibrant and futuristic glass sculpture installation designed to reflect the dynamic energy and eclectic spirit of the venue. Each piece of colored glass is meticulously crafted to capture and play with natural and artificial lights. As sunlight streams through during the day, the installation casts a mosaic of vivid, dancing colors across the wooden beams. By night, the pieces glow under the club's lights, creating a flowing river of color that mirrors the famous waterfront setting.</p>
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/light-architecture.jpg" alt="Club der Visionäre — Berlin, illuminated stained glass canopy with crowd"></div>
-                                <div class="exhibition-block__photo"><img decoding="async" src="video-posters/light-passage.jpg" alt="Club der Visionäre — Berlin, glass panels above the bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                {% endfor %}
             </div>
         </section>
         <div class="section__divider"></div>
@@ -2042,13 +1945,9 @@
                 </header>
 
                 <div class="side-products reveal">
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-01.jpg" alt="Cobalt blue glass shard"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-02.jpg" alt="Green and white marbled glass piece"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-03.jpg" alt="Dark red glass leaf form"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-04.jpg" alt="Deep red swirling glass"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-05.jpg" alt="Bright blue marbled glass leaf"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-06.jpg" alt="Collection of multicoloured glass off-cuts"></div>
-                    <div class="side-product"><img decoding="async" loading="lazy" src="img/side-product-07.jpg" alt="Hand holding red glass piece"></div>
+                    {% for item in site.data.side_products.items %}
+                    <div class="side-product"><img decoding="async" loading="lazy" src="{{ item.image }}" alt="{{ item.alt }}"></div>
+                    {% endfor %}
                 </div>
             </div>
         </section>

@@ -1,0 +1,123 @@
+{
+  "items": [
+    {
+      "title": "Architecture of Light: Form and Reflections of Reality",
+      "type": "Solo Exhibition",
+      "date_start": "01.11.2024",
+      "date_end": "03.11.2024",
+      "location": "",
+      "description": "Exhibition exploring the interplay between light and colored glass, which together create a visually-optical architecture. Features six kinetic sculptures from summer 2024 utilizing refraction, light reflection, and diffraction. 35 works across 7 halls, uniting static and kinetic sculptures plus stained-glass installations.",
+      "stats": [
+        {
+          "num": "35",
+          "label": "Works"
+        },
+        {
+          "num": "7",
+          "label": "Halls"
+        },
+        {
+          "num": "6",
+          "label": "Kinetic Sculptures"
+        }
+      ],
+      "photos": [
+        "video-posters/glass-meditation.jpg",
+        "video-posters/luminous-grid.jpg",
+        "video-posters/prismatic-dance.jpg",
+        "video-posters/color-convergence.jpg",
+        "video-posters/amber-reflections.jpg",
+        "video-posters/spectrum-shift.jpg",
+        "video-posters/crystal-structure.jpg",
+        "video-posters/studio-fragment.jpg",
+        "video-posters/installation-orbit.jpg",
+        "video-posters/glass-rotation.jpg",
+        "video-posters/radiant-forms.jpg"
+      ]
+    },
+    {
+      "title": "L'Art et ses Sources d'Inspiration",
+      "type": "Group Exhibition",
+      "date_start": "19.04.2024",
+      "date_end": "22.04.2024",
+      "location": "5, rue Duvivier — 75007 Paris, France",
+      "description": "Exposition de Peinture & Dessin — Journées portes ouvertes de printemps 2024. Painting and drawing exploring the sources of artistic inspiration. Vladimir Kouptsov Privalov dit Arthemii.",
+      "stats": [],
+      "photos": [
+        "img/new-lart-01.jpg",
+        "img/new-lart-02.jpg",
+        "img/new-lart-03.jpg",
+        "img/new-lart-04.jpg",
+        "img/new-lart-05.jpg",
+        "img/new-lart-06.jpg"
+      ]
+    },
+    {
+      "title": "Encrypted Subconscious",
+      "type": "Solo Exhibition",
+      "date_start": "16.04.2024",
+      "date_end": "19.04.2024",
+      "location": "Noisy-le-Grand, Microcredit Paris, France",
+      "description": "Research on interactions between viewers and neuroArt. Part of ongoing research on human interaction with artificial intelligence and the search for subconsciousness in machines. Participants documented observations below artworks — noticed symbols, architecture, situations, and archetypes. Data was fed to AI neural networks to train machine interpretation skills through human perception examples.",
+      "stats": [
+        {
+          "num": "4",
+          "label": "Stained-glass"
+        },
+        {
+          "num": "30+",
+          "label": "Graphic Drawings"
+        }
+      ],
+      "photos": [
+        "img/new-noisy-01.jpg",
+        "img/new-noisy-02.jpg",
+        "img/new-noisy-03.jpg"
+      ]
+    },
+    {
+      "title": "Enter the Void",
+      "type": "Solo Exhibition",
+      "date_start": "19.10.2023",
+      "date_end": "27.10.2023",
+      "location": "Neo-Gothic Mansion — Bashmet Centre",
+      "description": "A captivating showcase of colored glass sculptures demonstrating a masterful fusion of Gothic and futuristic aesthetics. The historical ambiance of the mansion perfectly complemented the modern designs of the glass artworks. Each piece, through its placement and the play of light, narrated a story of its own, casting vibrant colors and intriguing shadows that animated the grand old spaces. Live ambient and experimental music shows throughout the exhibition.",
+      "stats": [
+        {
+          "num": "24",
+          "label": "Artworks"
+        },
+        {
+          "num": "15",
+          "label": "Musicians"
+        },
+        {
+          "num": "~1000",
+          "label": "Visitors"
+        },
+        {
+          "num": "2×4m",
+          "label": "Vortex Void"
+        }
+      ],
+      "photos": [
+        "img/2024-12-Screenshot-2024-12-24-at-01.14.57.png",
+        "img/2024-05-Screenshot-2024-05-25-at-16.50.20-1.png",
+        "img/2024-05-Screenshot-2024-05-25-at-16.52.48-1.png"
+      ]
+    },
+    {
+      "title": "Club der Visionäre — Berlin",
+      "type": "Installation",
+      "date_start": "2024",
+      "date_end": "",
+      "location": "Club der Visionäre, Berlin, Germany",
+      "description": "A vibrant and futuristic glass sculpture installation designed to reflect the dynamic energy and eclectic spirit of the venue. Each piece of colored glass is meticulously crafted to capture and play with natural and artificial lights. As sunlight streams through during the day, the installation casts a mosaic of vivid, dancing colors across the wooden beams. By night, the pieces glow under the club's lights, creating a flowing river of color that mirrors the famous waterfront setting.",
+      "stats": [],
+      "photos": [
+        "video-posters/light-architecture.jpg",
+        "video-posters/light-passage.jpg"
+      ]
+    }
+  ]
+}

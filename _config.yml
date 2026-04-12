@@ -1,0 +1,7 @@
+title: Arthemii Ionaere
+description: Contemporary Stained Glass Artist
+url: https://arthemii.com
+exclude:
+  - README.md
+  - CNAME
+  - admin

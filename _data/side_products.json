@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "image": "img/side-product-01.jpg",
+      "alt": "Cobalt blue glass shard"
+    },
+    {
+      "image": "img/side-product-02.jpg",
+      "alt": "Green and white marbled glass piece"
+    },
+    {
+      "image": "img/side-product-03.jpg",
+      "alt": "Dark red glass leaf form"
+    },
+    {
+      "image": "img/side-product-04.jpg",
+      "alt": "Deep red swirling glass"
+    },
+    {
+      "image": "img/side-product-05.jpg",
+      "alt": "Bright blue marbled glass leaf"
+    },
+    {
+      "image": "img/side-product-06.jpg",
+      "alt": "Collection of multicoloured glass off-cuts"
+    },
+    {
+      "image": "img/side-product-07.jpg",
+      "alt": "Hand holding red glass piece"
+    }
+  ]
+}
