@@ -674,6 +674,10 @@
             .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); }
         }
 
+        @media (max-width: 480px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+
         .video-card {
         }
 
@@ -1090,6 +1094,10 @@
             transition: transform 0.4s var(--ease-out-expo);
         }
         .exhibition-block__photo:hover img { transform: scale(1.03); }
+        @media (max-width: 480px) {
+            .exhibition-block__photos { grid-template-columns: 1fr; }
+            .exhibition-block__photo { aspect-ratio: 16/10; }
+        }
 
         .exhibition-block__divider {
             height: 1px;
@@ -2841,6 +2849,14 @@
             });
             lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbClose) close(); });
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
+
+            /* Swipe down to close on mobile */
+            let touchStartY = 0;
+            lb.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+            lb.addEventListener('touchend', (e) => {
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                if (dy > 80) close();
+            }, { passive: true });
         })();
     </script>
 </body>
