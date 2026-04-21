@@ -2,6 +2,7 @@ backend:
   name: github
   repo: vasiliiberezinart-ops/arthemii-website
   branch: main
+  base_url: https://sveltia-cms-auth.vasiliiberezin-art.workers.dev
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
