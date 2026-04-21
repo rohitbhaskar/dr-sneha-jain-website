@@ -824,25 +824,37 @@
         /* ========== WORKS ========== */
         .works-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(220px, auto);
             gap: var(--spacing-md);
         }
 
+        .work-card { cursor: pointer; position: relative; }
+
+        /* Collage sizing: vary spans to break the uniform-card look */
+        .work-card:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+        .work-card:nth-child(2) { grid-column: span 5; }
+        .work-card:nth-child(3) { grid-column: span 5; }
+        .work-card:nth-child(4) { grid-column: span 4; }
+        .work-card:nth-child(5) { grid-column: span 4; grid-row: span 2; }
+        .work-card:nth-child(6) { grid-column: span 4; }
+
         @media (max-width: 1024px) {
-            .works-grid { grid-template-columns: repeat(2, 1fr); }
+            .works-grid { grid-template-columns: repeat(6, 1fr); }
+            .work-card:nth-child(n) { grid-column: span 3; grid-row: auto; }
+            .work-card:nth-child(1) { grid-column: span 6; }
         }
 
         @media (max-width: 640px) {
-            .works-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); }
-        }
-
-        .work-card {
-            cursor: pointer;
+            .works-grid { grid-template-columns: 1fr; gap: var(--spacing-xs); }
+            .work-card:nth-child(n) { grid-column: span 1; }
         }
 
         .work-card__image {
             position: relative;
-            aspect-ratio: 4/5;
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--bg-alt);
@@ -860,28 +872,27 @@
         }
 
         .work-card__info {
-            padding-top: var(--spacing-xs);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: var(--spacing-sm);
+            color: #fff;
+            background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.35s var(--ease-out-expo);
+            pointer-events: none;
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
         }
 
-        .work-card__category {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-            margin-bottom: 0.25rem;
-        }
+        .work-card:hover .work-card__info { opacity: 1; }
 
         .work-card__title {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 500;
-            margin-bottom: 0.125rem;
-        }
-
-        .work-card__desc {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
+            margin: 0;
         }
 
         /* ========== QUOTE ========== */
@@ -1086,6 +1097,10 @@
             overflow: hidden;
             background: var(--bg-alt);
             cursor: zoom-in;
+        }
+
+        .exhibition-block__photo:only-child {
+            grid-column: 1 / -1;
         }
 
         .exhibition-block__photo img {
@@ -1377,17 +1392,25 @@
 
         /* ========== GALLERY ========== */
         .gallery__grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-xs);
+            column-count: 4;
+            column-gap: var(--spacing-xs);
         }
 
         @media (max-width: 1024px) {
-            .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+            .gallery__grid { column-count: 3; }
         }
 
         @media (max-width: 768px) {
-            .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery__grid { column-count: 2; }
+        }
+
+        .gallery__grid > a,
+        .gallery__grid > .gallery__item {
+            display: block;
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: var(--spacing-xs);
         }
 
         .gallery__item {
@@ -1401,7 +1424,6 @@
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
             transition: transform 0.6s var(--ease-out-expo);
         }
 
@@ -1710,9 +1732,7 @@
                             <img decoding="async" src="img/2024-12-Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_1_cat">Digital Art</div>
                             <h3 class="work-card__title" data-i18n="work_1_title">Visual Narratives</h3>
-                            <p class="work-card__desc" data-i18n="work_1_desc">Digital concepts and narrative structures</p>
                         </div>
                     </article>
 
@@ -1721,9 +1741,7 @@
                             <img decoding="async" src="img/2024-12-IMG_8428-scaled.jpg" alt="Vertical Horizons">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_2_cat">Photography</div>
                             <h3 class="work-card__title" data-i18n="work_2_title">Vertical Horizons</h3>
-                            <p class="work-card__desc" data-i18n="work_2_desc">Portrait orientation study</p>
                         </div>
                     </article>
 
@@ -1732,9 +1750,7 @@
                             <img decoding="async" src="img/2024-12-IMG_8977-Enhanced-NR-scaled.jpg" alt="Refined Reality">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_3_cat">Enhanced</div>
                             <h3 class="work-card__title" data-i18n="work_3_title">Refined Reality</h3>
-                            <p class="work-card__desc" data-i18n="work_3_desc">Post-processed imagery</p>
                         </div>
                     </article>
 
@@ -1743,9 +1759,7 @@
                             <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.09.10.png" alt="Screen Captures">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_4_cat">Digital</div>
                             <h3 class="work-card__title" data-i18n="work_4_title">Screen Captures</h3>
-                            <p class="work-card__desc" data-i18n="work_4_desc">Digital documentation of creative process</p>
                         </div>
                     </article>
 
@@ -1754,9 +1768,7 @@
                             <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.32.58.png" alt="Process Documentation">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_5_cat">Archive</div>
                             <h3 class="work-card__title" data-i18n="work_5_title">Process Documentation</h3>
-                            <p class="work-card__desc" data-i18n="work_5_desc">Records of the creative journey</p>
                         </div>
                     </article>
 
@@ -1765,9 +1777,7 @@
                             <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-18.57.04.png" alt="Evening Sessions">
                         </div>
                         <div class="work-card__info">
-                            <div class="work-card__category" data-i18n="work_6_cat">Study</div>
                             <h3 class="work-card__title" data-i18n="work_6_title">Evening Sessions</h3>
-                            <p class="work-card__desc" data-i18n="work_6_desc">Late night creativity</p>
                         </div>
                     </article>
                 </div>
@@ -1780,8 +1790,6 @@
             <div class="container">
                 <header class="section__header reveal">
                     <div class="section__label">Exhibitions</div>
-                    <h2 class="section__title">Architecture of Light</h2>
-                    <p class="section__desc">Solo and group exhibitions across Europe — from neo-Gothic mansions to Parisian galleries and Berlin's legendary venues.</p>
                 </header>
 
                 {% for ex in site.data.exhibitions.items %}
