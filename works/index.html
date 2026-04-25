@@ -19,6 +19,37 @@
         .hero__eyebrow, .hero__title, .hero__subtitle, .hero__desc, .hero__actions, .hero__image {
             opacity: 1 !important; transform: none !important; animation: none !important;
         }
+
+        /* Works — horizontal carousel */
+        .works-grid {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: var(--spacing-xl);
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: var(--spacing-sm);
+            grid-template-columns: none;
+        }
+        .works-grid::-webkit-scrollbar { height: 6px; }
+        .works-grid::-webkit-scrollbar-track { background: transparent; }
+        .works-grid::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+        .work-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+        @media (max-width: 768px) {
+            .work-card { flex: 0 0 78%; }
+        }
+        .work-card__image {
+            aspect-ratio: 4/3;
+            min-height: 0;
+            height: auto;
+        }
+        .work-card__image img {
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
