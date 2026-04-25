@@ -13,6 +13,18 @@
       ]
     },
     {
+      "title": "Club der Visionäre — Berlin",
+      "type": "Installation",
+      "date_start": "2024",
+      "date_end": "",
+      "location": "Club der Visionäre, Berlin, Germany",
+      "description": "A vibrant and futuristic glass sculpture installation designed to reflect the dynamic energy and eclectic spirit of the venue. Each piece of colored glass is meticulously crafted to capture and play with natural and artificial lights. As sunlight streams through during the day, the installation casts a mosaic of vivid, dancing colors across the wooden beams. By night, the pieces glow under the club's lights, creating a flowing river of color that mirrors the famous waterfront setting.",
+      "stats": [],
+      "photos": [
+        "video-posters/light-architecture.jpg"
+      ]
+    },
+    {
       "title": "Architecture of Light: Form and Reflections of Reality",
       "type": "Solo Exhibition",
       "date_start": "01.11.2024",
@@ -116,18 +128,6 @@
         "img/2024-12-Screenshot-2024-12-24-at-01.14.57.png",
         "img/2024-05-Screenshot-2024-05-25-at-16.50.20-1.png",
         "img/2024-05-Screenshot-2024-05-25-at-16.52.48-1.png"
-      ]
-    },
-    {
-      "title": "Club der Visionäre — Berlin",
-      "type": "Installation",
-      "date_start": "2024",
-      "date_end": "",
-      "location": "Club der Visionäre, Berlin, Germany",
-      "description": "A vibrant and futuristic glass sculpture installation designed to reflect the dynamic energy and eclectic spirit of the venue. Each piece of colored glass is meticulously crafted to capture and play with natural and artificial lights. As sunlight streams through during the day, the installation casts a mosaic of vivid, dancing colors across the wooden beams. By night, the pieces glow under the club's lights, creating a flowing river of color that mirrors the famous waterfront setting.",
-      "stats": [],
-      "photos": [
-        "video-posters/light-architecture.jpg"
       ]
     }
   ]
