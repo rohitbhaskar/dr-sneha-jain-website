@@ -821,40 +821,37 @@
             color: var(--text-tertiary);
         }
 
-        /* ========== WORKS ========== */
+        /* ========== WORKS — horizontal carousel ========== */
         .works-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: minmax(220px, auto);
+            display: flex;
             gap: var(--spacing-md);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: var(--spacing-xl);
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: var(--spacing-sm);
         }
 
-        .work-card { cursor: pointer; position: relative; }
+        .works-grid::-webkit-scrollbar { height: 6px; }
+        .works-grid::-webkit-scrollbar-track { background: transparent; }
+        .works-grid::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
 
-        /* Collage sizing: vary spans to break the uniform-card look */
-        .work-card:nth-child(1) { grid-column: span 7; grid-row: span 2; }
-        .work-card:nth-child(2) { grid-column: span 5; }
-        .work-card:nth-child(3) { grid-column: span 5; }
-        .work-card:nth-child(4) { grid-column: span 4; }
-        .work-card:nth-child(5) { grid-column: span 4; grid-row: span 2; }
-        .work-card:nth-child(6) { grid-column: span 4; }
-
-        @media (max-width: 1024px) {
-            .works-grid { grid-template-columns: repeat(6, 1fr); }
-            .work-card:nth-child(n) { grid-column: span 3; grid-row: auto; }
-            .work-card:nth-child(1) { grid-column: span 6; }
+        .work-card {
+            cursor: pointer;
+            position: relative;
+            flex: 0 0 320px;
+            scroll-snap-align: start;
         }
 
-        @media (max-width: 640px) {
-            .works-grid { grid-template-columns: 1fr; gap: var(--spacing-xs); }
-            .work-card:nth-child(n) { grid-column: span 1; }
+        @media (max-width: 768px) {
+            .work-card { flex: 0 0 78%; }
         }
 
         .work-card__image {
             position: relative;
             width: 100%;
-            height: 100%;
-            min-height: 260px;
+            aspect-ratio: 4/3;
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--bg-alt);
@@ -863,7 +860,7 @@
         .work-card__image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.6s var(--ease-out-expo);
         }
 
