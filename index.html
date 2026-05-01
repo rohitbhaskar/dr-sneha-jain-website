@@ -11,13 +11,6 @@
 
     <link rel="dns-prefetch" href="https://i.ytimg.com">
 
-    <!-- Preload hero image (LCP) -->
-    <link rel="preload" as="image"
-          imagesrcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w"
-          imagesizes="(max-width: 1024px) 90vw, 520px"
-          type="image/webp"
-          fetchpriority="high">
-
     <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1586,130 +1579,6 @@
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
-
-        /* ========== CUBE-SCROLL — sections rotate like cube faces ========== */
-        @supports (animation-timeline: view()) {
-            main {
-                perspective: 1600px;
-                perspective-origin: 50% 50%;
-                transform-style: preserve-3d;
-                overflow: visible;
-            }
-            .hero,
-            main > .section {
-                animation-timeline: view();
-                animation-name: cubeFace;
-                animation-duration: auto;
-                animation-fill-mode: both;
-                animation-timing-function: linear;
-                transform-origin: center center;
-                will-change: transform, opacity, filter;
-                backface-visibility: hidden;
-            }
-            @keyframes cubeFace {
-                0% {
-                    transform: rotateX(72deg) translateZ(-260px) translateY(30vh);
-                    opacity: 0;
-                    filter: blur(10px);
-                }
-                28%, 72% {
-                    transform: rotateX(0deg) translateZ(0) translateY(0);
-                    opacity: 1;
-                    filter: blur(0);
-                }
-                100% {
-                    transform: rotateX(-72deg) translateZ(-260px) translateY(-30vh);
-                    opacity: 0;
-                    filter: blur(10px);
-                }
-            }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hero, main > .section {
-                animation: none !important;
-                transform: none !important;
-                filter: none !important;
-                opacity: 1 !important;
-            }
-        }
-
-        /* ========== PRISMATIC HERO BACKGROUND ========== */
-        .hero {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: -15%;
-            z-index: -1;
-            background:
-                radial-gradient(ellipse 50% 40% at 15% 25%, rgba(255, 90, 180, 0.22), transparent 60%),
-                radial-gradient(ellipse 45% 50% at 85% 70%, rgba(80, 200, 255, 0.22), transparent 60%),
-                radial-gradient(ellipse 55% 45% at 50% 90%, rgba(255, 220, 90, 0.18), transparent 60%),
-                radial-gradient(ellipse 40% 50% at 70% 15%, rgba(180, 100, 255, 0.18), transparent 60%);
-            filter: blur(50px) saturate(1.4);
-            animation: prismDrift 24s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-        @keyframes prismDrift {
-            0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
-            33%  { transform: translate3d(2%, -3%, 0) scale(1.08) rotate(8deg); }
-            66%  { transform: translate3d(-3%, 2%, 0) scale(1.05) rotate(-6deg); }
-            100% { transform: translate3d(1%, -2%, 0) scale(1.1) rotate(4deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hero::before { animation: none; }
-        }
-
-        /* ========== CHROMATIC ABERRATION on hero title ========== */
-        .hero__title {
-            position: relative;
-            --ab-x: 2px;
-            --ab-y: 0px;
-            text-shadow:
-                calc(var(--ab-x) * -1) var(--ab-y) 0 rgba(255, 0, 110, 0.45),
-                var(--ab-x) calc(var(--ab-y) * -1) 0 rgba(0, 200, 255, 0.45);
-            transition: text-shadow 0.18s ease-out;
-        }
-
-        /* ========== WORK CARD TILT + SHIMMER ========== */
-        .work-card {
-            perspective: 1000px;
-        }
-        .work-card .work-card__image {
-            transform-style: preserve-3d;
-            transition: transform 0.5s var(--ease-out-expo);
-            transform: rotateY(var(--tilt-y, 0deg)) rotateX(var(--tilt-x, 0deg));
-        }
-        .work-card:hover .work-card__image {
-            transform: rotateY(var(--tilt-y, 0deg)) rotateX(var(--tilt-x, 0deg)) translateZ(20px) scale(1.02);
-        }
-        .work-card__image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                115deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.30) 48%,
-                rgba(255, 255, 255, 0.55) 50%,
-                rgba(255, 255, 255, 0.30) 52%,
-                transparent 70%
-            );
-            transform: translateX(-110%);
-            pointer-events: none;
-            z-index: 2;
-            mix-blend-mode: overlay;
-        }
-        .work-card.is-shimmered .work-card__image::after {
-            animation: shimmer 1.4s var(--ease-out-expo) forwards;
-        }
-        @keyframes shimmer {
-            0%   { transform: translateX(-110%); }
-            100% { transform: translateX(120%); }
-        }
     </style>
 </head>
 <body>
@@ -1771,7 +1640,7 @@
                 </div>
             </div>
             <div class="hero__image">
-                <picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.jpg" alt="Prism — Arthemii Ionaere, 2024" loading="eager" decoding="async" fetchpriority="high"></picture>
+                <img decoding="async" src="img/2024-12-Arthemii-Ionaere-prizmas.jpg" alt="Prism — Arthemii Ionaere, 2024" fetchpriority="high">
                 <div class="hero__image-caption" data-i18n="hero_caption">"Prism" — 2024</div>
             </div>
         </section>
@@ -1834,7 +1703,7 @@
 
                     <div class="reveal">
                         <figure class="about-image">
-                            <picture><source type="image/webp" srcset="img/opt/portrait-arthemii-800.webp 800w, img/opt/portrait-arthemii-1600.webp 1600w, img/opt/portrait-arthemii-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/portrait-arthemii-1600.jpg" alt="Arthemii Ionaere portrait — 2025, with prismatic light reflections" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/portrait-arthemii.jpg" alt="Arthemii Ionaere portrait — 2025, with prismatic light reflections">
                             <figcaption class="about-image__caption" data-i18n="about_image_caption">Portrait of the artist — 2025</figcaption>
                         </figure>
                     </div>
@@ -1857,7 +1726,7 @@
                 <div class="works-grid">
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-800.webp 800w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.webp 1600w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.jpg" alt="Visual Narratives" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-Aerthemii-ionaere-diachrr-fpik.png" alt="Visual Narratives">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_1_title">Visual Narratives</h3>
@@ -1866,7 +1735,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8428-scaled-800.webp 800w, img/opt/2024-12-IMG_8428-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8428-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8428-scaled-1600.jpg" alt="Vertical Horizons" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-IMG_8428-scaled.jpg" alt="Vertical Horizons">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_2_title">Vertical Horizons</h3>
@@ -1875,7 +1744,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.jpg" alt="Refined Reality" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-IMG_8977-Enhanced-NR-scaled.jpg" alt="Refined Reality">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_3_title">Refined Reality</h3>
@@ -1884,7 +1753,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.jpg" alt="Screen Captures" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.09.10.png" alt="Screen Captures">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_4_title">Screen Captures</h3>
@@ -1893,7 +1762,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.jpg" alt="Process Documentation" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.32.58.png" alt="Process Documentation">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_5_title">Process Documentation</h3>
@@ -1902,7 +1771,7 @@
 
                     <article class="work-card">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.jpg" alt="Evening Sessions" loading="lazy" decoding="async"></picture>
+                            <img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-18.57.04.png" alt="Evening Sessions">
                         </div>
                         <div class="work-card__info">
                             <h3 class="work-card__title" data-i18n="work_6_title">Evening Sessions</h3>
@@ -1970,12 +1839,12 @@
                             <p class="tech-block__desc">The copper foil method perfected by Louis Comfort Tiffany. The process begins with detailed drawings divided into individual pieces. Colored glass sheets are chosen, traced, and cut precisely. Each piece is wrapped with adhesive copper foil, then assembled and soldered with tin-lead solder. Works (60×90 cm or 80×120 cm) are installed in custom light boxes with LED backlighting — warm colours create comfort and joy, cooler colors induce calm and contemplation.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1008-800.webp 800w, img/opt/2024-05-IMG_1008-1600.webp 1600w, img/opt/2024-05-IMG_1008-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1008-1600.jpg" alt="Glass cutting" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1012-800.webp 800w, img/opt/2024-05-IMG_1012-1600.webp 1600w, img/opt/2024-05-IMG_1012-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1012-1600.jpg" alt="Foiling process" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1013-800.webp 800w, img/opt/2024-05-IMG_1013-1600.webp 1600w, img/opt/2024-05-IMG_1013-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1013-1600.jpg" alt="Soldering" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_2361-800.webp 800w, img/opt/2024-05-IMG_2361-1600.webp 1600w, img/opt/2024-05-IMG_2361-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_2361-1600.jpg" alt="Finished piece" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1010-800.webp 800w, img/opt/2024-05-IMG_1010-1600.webp 1600w, img/opt/2024-05-IMG_1010-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1010-1600.jpg" alt="Light box" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_6880-800.webp 800w, img/opt/2024-05-IMG_6880-1600.webp 1600w, img/opt/2024-05-IMG_6880-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_6880-1600.jpg" alt="Installation" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_1008.jpg" alt="Glass cutting"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_1012.jpg" alt="Foiling process"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_1013.jpg" alt="Soldering"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_2361.jpg" alt="Finished piece"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_1010.jpg" alt="Light box"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_6880.jpg" alt="Installation"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -1990,11 +1859,11 @@
                             <p class="tech-block__desc">Shadow prism technology designed for easy transport and quick installation. Specially prepared glass elements are assembled on-site to create sculptures functioning as prisms. When illuminated, the glass refracts light to cast mesmerizing patterns of light and shadow onto surrounding surfaces. Setup can be completed within days before the event — approximately 2-3 hours per installation. Ideal for temporary exhibitions and immersive environments.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7255-800.webp 800w, img/opt/2024-02-IMG_7255-1600.webp 1600w, img/opt/2024-02-IMG_7255-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7255-1600.jpg" alt="Shadow prism" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7291-800.webp 800w, img/opt/2024-02-IMG_7291-1600.webp 1600w, img/opt/2024-02-IMG_7291-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7291-1600.jpg" alt="Light patterns" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-Untitled-800.webp 800w, img/opt/2024-02-Untitled-1600.webp 1600w, img/opt/2024-02-Untitled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-Untitled-1600.jpg" alt="Shadow installation" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_2352-800.webp 800w, img/opt/2024-05-IMG_2352-1600.webp 1600w, img/opt/2024-05-IMG_2352-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_2352-1600.jpg" alt="Prism assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7250-800.webp 800w, img/opt/2024-05-IMG_7250-1600.webp 1600w, img/opt/2024-05-IMG_7250-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7250-1600.jpg" alt="Falling shadows result" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_7255.jpeg" alt="Shadow prism"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_7291.jpeg" alt="Light patterns"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-Untitled.jpg" alt="Shadow installation"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_2352.jpg" alt="Prism assembly"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_7250.jpg" alt="Falling shadows result"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -2009,14 +1878,14 @@
                             <p class="tech-block__desc">Specialized metal forms serve as the skeleton for stained glass, crafted using a proprietary "edge" technique for precise angles and durability. Metal forms are bent to the required radius for each design. Glass elements are kiln-fired to match the metal framework's curvature. Nearly all creations feature integrated electrical wiring for lighting elements. Can be installed on ceilings, floors, or walls. Approximately 1.5 months from initial design to final implementation.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1539-800.webp 800w, img/opt/2024-02-IMG_1539-1600.webp 1600w, img/opt/2024-02-IMG_1539-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1539-1600.jpg" alt="Metal frame" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1542-800.webp 800w, img/opt/2024-02-IMG_1542-1600.webp 1600w, img/opt/2024-02-IMG_1542-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1542-1600.jpg" alt="Frame bending" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1546-800.webp 800w, img/opt/2024-02-IMG_1546-1600.webp 1600w, img/opt/2024-02-IMG_1546-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1546-1600.jpg" alt="Glass fitting" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1548-800.webp 800w, img/opt/2024-02-IMG_1548-1600.webp 1600w, img/opt/2024-02-IMG_1548-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1548-1600.jpg" alt="Assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1555-800.webp 800w, img/opt/2024-02-IMG_1555-1600.webp 1600w, img/opt/2024-02-IMG_1555-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1555-1600.jpg" alt="Finished sculpture" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-800.webp 800w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-1600.webp 1600w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-1600.jpg" alt="Lit sculpture" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-1600.jpg" alt="Design detail" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-1600.jpg" alt="Final piece" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_1539.jpeg" alt="Metal frame"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_1542.jpeg" alt="Frame bending"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_1546.jpeg" alt="Glass fitting"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_1548.jpeg" alt="Assembly"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-IMG_1555.jpg" alt="Finished sculpture"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3.jpg" alt="Lit sculpture"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-13-at-22.24.31.png" alt="Design detail"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-13-at-22.25.06.png" alt="Final piece"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
@@ -2031,11 +1900,11 @@
                             <p class="tech-block__desc">Sculptures constructed from numerous glass elements meticulously soldered together. A metallic frame is crafted first, incorporating electrical wiring for lighting fixtures. Glass pieces are framed within a special edging for interconnection. These sculptures embrace the freedom of artistic expression — glass placement follows creative intuition rather than rigid plans. Pieces exhibit chaotic forms striving toward symmetry, capturing a dynamic blend of structure and spontaneity.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-1600.jpg" alt="Glass parts" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7517-800.webp 800w, img/opt/2024-05-IMG_7517-1600.webp 1600w, img/opt/2024-05-IMG_7517-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7517-1600.jpg" alt="Soldering process" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-1600.jpg" alt="Assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-800.webp 800w, img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-1600.webp 1600w, img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-1600.jpg" alt="Finished form" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-1600.jpg" alt="Detail" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-13-at-22.25.18.png" alt="Glass parts"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-IMG_7517.jpg" alt="Soldering process"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-13-at-21.58.05.png" alt="Assembly"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8.jpeg" alt="Finished form"></div>
+                            <div class="tech-block__photo"><img decoding="async" src="img/2024-05-Screenshot-2024-05-13-at-21.58.20.png" alt="Detail"></div>
                         </div>
                     </div>
                 </article>
@@ -2061,9 +1930,9 @@
                     </div>
                     <div class="workspace__photos">
                         <div class="workspace__photo"><img decoding="async" loading="lazy" src="video-posters/stained-mosaic.jpg" alt="Wide view of the studio with sculptures and stained glass works"></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-01-800.webp 800w, img/opt/workspace-01-1600.webp 1600w, img/opt/workspace-01-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-01-1600.jpg" alt="Workshop with vertical glass sheet storage racks" loading="lazy" decoding="async"></picture></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-03-800.webp 800w, img/opt/workspace-03-1600.webp 1600w, img/opt/workspace-03-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-03-1600.jpg" alt="Glass podium and sculptures in the studio" loading="lazy" decoding="async"></picture></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-04-800.webp 800w, img/opt/workspace-04-1600.webp 1600w, img/opt/workspace-04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-04-1600.jpg" alt="Display cases with finished glass pieces in the atelier" loading="lazy" decoding="async"></picture></div>
+                        <div class="workspace__photo"><img decoding="async" loading="lazy" src="img/workspace-01.jpg" alt="Workshop with vertical glass sheet storage racks"></div>
+                        <div class="workspace__photo"><img decoding="async" loading="lazy" src="img/workspace-03.jpg" alt="Glass podium and sculptures in the studio"></div>
+                        <div class="workspace__photo"><img decoding="async" loading="lazy" src="img/workspace-04.jpg" alt="Display cases with finished glass pieces in the atelier"></div>
                     </div>
                 </div>
             </div>
@@ -2273,55 +2142,55 @@
                     <h2 class="section__title" data-i18n="gallery_title">Extended collection</h2>
                 </header>
                 <div class="gallery__grid">
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/tall-sculpture-800.webp 800w, img/opt/tall-sculpture-1600.webp 1600w, img/opt/tall-sculpture-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/tall-sculpture-1600.jpg" alt="Arthemii standing next to a tall multicoloured glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/portrait-arthemii-800.webp 800w, img/opt/portrait-arthemii-1600.webp 1600w, img/opt/portrait-arthemii-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/portrait-arthemii-1600.jpg" alt="Arthemii Ionaere portrait with prismatic light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1539-800.webp 800w, img/opt/2024-02-IMG_1539-1600.webp 1600w, img/opt/2024-02-IMG_1539-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1539-1600.jpg" alt="Stained glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.jpg" alt="Prism sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-ionaere-lamp-fgj-800.webp 800w, img/opt/2024-12-Arthemii-ionaere-lamp-fgj-1600.webp 1600w, img/opt/2024-12-Arthemii-ionaere-lamp-fgj-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-ionaere-lamp-fgj-1600.jpg" alt="Glass lamp sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-800.webp 800w, img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-1600.webp 1600w, img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-1600.jpg" alt="Glass artwork detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-800.webp 800w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.webp 1600w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.jpg" alt="Dichroic glass piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-1600.jpg" alt="Light installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-800.webp 800w, img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-1600.webp 1600w, img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-1600.jpg" alt="Glass depth study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-1600.jpg" alt="Abstract glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-11-IMG_7791-800.webp 800w, img/opt/2024-11-IMG_7791-1600.webp 1600w, img/opt/2024-11-IMG_7791-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-11-IMG_7791-1600.jpg" alt="Exhibition installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-olymp-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-olymp-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-olymp-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-olymp-1600.jpg" alt="Olymp glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8428-scaled-800.webp 800w, img/opt/2024-12-IMG_8428-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8428-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8428-scaled-1600.jpg" alt="Vertical glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.jpg" alt="Enhanced glass study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-800.webp 800w, img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-1600.webp 1600w, img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-1600.jpg" alt="Recent glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-1600.jpg" alt="Light installation with deep colored shadows" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-1600.jpg" alt="Glass sculpture detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.jpg" alt="Studio process" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.jpg" alt="Evening studio session" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.jpg" alt="Process documentation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-1600.jpg" alt="Glass composition study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0981-800.webp 800w, img/opt/2024-05-IMG_0981-1600.webp 1600w, img/opt/2024-05-IMG_0981-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0981-1600.jpg" alt="Stained glass artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-1600.jpg" alt="Colored glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Huerrytop-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Huerrytop-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Huerrytop-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Huerrytop-1600.jpg" alt="Huerrytop sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Shteryit-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Shteryit-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Shteryit-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Shteryit-1600.jpg" alt="Shteryit piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-huweado-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-huweado-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-huweado-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-huweado-1600.jpg" alt="Huweado artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-800.webp 800w, img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-1600.webp 1600w, img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-1600.jpg" alt="Epsylon sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-1600.jpg" alt="Enhanced glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-1600.jpg" alt="Glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-1600.jpg" alt="Light study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-1600.jpg" alt="Glass detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-1600.jpg" alt="Stained glass detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-1600.jpg" alt="Glass texture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-1600.jpg" alt="Color and light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1574-800.webp 800w, img/opt/2024-02-IMG_1574-1600.webp 1600w, img/opt/2024-02-IMG_1574-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1574-1600.jpg" alt="Glass framework" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_3762-800.webp 800w, img/opt/2024-02-IMG_3762-1600.webp 1600w, img/opt/2024-02-IMG_3762-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_3762-1600.jpg" alt="Workshop scene" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7252-800.webp 800w, img/opt/2024-02-IMG_7252-1600.webp 1600w, img/opt/2024-02-IMG_7252-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7252-1600.jpg" alt="Shadow prism" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0054-800.webp 800w, img/opt/2024-05-IMG_0054-1600.webp 1600w, img/opt/2024-05-IMG_0054-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0054-1600.jpg" alt="Studio artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0179-scaled-800.webp 800w, img/opt/2024-05-IMG_0179-scaled-1600.webp 1600w, img/opt/2024-05-IMG_0179-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0179-scaled-1600.jpg" alt="Glass installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0445-scaled-800.webp 800w, img/opt/2024-05-IMG_0445-scaled-1600.webp 1600w, img/opt/2024-05-IMG_0445-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0445-scaled-1600.jpg" alt="Artwork detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7127-scaled-800.webp 800w, img/opt/2024-05-IMG_7127-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7127-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7127-scaled-1600.jpg" alt="Exhibition piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7158-scaled-800.webp 800w, img/opt/2024-05-IMG_7158-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7158-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7158-scaled-1600.jpg" alt="Light installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7175-scaled-800.webp 800w, img/opt/2024-05-IMG_7175-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7175-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7175-scaled-1600.jpg" alt="Glass and shadow" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7198-scaled-800.webp 800w, img/opt/2024-05-IMG_7198-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7198-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7198-scaled-1600.jpg" alt="Colored light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7268-scaled-800.webp 800w, img/opt/2024-05-IMG_7268-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7268-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7268-scaled-1600.jpg" alt="Prism effect" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7349-scaled-800.webp 800w, img/opt/2024-05-IMG_7349-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7349-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7349-scaled-1600.jpg" alt="Exhibition view" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-800.webp 800w, img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-1600.webp 1600w, img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-1600.jpg" alt="Sculpture detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-800.webp 800w, img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-1600.webp 1600w, img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-1600.jpg" alt="Glass artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-800.webp 800w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-1600.webp 1600w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-1600.jpg" alt="Lit sculpture" loading="lazy" decoding="async"></picture></div>
+                <div class="gallery__item"><img decoding="async" src="img/tall-sculpture.jpg" alt="Arthemii standing next to a tall multicoloured glass sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/portrait-arthemii.jpg" alt="Arthemii Ionaere portrait with prismatic light"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-02-IMG_1539.jpeg" alt="Stained glass composition"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-prizmas.jpg" alt="Prism sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-ionaere-lamp-fgj.jpg" alt="Glass lamp sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4.jpeg" alt="Glass artwork detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Aerthemii-ionaere-diachrr-fpik.png" alt="Dichroic glass piece"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.20.32.png" alt="Light installation"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-arthemii-ionaere-professional-camera-depth__77285.png" alt="Glass depth study"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-dsaaiHHk1.png" alt="Abstract glass composition"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-11-IMG_7791.jpg" alt="Exhibition installation"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-olymp.png" alt="Olymp glass sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_8428-scaled.jpg" alt="Vertical glass work"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_8977-Enhanced-NR-scaled.jpg" alt="Enhanced glass study"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2025-07-Screenshot-2025-07-22-at-13.52.55.png" alt="Recent glass work"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled.jpg" alt="Light installation with deep colored shadows"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.14.57.png" alt="Glass sculpture detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.09.10.png" alt="Studio process"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-18.57.04.png" alt="Evening studio session"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.32.58.png" alt="Process documentation"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Screenshot-2024-12-24-at-01.05.09.png" alt="Glass composition study"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_0981.jpg" alt="Stained glass artwork"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled.jpg" alt="Colored glass sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-Huerrytop.jpg" alt="Huerrytop sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-Shteryit.jpg" alt="Shteryit piece"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Arthemii-Ionaere-huweado.jpg" alt="Huweado artwork"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-Artjemii-Ionaere-epsylon-scaled.jpg" alt="Epsylon sculpture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9028-Enhanced-NR-scaled.jpg" alt="Enhanced glass work"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9199-Enhanced-NR-scaled.jpg" alt="Glass composition"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9352-Enhanced-NR-scaled.jpg" alt="Light study"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9373-Enhanced-NR-scaled.jpg" alt="Glass detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9376-Enhanced-NR-scaled.jpg" alt="Stained glass detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9484-Enhanced-NR-scaled.jpg" alt="Glass texture"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-12-IMG_9528-Enhanced-NR-scaled.jpg" alt="Color and light"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-02-IMG_1574.jpeg" alt="Glass framework"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-02-IMG_3762.jpg" alt="Workshop scene"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-02-IMG_7252.jpeg" alt="Shadow prism"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_0054.jpg" alt="Studio artwork"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_0179-scaled.jpg" alt="Glass installation"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_0445-scaled.jpg" alt="Artwork detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7127-scaled.jpg" alt="Exhibition piece"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7158-scaled.jpg" alt="Light installation"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7175-scaled.jpg" alt="Glass and shadow"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7198-scaled.jpg" alt="Colored light"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7268-scaled.jpg" alt="Prism effect"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-IMG_7349-scaled.jpg" alt="Exhibition view"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled.jpg" alt="Sculpture detail"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled.jpg" alt="Glass artwork"></div>
+                <div class="gallery__item"><img decoding="async" src="img/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled.jpg" alt="Lit sculpture"></div>
                 </div>
             </div>
         </section>
@@ -2374,7 +2243,7 @@
             <div class="container">
                 <div class="residency-banner reveal">
                     <div class="residency-banner__image">
-                        <picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-1600.jpg" alt="Arena Contemporary Berlin" loading="lazy" decoding="async"></picture>
+                        <img decoding="async" src="img/2024-05-Screenshot-2024-05-25-at-17.18.33.png" alt="Arena Contemporary Berlin">
                     </div>
                     <div class="residency-banner__body">
                         <div class="section__label">Residency</div>
@@ -2819,155 +2688,6 @@
                 const dy = e.changedTouches[0].clientY - touchStartY;
                 if (dy > 80) close();
             }, { passive: true });
-        })();
-
-        /* ===== CHROMATIC ABERRATION on hero title ===== */
-        (function(){
-            const title = document.querySelector('.hero__title');
-            if (!title) return;
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-            let raf = 0;
-            const apply = (x, y) => {
-                if (raf) return;
-                raf = requestAnimationFrame(() => {
-                    title.style.setProperty('--ab-x', x.toFixed(2) + 'px');
-                    title.style.setProperty('--ab-y', y.toFixed(2) + 'px');
-                    raf = 0;
-                });
-            };
-
-            document.addEventListener('mousemove', (e) => {
-                const cx = window.innerWidth / 2;
-                const cy = window.innerHeight / 2;
-                apply(((e.clientX - cx) / cx) * 6, ((e.clientY - cy) / cy) * 3);
-            }, { passive: true });
-
-            // Mobile: scroll-driven gentle aberration
-            if ('ontouchstart' in window) {
-                document.addEventListener('scroll', () => {
-                    const s = window.scrollY;
-                    apply(Math.sin(s * 0.005) * 4, Math.cos(s * 0.004) * 2);
-                }, { passive: true });
-            }
-        })();
-
-        /* ===== WORK CARD 3D TILT (mouse + device orientation) ===== */
-        (function(){
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            const cards = document.querySelectorAll('.work-card');
-            if (!cards.length) return;
-
-            cards.forEach(card => {
-                const image = card.querySelector('.work-card__image');
-                if (!image) return;
-                let rafId = 0;
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-                    if (rafId) return;
-                    rafId = requestAnimationFrame(() => {
-                        image.style.setProperty('--tilt-y', (x * 14).toFixed(2) + 'deg');
-                        image.style.setProperty('--tilt-x', (-y * 14).toFixed(2) + 'deg');
-                        rafId = 0;
-                    });
-                }, { passive: true });
-                card.addEventListener('mouseleave', () => {
-                    image.style.setProperty('--tilt-y', '0deg');
-                    image.style.setProperty('--tilt-x', '0deg');
-                });
-            });
-
-            // Mobile: device orientation tilt — applied to all cards together
-            if ('ontouchstart' in window && window.DeviceOrientationEvent) {
-                let smY = 0, smX = 0, rafId = 0;
-                const tick = () => {
-                    cards.forEach(card => {
-                        const image = card.querySelector('.work-card__image');
-                        if (image) {
-                            image.style.setProperty('--tilt-y', smY.toFixed(2) + 'deg');
-                            image.style.setProperty('--tilt-x', smX.toFixed(2) + 'deg');
-                        }
-                    });
-                    rafId = 0;
-                };
-                window.addEventListener('deviceorientation', (e) => {
-                    const ty = Math.max(-8, Math.min(8, (e.gamma || 0) * 0.18));
-                    const tx = Math.max(-8, Math.min(8, ((e.beta || 0) - 30) * 0.10));
-                    smY += (ty - smY) * 0.12;
-                    smX += (tx - smX) * 0.12;
-                    if (!rafId) rafId = requestAnimationFrame(tick);
-                });
-            }
-        })();
-
-        /* ===== SHIMMER on work-card reveal ===== */
-        (function(){
-            if (!('IntersectionObserver' in window)) return;
-            const cards = document.querySelectorAll('.work-card');
-            if (!cards.length) return;
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
-                        // tiny stagger so adjacent cards don't shimmer in unison
-                        const delay = Math.random() * 250;
-                        setTimeout(() => el.classList.add('is-shimmered'), delay);
-                        obs.unobserve(el);
-                    }
-                });
-            }, { threshold: 0.25 });
-            cards.forEach(c => obs.observe(c));
-        })();
-
-        /* ===== CUBE-SCROLL fallback for browsers without animation-timeline (iOS Safari < 26) ===== */
-        (function(){
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            // If the browser supports view-timeline, the CSS handles it — do nothing.
-            if (CSS && CSS.supports && CSS.supports('animation-timeline', 'view()')) return;
-
-            const main = document.querySelector('main');
-            if (!main) return;
-            main.style.perspective = '1600px';
-            main.style.perspectiveOrigin = '50% 50%';
-            main.style.transformStyle = 'preserve-3d';
-
-            const faces = Array.from(document.querySelectorAll('.hero, main > .section'));
-            faces.forEach(el => {
-                el.style.transformOrigin = 'center center';
-                el.style.willChange = 'transform, opacity, filter';
-                el.style.backfaceVisibility = 'hidden';
-            });
-
-            let ticking = false;
-            const onScroll = () => {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(() => {
-                    const vh = window.innerHeight;
-                    faces.forEach(el => {
-                        const r = el.getBoundingClientRect();
-                        const center = r.top + r.height / 2;
-                        // Progress: -1 (above viewport) to +1 (below viewport), 0 = perfectly centered
-                        const p = Math.max(-1.4, Math.min(1.4, (center - vh / 2) / (vh * 0.8)));
-                        // Only apply tilt outside the comfortable read zone
-                        const k = Math.abs(p) < 0.25 ? 0 : (p - Math.sign(p) * 0.25) / 1.15;
-                        const rotX = -k * 60;
-                        const tz = -Math.abs(k) * 240;
-                        const ty = k * 18;
-                        const opacity = 1 - Math.min(1, Math.abs(k) * 1.1);
-                        const blur = Math.abs(k) * 8;
-                        el.style.transform = `rotateX(${rotX.toFixed(2)}deg) translateZ(${tz.toFixed(0)}px) translateY(${ty.toFixed(1)}vh)`;
-                        el.style.opacity = opacity.toFixed(3);
-                        el.style.filter = blur > 0.1 ? `blur(${blur.toFixed(1)}px)` : '';
-                    });
-                    ticking = false;
-                });
-            };
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll, { passive: true });
-            onScroll();
         })();
     </script>
 </body>
