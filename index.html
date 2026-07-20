@@ -1796,7 +1796,7 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                {% for photo in ex.photos %}
+                                {% for photo in ex.photos limit:1 %}
                                 <div class="exhibition-block__photo"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
                                 {% endfor %}
                             </div>
