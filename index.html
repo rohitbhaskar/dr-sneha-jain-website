@@ -564,74 +564,6 @@
             transform: translateY(-2px);
         }
 
-        /* ========== MARQUEE ========== */
-        .marquee {
-            padding: var(--spacing-md) 0;
-            overflow: hidden;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .marquee__inner {
-            display: flex;
-            animation: marqueeScroll 30s linear infinite;
-            width: max-content;
-        }
-
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .marquee__item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            padding: 0 var(--spacing-lg);
-            font-family: var(--font-serif);
-            font-size: 1.0625rem;
-            font-style: italic;
-            color: var(--text-secondary);
-            white-space: nowrap;
-        }
-
-        .marquee__dot {
-            width: 11px;
-            height: 11px;
-            flex-shrink: 0;
-            background: conic-gradient(from 0deg, #2f8f5b, #2b6fb0, #c0392b, #d4a017, #7d3c98, #2f8f5b);
-            animation: dotSpin 5s linear infinite;
-        }
-
-        @keyframes dotSpin {
-            from { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(0.8); }
-            to { transform: rotate(360deg) scale(1); }
-        }
-
-        .marquee__item span {
-            position: relative;
-            display: inline-block;
-            padding: 0.3em 0.8em;
-            color: #f7f3ea;
-            background-color: #b5623f;
-            animation: buffColor 9s ease-in-out infinite;
-        }
-
-        @keyframes buffColor {
-            0%, 100% { background-color: #b5623f; }
-            20% { background-color: #7c8b5e; }
-            40% { background-color: #5b7c8d; }
-            60% { background-color: #c9a876; }
-            80% { background-color: #7c5c72; }
-        }
-
-        .marquee__item:nth-child(1) span, .marquee__item:nth-child(6) span { animation-delay: 0s; transform: rotate(-1.2deg); }
-        .marquee__item:nth-child(2) span, .marquee__item:nth-child(7) span { animation-delay: -1.8s; transform: rotate(0.8deg); }
-        .marquee__item:nth-child(3) span, .marquee__item:nth-child(8) span { animation-delay: -3.6s; transform: rotate(-0.6deg); }
-        .marquee__item:nth-child(4) span, .marquee__item:nth-child(9) span { animation-delay: -5.4s; transform: rotate(1.1deg); }
-        .marquee__item:nth-child(5) span, .marquee__item:nth-child(10) span { animation-delay: -7.2s; transform: rotate(-0.9deg); }
-
         /* ========== SECTIONS ========== */
         .section {
             padding: var(--spacing-3xl) 0;
@@ -1721,22 +1653,6 @@
             </div>
         </section>
 
-        <!-- ========== MARQUEE ========== -->
-        <div class="marquee" aria-hidden="true">
-            <div class="marquee__inner">
-                <div class="marquee__item"><span data-i18n="marquee_1">Stained Glass</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_2">Abstract Art</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_3">Light & Color</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_4">Kinetic Objects</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_5">Visual Poetry</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_1">Stained Glass</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_2">Abstract Art</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_3">Light & Color</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_4">Kinetic Objects</span><div class="marquee__dot"></div></div>
-                <div class="marquee__item"><span data-i18n="marquee_5">Visual Poetry</span><div class="marquee__dot"></div></div>
-            </div>
-        </div>
-
         <!-- ========== ABOUT ========== -->
         <section class="section" id="about">
             <div class="container">
@@ -2387,11 +2303,6 @@
                 hero_desc: 'Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.',
                 hero_cta_order: 'Commission a Project',
                 hero_caption: '"Prism" — 2024',
-                marquee_1: 'Stained Glass',
-                marquee_2: 'Abstract Art',
-                marquee_3: 'Light & Color',
-                marquee_4: 'Kinetic Objects',
-                marquee_5: 'Visual Poetry',
                 about_label: 'About',
                 about_title: 'Redefining stained glass through contemporary abstraction',
                 about_p1: 'The abstract and contemporary approach to the use of glass and color departs from the traditional Christian symbolism of stained glass, which usually features concrete depictions of saints, biblical scenes, or symbols. However, even in this abstract form, the exploration of potential symbolism and meanings through an innovative approach to symbolism remains relevant.',
@@ -2444,11 +2355,6 @@
                 hero_desc: 'Explorando la intersección del arte abstracto y las vidrieras contemporáneas. Cada pieza crea una experiencia inmersiva donde la luz transforma el color y la geometría en un lenguaje visual profundamente personal.',
                 hero_cta_order: 'Encargar un Proyecto',
                 hero_caption: '"Prisma" — 2024',
-                marquee_1: 'Vidrieras',
-                marquee_2: 'Arte Abstracto',
-                marquee_3: 'Luz y Color',
-                marquee_4: 'Objetos Cinéticos',
-                marquee_5: 'Poesía Visual',
                 about_label: 'Acerca de',
                 about_title: 'Redefiniendo las vidrieras a través de la abstracción contemporánea',
                 about_p1: 'El enfoque abstracto y contemporáneo del uso del vidrio y el color se aparta del simbolismo cristiano tradicional de las vidrieras, que generalmente presenta representaciones concretas de santos, escenas bíblicas o símbolos. Sin embargo, incluso en esta forma abstracta, la exploración del simbolismo y los significados potenciales sigue siendo relevante.',
@@ -2691,9 +2597,6 @@
 
         /* ===== PREFERS REDUCED MOTION ===== */
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('.marquee__inner').forEach(el => {
-                el.style.animation = 'none';
-            });
             document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
                 el.classList.add('is-visible');
                 el.style.transition = 'none';
