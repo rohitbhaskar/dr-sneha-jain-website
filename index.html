@@ -596,12 +596,27 @@
         }
 
         .marquee__dot {
-            width: 4px;
-            height: 4px;
-            background: var(--text-tertiary);
-            border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 2px;
             flex-shrink: 0;
+            background: #2f8f5b;
+            animation: dotColor 6s ease-in-out infinite;
         }
+
+        @keyframes dotColor {
+            0%, 100% { background-color: #2f8f5b; }
+            20% { background-color: #2b6fb0; }
+            40% { background-color: #c0392b; }
+            60% { background-color: #d4a017; }
+            80% { background-color: #7d3c98; }
+        }
+
+        .marquee__item:nth-child(1) .marquee__dot, .marquee__item:nth-child(6) .marquee__dot { animation-delay: 0s; }
+        .marquee__item:nth-child(2) .marquee__dot, .marquee__item:nth-child(7) .marquee__dot { animation-delay: -1.2s; }
+        .marquee__item:nth-child(3) .marquee__dot, .marquee__item:nth-child(8) .marquee__dot { animation-delay: -2.4s; }
+        .marquee__item:nth-child(4) .marquee__dot, .marquee__item:nth-child(9) .marquee__dot { animation-delay: -3.6s; }
+        .marquee__item:nth-child(5) .marquee__dot, .marquee__item:nth-child(10) .marquee__dot { animation-delay: -4.8s; }
 
         /* ========== SECTIONS ========== */
         .section {
