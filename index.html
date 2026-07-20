@@ -1094,6 +1094,47 @@
             font-size: 0.9375rem;
             line-height: 1.7;
             color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+        }
+
+        .exhibition-block__desc.is-expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+            overflow: visible;
+        }
+
+        .exhibition-block__toggle {
+            display: none;
+            align-items: center;
+            gap: 0.4em;
+            margin-top: 0.75em;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .exhibition-block__toggle.is-visible {
+            display: inline-flex;
+        }
+
+        .exhibition-block__toggle-arrow {
+            display: inline-block;
+            transition: transform 0.25s var(--ease-out-expo);
+        }
+
+        .exhibition-block__toggle.is-open .exhibition-block__toggle-arrow {
+            transform: rotate(180deg);
         }
 
         .exhibition-block__stats {
@@ -1671,8 +1712,7 @@
                 <p class="hero__subtitle" data-i18n="hero_subtitle">Abstract stained glass through light, color, and form</p>
                 <p class="hero__desc" data-i18n="hero_desc">Chaos striving for symmetry. Architectural discovery through a personal psychological method focused on unconscious mechanisms of form generation. Fusing classical Gothic aesthetics and abstract art into a new, dynamic visual language through colored glass.</p>
                 <div class="hero__actions">
-                    <a href="works/" class="btn btn--primary" data-i18n="hero_cta_works">View Works</a>
-                    <a href="contact/" class="btn btn--outline" data-i18n="hero_cta_contact">Get in Touch</a>
+                    <a href="contact/" class="btn btn--primary" data-i18n="hero_cta_order">Commission a Project</a>
                 </div>
             </div>
             <div class="hero__image">
@@ -1815,6 +1855,10 @@
                             <h3 class="exhibition-block__title">{{ ex.title }}</h3>
                             {% if ex.location %}<div class="exhibition-block__location">{{ ex.location }}</div>{% endif %}
                             <p class="exhibition-block__desc">{{ ex.description }}</p>
+                            <button type="button" class="exhibition-block__toggle" aria-expanded="false">
+                                <span class="exhibition-block__toggle-label">Show more</span>
+                                <span class="exhibition-block__toggle-arrow">▾</span>
+                            </button>
                             {% if ex.stats.size > 0 %}
                             <div class="exhibition-block__stats">
                                 {% for s in ex.stats %}
@@ -2341,8 +2385,7 @@
                 hero_eyebrow: 'Contemporary Stained Glass Artist — Est. 2016',
                 hero_subtitle: 'Abstract stained glass through light, color, and form',
                 hero_desc: 'Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.',
-                hero_cta_works: 'View Works',
-                hero_cta_contact: 'Get in Touch',
+                hero_cta_order: 'Commission a Project',
                 hero_caption: '"Prism" — 2024',
                 marquee_1: 'Stained Glass',
                 marquee_2: 'Abstract Art',
@@ -2399,8 +2442,7 @@
                 hero_eyebrow: 'Artista Contemporáneo de Vidrieras — Est. 2016',
                 hero_subtitle: 'Vidrieras abstractas a través de la luz, el color y la forma',
                 hero_desc: 'Explorando la intersección del arte abstracto y las vidrieras contemporáneas. Cada pieza crea una experiencia inmersiva donde la luz transforma el color y la geometría en un lenguaje visual profundamente personal.',
-                hero_cta_works: 'Ver Obras',
-                hero_cta_contact: 'Contacto',
+                hero_cta_order: 'Encargar un Proyecto',
                 hero_caption: '"Prisma" — 2024',
                 marquee_1: 'Vidrieras',
                 marquee_2: 'Arte Abstracto',
@@ -2544,6 +2586,23 @@
 
         document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
             revealObserver.observe(el);
+        });
+
+        /* ===== EXHIBITION DESCRIPTION TOGGLE ===== */
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.exhibition-block__desc').forEach(function(desc) {
+                const btn = desc.nextElementSibling;
+                if (!btn || !btn.classList.contains('exhibition-block__toggle')) return;
+                if (desc.scrollHeight > desc.clientHeight + 2) {
+                    btn.classList.add('is-visible');
+                }
+                btn.addEventListener('click', function() {
+                    const expanded = desc.classList.toggle('is-expanded');
+                    btn.classList.toggle('is-open', expanded);
+                    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    btn.querySelector('.exhibition-block__toggle-label').textContent = expanded ? 'Show less' : 'Show more';
+                });
+            });
         });
 
         /* ===== CONTACT FORM ===== */
