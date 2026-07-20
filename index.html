@@ -1839,49 +1839,6 @@
         </section>
         <div class="section__divider"></div>
 
-        <!-- ========== EXHIBITIONS ========== -->
-        <section class="section" id="exhibitions">
-            <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label">Exhibitions</div>
-                </header>
-
-                {% for ex in site.data.exhibitions.items %}
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">{{ ex.date_start }}{% if ex.date_end != "" %} — {{ ex.date_end }}{% endif %}</div>
-                            <span class="exhibition-block__type">{{ ex.type }}</span>
-                            <h3 class="exhibition-block__title">{{ ex.title }}</h3>
-                            {% if ex.location %}<div class="exhibition-block__location">{{ ex.location }}</div>{% endif %}
-                            <p class="exhibition-block__desc">{{ ex.description }}</p>
-                            <button type="button" class="exhibition-block__toggle" aria-expanded="false">
-                                <span class="exhibition-block__toggle-label">Show more</span>
-                                <span class="exhibition-block__toggle-arrow">▾</span>
-                            </button>
-                            {% if ex.stats.size > 0 %}
-                            <div class="exhibition-block__stats">
-                                {% for s in ex.stats %}
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">{{ s.num }}</span><span class="exhibition-block__stat-label">{{ s.label }}</span></div>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                {% for photo in ex.photos limit:1 %}
-                                <div class="exhibition-block__photo"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    {% unless forloop.last %}<div class="exhibition-block__divider"></div>{% endunless %}
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        <div class="section__divider"></div>
-
         <!-- ========== TECHNOLOGIES ========== -->
         <section class="section" id="technologies">
             <div class="container">
@@ -1969,6 +1926,49 @@
                         </div>
                     </div>
                 </article>
+            </div>
+        </section>
+        <div class="section__divider"></div>
+
+        <!-- ========== EXHIBITIONS ========== -->
+        <section class="section" id="exhibitions">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label">Exhibitions</div>
+                </header>
+
+                {% for ex in site.data.exhibitions.items %}
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">{{ ex.date_start }}{% if ex.date_end != "" %} — {{ ex.date_end }}{% endif %}</div>
+                            <span class="exhibition-block__type">{{ ex.type }}</span>
+                            <h3 class="exhibition-block__title">{{ ex.title }}</h3>
+                            {% if ex.location %}<div class="exhibition-block__location">{{ ex.location }}</div>{% endif %}
+                            <p class="exhibition-block__desc">{{ ex.description }}</p>
+                            <button type="button" class="exhibition-block__toggle" aria-expanded="false">
+                                <span class="exhibition-block__toggle-label">Show more</span>
+                                <span class="exhibition-block__toggle-arrow">▾</span>
+                            </button>
+                            {% if ex.stats.size > 0 %}
+                            <div class="exhibition-block__stats">
+                                {% for s in ex.stats %}
+                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">{{ s.num }}</span><span class="exhibition-block__stat-label">{{ s.label }}</span></div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                {% for photo in ex.photos limit:1 %}
+                                <div class="exhibition-block__photo"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% unless forloop.last %}<div class="exhibition-block__divider"></div>{% endunless %}
+                </article>
+                {% endfor %}
             </div>
         </section>
         <div class="section__divider"></div>
