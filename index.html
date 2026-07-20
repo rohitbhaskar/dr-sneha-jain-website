@@ -596,27 +596,35 @@
         }
 
         .marquee__dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 2px;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
             flex-shrink: 0;
-            background: #2f8f5b;
-            animation: dotColor 6s ease-in-out infinite;
+            background: var(--text-tertiary);
         }
 
-        @keyframes dotColor {
-            0%, 100% { background-color: #2f8f5b; }
-            20% { background-color: #2b6fb0; }
-            40% { background-color: #c0392b; }
-            60% { background-color: #d4a017; }
-            80% { background-color: #7d3c98; }
+        .marquee__item span {
+            position: relative;
+            display: inline-block;
+            padding: 0.3em 0.8em;
+            color: #f7f3ea;
+            background-color: #b5623f;
+            animation: buffColor 9s ease-in-out infinite;
         }
 
-        .marquee__item:nth-child(1) .marquee__dot, .marquee__item:nth-child(6) .marquee__dot { animation-delay: 0s; }
-        .marquee__item:nth-child(2) .marquee__dot, .marquee__item:nth-child(7) .marquee__dot { animation-delay: -1.2s; }
-        .marquee__item:nth-child(3) .marquee__dot, .marquee__item:nth-child(8) .marquee__dot { animation-delay: -2.4s; }
-        .marquee__item:nth-child(4) .marquee__dot, .marquee__item:nth-child(9) .marquee__dot { animation-delay: -3.6s; }
-        .marquee__item:nth-child(5) .marquee__dot, .marquee__item:nth-child(10) .marquee__dot { animation-delay: -4.8s; }
+        @keyframes buffColor {
+            0%, 100% { background-color: #b5623f; }
+            20% { background-color: #7c8b5e; }
+            40% { background-color: #5b7c8d; }
+            60% { background-color: #c9a876; }
+            80% { background-color: #7c5c72; }
+        }
+
+        .marquee__item:nth-child(1) span, .marquee__item:nth-child(6) span { animation-delay: 0s; transform: rotate(-1.2deg); }
+        .marquee__item:nth-child(2) span, .marquee__item:nth-child(7) span { animation-delay: -1.8s; transform: rotate(0.8deg); }
+        .marquee__item:nth-child(3) span, .marquee__item:nth-child(8) span { animation-delay: -3.6s; transform: rotate(-0.6deg); }
+        .marquee__item:nth-child(4) span, .marquee__item:nth-child(9) span { animation-delay: -5.4s; transform: rotate(1.1deg); }
+        .marquee__item:nth-child(5) span, .marquee__item:nth-child(10) span { animation-delay: -7.2s; transform: rotate(-0.9deg); }
 
         /* ========== SECTIONS ========== */
         .section {
