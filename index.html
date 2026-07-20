@@ -596,11 +596,17 @@
         }
 
         .marquee__dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 1px;
+            width: 11px;
+            height: 11px;
             flex-shrink: 0;
-            background: var(--text-tertiary);
+            background: conic-gradient(from 0deg, #2f8f5b, #2b6fb0, #c0392b, #d4a017, #7d3c98, #2f8f5b);
+            animation: dotSpin 5s linear infinite;
+        }
+
+        @keyframes dotSpin {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(0.8); }
+            to { transform: rotate(360deg) scale(1); }
         }
 
         .marquee__item span {
