@@ -1093,20 +1093,19 @@
         }
 
         .exhibition-block__photos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-xs);
-        }
-
-        .exhibition-block__photo {
+            position: relative;
             border-radius: var(--radius-sm);
             overflow: hidden;
             background: var(--bg-alt);
+        }
+
+        .exhibition-block__photo {
+            display: none;
             cursor: zoom-in;
         }
 
-        .exhibition-block__photo:only-child {
-            grid-column: 1 / -1;
+        .exhibition-block__photo.is-active {
+            display: block;
         }
 
         .exhibition-block__photo img {
@@ -1117,8 +1116,41 @@
             transition: transform 0.4s var(--ease-out-expo);
         }
         .exhibition-block__photo:hover img { transform: scale(1.03); }
-        @media (max-width: 480px) {
-            .exhibition-block__photos { grid-template-columns: 1fr; }
+
+        .exhibition-block__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-size: 1.125rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: background 0.2s ease, opacity 0.2s ease;
+            z-index: 2;
+        }
+
+        .exhibition-block__photos:hover .exhibition-block__nav {
+            opacity: 1;
+        }
+
+        .exhibition-block__nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .exhibition-block__nav--prev { left: 12px; }
+        .exhibition-block__nav--next { right: 12px; }
+
+        @media (max-width: 768px) {
+            .exhibition-block__nav { opacity: 1; }
         }
 
         .exhibition-block__divider {
@@ -1876,9 +1908,13 @@
                         </div>
                         <div>
                             <div class="exhibition-block__photos">
-                                {% for photo in ex.photos limit:1 %}
-                                <div class="exhibition-block__photo"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
+                                {% for photo in ex.photos %}
+                                <div class="exhibition-block__photo{% if forloop.first %} is-active{% endif %}"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
                                 {% endfor %}
+                                {% if ex.photos.size > 1 %}
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -2509,6 +2545,26 @@
                     btn.querySelector('.exhibition-block__toggle-label').textContent = expanded ? 'Show less' : 'Show more';
                 });
             });
+        });
+
+        /* ===== EXHIBITION PHOTO CAROUSEL ===== */
+        document.querySelectorAll('.exhibition-block__photos').forEach(function(container) {
+            const photos = Array.from(container.querySelectorAll('.exhibition-block__photo'));
+            if (photos.length <= 1) return;
+
+            let index = photos.findIndex(function(p) { return p.classList.contains('is-active'); });
+            if (index < 0) index = 0;
+
+            function show(newIndex) {
+                photos[index].classList.remove('is-active');
+                index = (newIndex + photos.length) % photos.length;
+                photos[index].classList.add('is-active');
+            }
+
+            const prevBtn = container.querySelector('.exhibition-block__nav--prev');
+            const nextBtn = container.querySelector('.exhibition-block__nav--next');
+            if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); show(index - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); show(index + 1); });
         });
 
         /* ===== CONTACT FORM ===== */
