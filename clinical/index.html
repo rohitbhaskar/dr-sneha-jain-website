@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clinical Experience, Surgical Caseload, OPD Statistics and Case Diversity of Dr. Sneha Jain — Resident Ophthalmologist at Jupiter Hospital, Thane.">
+    <meta name="theme-color" content="#fafafa">
+    <title>Clinical Experience — Dr. Sneha Jain</title>
+
+    <!-- Fonts: Hahmlet variable font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/sneha-jain-web-1.jpeg" sizes="32x32">
+    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpeg">
+
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f2f2f0;
+            --bg-elevated: #ffffff;
+            --text: #111111;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999999;
+            --border: #e5e5e3;
+            --border-strong: #ccccca;
+
+            --font-sans: 'Hahmlet', Georgia, 'Times New Roman', serif;
+            --font-serif: 'Hahmlet', Georgia, serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-full: 100px;
+
+            --container-max: 1400px;
+            --header-height: 72px;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-md); }
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background: rgba(250, 250, 250, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 var(--spacing-md); }
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__logo:hover { opacity: 0.7; }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+        }
+
+        .header__link {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .header__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .header__link:hover { color: var(--text); }
+        .header__link:hover::after { width: 100%; }
+
+        /* Mobile menu button */
+        .header__menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .header__menu-btn span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .header__menu-btn span:first-child { top: 35%; }
+        .header__menu-btn span:last-child { bottom: 35%; }
+
+        @media (max-width: 768px) {
+            .header__menu-btn { display: block; }
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .mobile-nav.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav__link {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav__link:hover { opacity: 0.5; }
+
+        .mobile-nav__close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .section__header {
+            max-width: 750px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: var(--spacing-md);
+            padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--text);
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .section__label::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--text);
+            border-radius: 50%;
+        }
+
+        .section__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section__desc {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .section__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* ========== EXHIBITION / SURGERY BLOCK ========== */
+        .exhibition-block {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .exhibition-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .exhibition-block__header {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .exhibition-block__header {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+
+            .exhibition-block {
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .exhibition-block__title {
+                font-size: 1.25rem;
+            }
+
+            .exhibition-block__desc {
+                font-size: 0.875rem;
+            }
+
+            .exhibition-block__stats {
+                gap: var(--spacing-sm);
+            }
+
+            .exhibition-block__stat-num {
+                font-size: 1.25rem;
+            }
+        }
+
+        .exhibition-block__date {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.375rem;
+        }
+
+        .exhibition-block__type {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--text);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .exhibition-block__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .exhibition-block__location {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .exhibition-block__desc {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .exhibition-block__stats {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .exhibition-block__stat {
+            text-align: center;
+            background: var(--bg-alt);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            min-width: 100px;
+        }
+
+        .exhibition-block__stat-num {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            display: block;
+            color: var(--text);
+        }
+
+        .exhibition-block__stat-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+        }
+
+        .exhibition-block__photos {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-alt);
+            aspect-ratio: 4/3;
+        }
+
+        .exhibition-block__photo {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .exhibition-block__photo.is-active {
+            display: block;
+        }
+
+        .exhibition-block__photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .exhibition-block__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            z-index: 2;
+        }
+
+        .exhibition-block__nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .exhibition-block__nav--prev { left: 10px; }
+        .exhibition-block__nav--next { right: 10px; }
+
+        .exhibition-block__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
+        }
+
+        /* ========== STATS & CASE DIVERSITY STYLING ========== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+        .stat-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-strong);
+        }
+
+        .stat-card__number {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 2.5rem);
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card__title {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-card__desc {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+        }
+
+        /* Cases Grid */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 900px) {
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+
+        .case-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            transition: border-color 0.3s ease;
+        }
+
+        .case-card:hover {
+            border-color: var(--border-strong);
+        }
+
+        .case-card__badge {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: var(--bg-alt);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .case-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .case-card__desc {
+            font-size: 0.875rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .footer__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer__brand {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer__link {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover { color: var(--text); }
+
+        .footer__copy {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <a href="../" class="header__logo">Dr. Sneha Jain</a>
+
+        <nav class="header__nav">
+            <a href="../about/" class="header__link">About</a>
+            <a href="../clinical/" class="header__link" style="color: var(--text);">Clinical</a>
+            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../research/" class="header__link">Research</a>
+            <a href="../recommendations/" class="header__link">Recommendations</a>
+            <a href="../highlights/" class="header__link">Highlights</a>
+            <a href="../cv/" class="header__link">CV</a>
+            <a href="../contact/" class="header__link">Contact</a>
+        </nav>
+
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <a href="../about/" class="mobile-nav__link">About</a>
+        <a href="../clinical/" class="mobile-nav__link">Clinical</a>
+        <a href="../academics/" class="mobile-nav__link">Academics</a>
+        <a href="../research/" class="mobile-nav__link">Research</a>
+        <a href="../recommendations/" class="header__link">Recommendations</a>
+        <a href="../highlights/" class="mobile-nav__link">Highlights</a>
+        <a href="../cv/" class="mobile-nav__link">CV</a>
+        <a href="../contact/" class="mobile-nav__link">Contact</a>
+    </div>
+
+    <main style="padding-top: calc(72px + 2rem);">
+        <!-- ========== CLINICAL EXPERIENCE HEADER ========== -->
+        <section class="section" id="clinical-experience">
+            <div class="container">
+                <header class="section__header">
+                    <div class="section__label">Clinical Practice</div>
+                    <h2 class="section__title">Surgical Competencies &amp; Clinical Exposure</h2>
+                    <p class="section__desc">Comprehensive overview of primary anterior segment surgical procedures, quantitative OPD caseloads, and management of diverse ophthalmic presentations.</p>
+                </header>
+
+                <!-- SECTION 1: TOP 5 SURGERIES -->
+                <section id="surgeries">
+                    <header class="section__header" style="margin-bottom: var(--spacing-xl);">
+                        <div class="section__label">Surgical Caseload</div>
+                        <h3 class="section__title" style="font-size: 1.75rem;">Top 5 Surgical Competencies</h3>
+                    </header>
+
+                    <!-- Surgery 1: Clear Corneal Phacoemulsification -->
+                    <article class="exhibition-block">
+                        <div class="exhibition-block__header">
+                            <div>
+                                <div class="exhibition-block__date">01 · Primary Anterior Segment Surgery</div>
+                                <span class="exhibition-block__type">Phacoemulsification</span>
+                                <h3 class="exhibition-block__title">Clear Corneal Phacoemulsification with Foldable IOL Implantation</h3>
+                                <div class="exhibition-block__location">Jupiter Hospital — Thane, Mumbai Region</div>
+                                <p class="exhibition-block__desc">Hands-on micro-incision cataract surgery performing clear corneal phacoemulsification using divide-and-conquer and stop-and-chop nuclear sculpting techniques. Extensive experience with continuous curvilinear capsulorhexis (CCC), automated cortical aspiration, and foldable hydrophobic acrylic intraocular lens (IOL) delivery in grade II-IV nuclear cataracts.</p>
+                                <div class="exhibition-block__stats">
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Primary</span>
+                                        <span class="exhibition-block__stat-label">Clear Corneal</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Assisted</span>
+                                        <span class="exhibition-block__stat-label">Complex Cases</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Foldable</span>
+                                        <span class="exhibition-block__stat-label">IOL Delivery</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="exhibition-block__photos">
+                                    <div class="exhibition-block__photo is-active"><img src="../img/surgery-stock-image-1.jpg" alt="Phacoemulsification Procedure"></div>
+                                    <div class="exhibition-block__photo"><img src="../img/surgery-stock-image-2.jpg" alt="Capsulorhexis and Nuclear Sculpting"></div>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exhibition-block__divider"></div>
+                    </article>
+
+                    <!-- Surgery 2: Manual Small Incision Cataract Surgery (SICS) -->
+                    <article class="exhibition-block">
+                        <div class="exhibition-block__header">
+                            <div>
+                                <div class="exhibition-block__date">02 · High-Volume Cataract Surgery</div>
+                                <span class="exhibition-block__type">Manual SICS</span>
+                                <h3 class="exhibition-block__title">Small Incision Cataract Surgery (SICS) in Dense &amp; Mature Cataracts</h3>
+                                <div class="exhibition-block__location">Jupiter Hospital — Thane &amp; Community Surgical Camps</div>
+                                <p class="exhibition-block__desc">Primary surgical management of dense, brown, hyper-mature, and hard nuclear sclerosis cataracts via self-sealing sclero-corneal tunnel construction. Technique covers valvular tunnel creation, envelope capsulotomy / CCC, hydrodissection, nuclear prolapse into the anterior chamber, visco-expression, and rigid PMMA IOL placement with low induced astigmatism.</p>
+                                <div class="exhibition-block__stats">
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Primary</span>
+                                        <span class="exhibition-block__stat-label">Sclero-Corneal</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">PMMA</span>
+                                        <span class="exhibition-block__stat-label">Rigid IOL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="exhibition-block__photos">
+                                    <div class="exhibition-block__photo is-active"><img src="../img/surgery-stock-image-3.jpg" alt="Manual SICS Sclero-Corneal Tunnel"></div>
+                                    <div class="exhibition-block__photo"><img src="../img/surgery-stock-image-4.jpg" alt="Nuclear Delivery in SICS"></div>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exhibition-block__divider"></div>
+                    </article>
+
+                    <!-- Surgery 3: Premium IOL & Precision Biometry -->
+                    <article class="exhibition-block">
+                        <div class="exhibition-block__header">
+                            <div>
+                                <div class="exhibition-block__date">03 · Refractive Cataract Planning</div>
+                                <span class="exhibition-block__type">Biometry &amp; Premium IOLs</span>
+                                <h3 class="exhibition-block__title">Pre-Operative Optical Biometry &amp; Toric / Premium IOL Planning</h3>
+                                <div class="exhibition-block__location">Jupiter Hospital — Thane</div>
+                                <p class="exhibition-block__desc">Specialized preoperative planning for cataract patients targeting spectacle independence. Utilizes swept-source OCT optical biometry (IOLMaster) alongside modern formulas (Barrett Universal II, Kane, Hill-RBF) for precise IOL power selection, astigmatism axis mapping for toric intraocular lenses, and refractive outcome auditing.</p>
+                                <div class="exhibition-block__stats">
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">IOLMaster</span>
+                                        <span class="exhibition-block__stat-label">Optical Biometry</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Barrett II</span>
+                                        <span class="exhibition-block__stat-label">Formula Calc</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="exhibition-block__photos">
+                                    <div class="exhibition-block__photo is-active"><img src="../img/surgery-stock-image-5.jpg" alt="Optical Biometry and Corneal Topography"></div>
+                                    <div class="exhibition-block__photo"><img src="../img/surgery-stock-image-6.jpg" alt="Slit-Lamp Pre-Op Evaluation"></div>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exhibition-block__divider"></div>
+                    </article>
+
+                    <!-- Surgery 4: Pterygium Excision with Autograft -->
+                    <article class="exhibition-block">
+                        <div class="exhibition-block__header">
+                            <div>
+                                <div class="exhibition-block__date">04 · Surface &amp; Ocular Reconstruction</div>
+                                <span class="exhibition-block__type">Corneal Surface</span>
+                                <h3 class="exhibition-block__title">Pterygium Excision with Autologous Conjunctival Grafting</h3>
+                                <div class="exhibition-block__location">Jupiter Hospital &amp; Grant Medical College OPDs</div>
+                                <p class="exhibition-block__desc">Surgical removal of primary and recurrent nasal/temporal pterygii with limbal-conjunctival autograft transplantation (CAG) secured via sutureless fibrin glue / 10-0 nylon micro-sutures to minimize recurrence rates and preserve corneal transparency.</p>
+                                <div class="exhibition-block__stats">
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Autograft</span>
+                                        <span class="exhibition-block__stat-label">Limbal CAG</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Fibrin Glue</span>
+                                        <span class="exhibition-block__stat-label">Sutureless</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="exhibition-block__photos">
+                                    <div class="exhibition-block__photo is-active"><img src="../img/sneha-jain-web-3.jpeg" alt="Pterygium Excision Surgery"></div>
+                                    <div class="exhibition-block__photo"><img src="../img/surgery-stock-image-1.jpg" alt="Anterior Segment Surface Care"></div>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exhibition-block__divider"></div>
+                    </article>
+
+                    <!-- Surgery 5: Anterior Segment Trauma Repair -->
+                    <article class="exhibition-block">
+                        <div class="exhibition-block__header">
+                            <div>
+                                <div class="exhibition-block__date">05 · Emergency Ophthalmic Care</div>
+                                <span class="exhibition-block__type">Ocular Trauma</span>
+                                <h3 class="exhibition-block__title">Corneal Laceration Repair &amp; Anterior Segment Trauma Management</h3>
+                                <div class="exhibition-block__location">JJ Hospital Casualty &amp; Jupiter Emergency OPD</div>
+                                <p class="exhibition-block__desc">Emergency primary surgical repair of open globe injuries, full-thickness corneal and scleral lacerations using 10-0 monofilament nylon sutures, iris prolapse repositioning, traumatic cataract primary care, and anterior chamber washouts for hyphema.</p>
+                                <div class="exhibition-block__stats">
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">Emergency</span>
+                                        <span class="exhibition-block__stat-label">Trauma Repair</span>
+                                    </div>
+                                    <div class="exhibition-block__stat">
+                                        <span class="exhibition-block__stat-num">10-0 Nylon</span>
+                                        <span class="exhibition-block__stat-label">Corneal Suturing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="exhibition-block__photos">
+                                    <div class="exhibition-block__photo is-active"><img src="../img/surgery-stock-image-2.jpg" alt="Corneal Suturing and Microsurgery"></div>
+                                    <div class="exhibition-block__photo"><img src="../img/sneha-jain-web-4.jpg" alt="Emergency Eye Care"></div>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                    <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <div class="section__divider"></div>
+
+                <!-- SECTION 2: SURGICAL & OPD CLINICAL STATISTICS -->
+                <section id="clinical-stats">
+                    <header class="section__header" style="margin-bottom: var(--spacing-xl);">
+                        <div class="section__label">Quantitative Metrics</div>
+                        <h3 class="section__title" style="font-size: 1.75rem;">Surgical &amp; Outpatient (OPD) Summary</h3>
+                        <p class="section__desc">Key clinical volume metrics tracked across 3 years of postgraduate residency training at Jupiter Hospital and tertiary hospital rotations.</p>
+                    </header>
+
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-card__number">150+</div>
+                            <div class="stat-card__title">Primary Phaco Cases</div>
+                            <div class="stat-card__desc">Clear corneal phacoemulsification performed independently with foldable IOL implantation.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">120+</div>
+                            <div class="stat-card__title">Primary Manual SICS</div>
+                            <div class="stat-card__desc">Sclero-corneal tunnel cataract surgeries in dense, mature, and brown nuclear cataracts.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">250+</div>
+                            <div class="stat-card__title">Minor Surgeries</div>
+                            <div class="stat-card__desc">Pterygium autografting, corneal laceration repairs, chalazion incision, and foreign body removals.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">8,000+</div>
+                            <div class="stat-card__title">OPD Consultations</div>
+                            <div class="stat-card__desc">Comprehensive slit-lamp examinations, refractions, and diagnostic evaluations handled in high-volume OPDs.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">1,500+</div>
+                            <div class="stat-card__title">Biometry Calculations</div>
+                            <div class="stat-card__desc">Optical biometry (IOLMaster) and immersion ultrasound IOL power selections using modern formulas.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">600+</div>
+                            <div class="stat-card__title">Specialty Workups</div>
+                            <div class="stat-card__desc">Glaucoma gonioscopy, HVF interpretation, pediatric orthoptic evaluations, and OCT macula readings.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">200+</div>
+                            <div class="stat-card__title">Assisted Complex Surgeries</div>
+                            <div class="stat-card__desc">Assisted senior consultants in subluxated cataracts, traumatic pupils, and combined procedures.</div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card__number">300+</div>
+                            <div class="stat-card__title">Emergency Casualties</div>
+                            <div class="stat-card__desc">Acute angle closure, ocular chemical burns, hyphema, and open globe emergency triage.</div>
+                        </article>
+                    </div>
+                </section>
+
+                <div class="section__divider"></div>
+
+                <!-- SECTION 3: VARIETY OF CASES & CLINICAL PRESENTATIONS HANDLED -->
+                <section id="case-diversity">
+                    <header class="section__header" style="margin-bottom: var(--spacing-xl);">
+                        <div class="section__label">Clinical Diversity</div>
+                        <h3 class="section__title" style="font-size: 1.75rem;">Case Spectrum &amp; Problem Management</h3>
+                        <p class="section__desc">Exemplifying diagnostic and therapeutic decision-making across complex anterior segment conditions, ocular surface diseases, and emergency ophthalmic presentations.</p>
+                    </header>
+
+                    <div class="cases-grid">
+                        <article class="case-card">
+                            <span class="case-card__badge">Complex Cataracts</span>
+                            <h4 class="case-card__title">Hard Brown &amp; Intumescent Cataracts</h4>
+                            <p class="case-card__desc">Pre-operative planning and intraoperative execution in grade V nuclear sclerosis, intumescent white cataracts requiring trypan blue staining for capsulorhexis, and small pupil phacoemulsification utilizing mechanical pupil expansion rings.</p>
+                        </article>
+
+                        <article class="case-card">
+                            <span class="case-card__badge">Refractive Cataract Surgery</span>
+                            <h4 class="case-card__title">Toric &amp; Multifocal IOL Evaluation</h4>
+                            <p class="case-card__desc">Screening candidates for premium intraocular lenses using corneal topography, swept-source OCT biometry, posterior corneal astigmatism correction (Barrett Toric formula), and patient visual expectation counseling.</p>
+                        </article>
+
+                        <article class="case-card">
+                            <span class="case-card__badge">Corneal &amp; Ocular Surface</span>
+                            <h4 class="case-card__title">Severe Dry Eye &amp; Ocular Surface Disease</h4>
+                            <p class="case-card__desc">Diagnostic evaluation and stepped treatment for Meibomian Gland Dysfunction (MGD), Sjögren's syndrome, persistent epithelial defects, punctal plug insertion, and autologous serum eye drops initiation.</p>
+                        </article>
+
+                        <article class="case-card">
+                            <span class="case-card__badge">Glaucoma Diagnostics</span>
+                            <h4 class="case-card__title">Primary &amp; Secondary Glaucoma Management</h4>
+                            <p class="case-card__desc">Performing routine 4-mirror gonioscopy, Goldmann Applanation Tonometry (GAT), Humphrey Visual Field (HVF) visual field defect analysis, RNFL OCT interpretation, and medical pressure lowering therapy adjustment.</p>
+                        </article>
+
+                        <article class="case-card">
+                            <span class="case-card__badge">Emergency Ocular Trauma</span>
+                            <h4 class="case-card__title">Corneal Laceration &amp; Hyphema Triage</h4>
+                            <p class="case-card__desc">Primary surgical closure of full-thickness corneal tears with 10-0 nylon monofilament, iris prolapse management, medical management of traumatic hyphema, intraocular pressure control, and secondary cataract timing.</p>
+                        </article>
+
+                        <article class="case-card">
+                            <span class="case-card__badge">Pediatric Eye Care</span>
+                            <h4 class="case-card__title">Pediatric Refraction &amp; Amblyopia Workup</h4>
+                            <p class="case-card__desc">Cycloplegic retinoscopy in pediatric populations, amblyopia patching protocols, accommodative dynamics evaluation, and squints workup under senior pediatric ophthalmologist mentorship.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">Dr. Sneha Jain</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="../about/" class="footer__link">About</a>
+                    <a href="../clinical/" class="footer__link">Clinical</a>
+                    <a href="../academics/" class="footer__link">Academics</a>
+                    <a href="../research/" class="footer__link">Research</a>
+                    <a href="../highlights/" class="footer__link">Highlights</a>
+                    <a href="../cv/" class="footer__link">CV</a>
+                    <a href="../contact/" class="footer__link">Contact</a>
+                </nav>
+                <div class="footer__copy">© 2026 Dr. Sneha Jain</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        'use strict';
+
+        /* ===== MOBILE NAV ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => mobileNav.classList.add('is-open'));
+        }
+
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+        }
+
+        if (mobileNav) {
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+            });
+        }
+
+        /* ===== SURGERY PHOTO CAROUSEL ===== */
+        document.querySelectorAll('.exhibition-block__photos').forEach(function(container) {
+            const photos = Array.from(container.querySelectorAll('.exhibition-block__photo'));
+            if (photos.length <= 1) return;
+
+            let index = photos.findIndex(function(p) { return p.classList.contains('is-active'); });
+            if (index < 0) index = 0;
+
+            function show(newIndex) {
+                photos[index].classList.remove('is-active');
+                index = (newIndex + photos.length) % photos.length;
+                photos[index].classList.add('is-active');
+            }
+
+            const prevBtn = container.querySelector('.exhibition-block__nav--prev');
+            const nextBtn = container.querySelector('.exhibition-block__nav--next');
+            if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); show(index - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); show(index + 1); });
+        });
+    </script>
+</body>
+</html>

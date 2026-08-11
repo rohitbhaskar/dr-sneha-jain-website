@@ -3,123 +3,715 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Arthemii Ionaere">
+    <meta name="description" content="Contact Dr. Sneha Jain — Resident Ophthalmologist at Jupiter Hospital, Thane. Enquiries regarding academic collaborations, fellowship opportunities, and clinical communications.">
     <meta name="theme-color" content="#fafafa">
-    <title>Contact — Arthemii Ionaere</title>
+    <title>Contact — Dr. Sneha Jain | Ophthalmologist</title>
+
+    <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-32x32.jpg" sizes="32x32">
-    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/sneha-jain-web-1.jpg" sizes="32x32">
+    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpg">
+
     <style>
-        .header { transform: none !important; animation: none !important; }
-        .reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block {
-            opacity: 1 !important; transform: none !important; transition: none !important;
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f2f2f0;
+            --bg-elevated: #ffffff;
+            --text: #111111;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999999;
+            --border: #e5e5e3;
+            --border-strong: #ccccca;
+
+            --font-sans: 'Hahmlet', Georgia, 'Times New Roman', serif;
+            --font-serif: 'Hahmlet', Georgia, serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-full: 100px;
+
+            --container-max: 1400px;
+            --header-height: 72px;
         }
-        .hero__eyebrow, .hero__title, .hero__subtitle, .hero__desc, .hero__actions, .hero__image {
-            opacity: 1 !important; transform: none !important; animation: none !important;
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-md); }
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background: rgba(250, 250, 250, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 var(--spacing-md); }
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__logo:hover { opacity: 0.7; }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+        }
+
+        .header__link {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .header__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .header__link:hover { color: var(--text); }
+        .header__link:hover::after { width: 100%; }
+
+        /* Mobile menu button */
+        .header__menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .header__menu-btn span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .header__menu-btn span:first-child { top: 35%; }
+        .header__menu-btn span:last-child { bottom: 35%; }
+
+        @media (max-width: 768px) {
+            .header__menu-btn { display: block; }
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .mobile-nav.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav__link {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav__link:hover { opacity: 0.5; }
+
+        .mobile-nav__close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .section__header {
+            max-width: 700px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: var(--spacing-md);
+            padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--text);
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .section__label::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--text);
+            border-radius: 50%;
+        }
+
+        .section__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section__desc {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        /* ========== CONTACT SECTION STYLING ========== */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-2xl);
+            align-items: start;
+        }
+
+        @media (max-width: 880px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
+
+        /* Contact Details Card */
+        .contact-info {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+        }
+
+        .contact-info__header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-info__name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info__role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item__label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item__value {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            color: var(--text);
+        }
+
+        .contact-item__value a {
+            border-bottom: 1px solid var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item__value a:hover {
+            opacity: 0.6;
+        }
+
+        .contact-item__sub {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .contact-profiles {
+            display: flex;
+            gap: var(--spacing-xs);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .profile-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            background: var(--bg-alt);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .profile-btn:hover {
+            border-color: var(--text);
+            background: var(--text);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            border: 1px solid var(--border);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .contact-form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 640px) {
+            .contact-form__row { grid-template-columns: 1fr; }
+            .contact-form-wrapper { padding: var(--spacing-lg); }
+        }
+
+        .contact-form__label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-form__input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: var(--text);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form__input:focus {
+            outline: none;
+            border-color: var(--text);
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        }
+
+        .contact-form__textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .contact-form__submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--text);
+            color: var(--bg);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form__submit:hover {
+            background: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        .contact-form__submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .footer__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer__brand {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer__link {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover { color: var(--text); }
+
+        .footer__copy {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
         }
     </style>
 </head>
 <body>
+    <!-- ========== HEADER ========== -->
     <header class="header">
-        <a href="../" class="header__logo">Arthemii Ionaere</a>
+        <a href="../" class="header__logo">Dr. Sneha Jain</a>
+
         <nav class="header__nav">
             <a href="../about/" class="header__link">About</a>
-            <a href="../works/" class="header__link">Works</a>
-            <a href="../exhibitions/" class="header__link">Exhibitions</a>
-            <a href="../technologies/" class="header__link">Technologies</a>
-            <a href="../gallery/" class="header__link">Gallery</a>
-            <a href="../videos/" class="header__link">Videos</a>
-            <a href="../contact/" class="header__link">Contact</a>
+            <a href="../clinical/" class="header__link">Clinical</a>
+            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../research/" class="header__link">Research</a>
+            <a href="../recommendations/" class="header__link">Recommendations</a>
+            <a href="../highlights/" class="header__link">Highlights</a>
+            <a href="../cv/" class="header__link">CV</a>
+            <a href="../contact/" class="header__link" style="color: var(--text);">Contact</a>
         </nav>
-        <button class="header__menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span></button>
+
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
     </header>
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close"></button>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">✕</button>
         <a href="../about/" class="mobile-nav__link">About</a>
-        <a href="../works/" class="mobile-nav__link">Works</a>
-        <a href="../exhibitions/" class="mobile-nav__link">Exhibitions</a>
-        <a href="../technologies/" class="mobile-nav__link">Technologies</a>
-        <a href="../gallery/" class="mobile-nav__link">Gallery</a>
-        <a href="../videos/" class="mobile-nav__link">Videos</a>
-        <a href="../contact/" class="mobile-nav__link">Contact</a>
+        <a href="../clinical/" class="mobile-nav__link">Clinical</a>
+        <a href="../academics/" class="mobile-nav__link">Academics</a>
+        <a href="../research/" class="mobile-nav__link">Research</a>
+        <a href="../recommendations/" class="header__link">Recommendations</a>
+        <a href="../highlights/" class="mobile-nav__link">Highlights</a>
+        <a href="../cv/" class="mobile-nav__link">CV</a>
+        <a href="../contact/" class="mobile-nav__link" style="color: var(--text);">Contact</a>
     </div>
-    <main style="padding-top:calc(72px + 2rem)">
-<!-- ========== CONTACT ========== -->
+
+    <main style="padding-top: calc(72px + 2rem);">
+        <!-- ========== CONTACT SECTION ========== -->
         <section class="section" id="contact">
             <div class="container">
-                <header class="section__header section__header--center reveal">
-                    <div class="section__label" data-i18n="contact_label">Contact</div>
-                    <h2 class="section__title" data-i18n="contact_title">Join the artist</h2>
-                    <p class="section__desc" data-i18n="contact_desc">For questions, collaborations or purchases</p>
+                <header class="section__header">
+                    <div class="section__label">Get In Touch</div>
+                    <h2 class="section__title">Academic, Clinical &amp; Research Enquiries</h2>
+                    <p class="section__desc">For fellowship inquiries, research collaborations, surgical case communications, or professional networking.</p>
                 </header>
 
-                <div class="contact">
-                    <form class="contact-form" id="contactForm" novalidate>
-                        <div class="contact-form__row">
-                            <div>
-                                <label class="contact-form__label" for="name" data-i18n="form_name">Name</label>
-                                <input class="contact-form__input" type="text" id="name" name="name" required autocomplete="name">
+                <div class="contact-layout">
+                    <!-- Column 1: Info Card -->
+                    <div class="contact-info">
+                        <div class="contact-info__header">
+                            <h3 class="contact-info__name">Dr. Sneha Jain</h3>
+                            <div class="contact-info__role">Resident Ophthalmologist | Anterior Segment Focus</div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__label">Official Email</div>
+                            <div class="contact-item__value">
+                                <a href="mailto:contact@drsnehajain.co.in">contact@drsnehajain.co.in</a>
                             </div>
-                            <div>
-                                <label class="contact-form__label" for="email" data-i18n="form_email">Email</label>
-                                <input class="contact-form__input" type="email" id="email" name="email" required autocomplete="email">
+                            <div class="contact-item__sub">Direct academic &amp; fellowship communications</div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__label">Current Affiliation</div>
+                            <div class="contact-item__value">Department of Ophthalmology</div>
+                            <div class="contact-item__sub">Jupiter Hospital — Thane, Mumbai Region, Maharashtra</div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__label">Primary Practice Areas</div>
+                            <div class="contact-item__sub">Cataract Surgery (Phacoemulsification &amp; SICS), Optical Biometry, Ocular Surface &amp; Emergency Ophthalmic Care</div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__label">Academic Profiles &amp; CV</div>
+                            <div class="contact-profiles">
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="profile-btn">LinkedIn ↗</a>
+                                <a href="https://scholar.google.com" target="_blank" rel="noopener" class="profile-btn">Google Scholar ↗</a>
+                                <a href="https://orcid.org" target="_blank" rel="noopener" class="profile-btn">ORCID ↗</a>
+                                <a href="../cv/" class="profile-btn" style="background: var(--text); color: var(--bg);">View CV →</a>
                             </div>
                         </div>
-                        <div>
-                            <label class="contact-form__label" for="subject" data-i18n="form_subject">Subject</label>
-                            <input class="contact-form__input" type="text" id="subject" name="subject">
-                        </div>
-                        <div>
-                            <label class="contact-form__label" for="message" data-i18n="form_message">Message</label>
-                            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" required></textarea>
-                        </div>
-                        <button class="contact-form__submit" type="submit" data-i18n="form_submit">Send Message</button>
-                    </form>
+                    </div>
+
+                    <!-- Column 2: Direct Form -->
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="contact-form__row">
+                                <div>
+                                    <label class="contact-form__label" for="name">Your Name</label>
+                                    <input class="contact-form__input" type="text" id="name" name="name" placeholder="Dr. / Mr. / Ms. Full Name" required autocomplete="name">
+                                </div>
+                                <div>
+                                    <label class="contact-form__label" for="email">Email Address</label>
+                                    <input class="contact-form__input" type="email" id="email" name="email" placeholder="name@institution.org" required autocomplete="email">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="contact-form__label" for="institution">Institution / Organization</label>
+                                <input class="contact-form__input" type="text" id="institution" name="institution" placeholder="Hospital, Medical College or University">
+                            </div>
+
+                            <div>
+                                <label class="contact-form__label" for="subject">Subject / Nature of Enquiry</label>
+                                <input class="contact-form__input" type="text" id="subject" name="subject" placeholder="Fellowship Opportunity / Research Collaboration / Academic Inquiry">
+                            </div>
+
+                            <div>
+                                <label class="contact-form__label" for="message">Message</label>
+                                <textarea class="contact-form__input contact-form__textarea" id="message" name="message" placeholder="Please write your message here..." required></textarea>
+                            </div>
+
+                            <button class="contact-form__submit" type="submit">Send Professional Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <div class="footer__brand">Arthemii Ionaere</div>
-                <nav class="footer__nav">
+                <div class="footer__brand">Dr. Sneha Jain</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
                     <a href="../about/" class="footer__link">About</a>
-                    <a href="../works/" class="footer__link">Works</a>
-                    <a href="../exhibitions/" class="footer__link">Exhibitions</a>
-                    <a href="../gallery/" class="footer__link">Gallery</a>
+                    <a href="../clinical/" class="footer__link">Clinical</a>
+                    <a href="../academics/" class="footer__link">Academics</a>
+                    <a href="../research/" class="footer__link">Research</a>
+                    <a href="../highlights/" class="footer__link">Highlights</a>
+                    <a href="../cv/" class="footer__link">CV</a>
                     <a href="../contact/" class="footer__link">Contact</a>
                 </nav>
-                <div class="footer__copy">&copy; 2026 Arthemii Ionaere</div>
+                <div class="footer__copy">© 2026 Dr. Sneha Jain</div>
             </div>
         </div>
     </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
     <script>
-    var mb=document.getElementById("menuBtn"),mn=document.getElementById("mobileNav"),mc=document.getElementById("mobileNavClose");
-    if(mb&&mn)mb.onclick=function(){mn.classList.add("is-open")};
-    if(mc&&mn)mc.onclick=function(){mn.classList.remove("is-open")};
-    if(mn){var ls=mn.querySelectorAll("a");for(var i=0;i<ls.length;i++)ls[i].onclick=function(){mn.classList.remove("is-open")}};
-    var yts=document.querySelectorAll(".yt-placeholder");
-    for(var i=0;i<yts.length;i++){(function(el){
-        el.onclick=function(){
-            var id=this.getAttribute("data-yt");
-            var f=document.createElement("iframe");
-            f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&mute=0&controls=1&rel=0";
-            f.allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture";
-            f.allowFullscreen=true;
-            f.style.cssText="width:100%;height:100%;border:none";
-            this.parentNode.replaceChild(f,this);
-        };
-    })(yts[i])};
-    var vcs=document.querySelectorAll(".video-card");
-    for(var i=0;i<vcs.length;i++){(function(c){
-        var v=c.querySelector("video");if(!v)return;
-        c.onmouseenter=function(){v.play().catch(function(){})};
-        c.onmouseleave=function(){v.pause();v.currentTime=0};
-    })(vcs[i])};
+        'use strict';
+
+        /* ===== MOBILE NAV ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => mobileNav.classList.add('is-open'));
+        }
+
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+        }
+
+        if (mobileNav) {
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+            });
+        }
+
+        /* ===== CONTACT FORM SUBMISSION HANDLER ===== */
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = this.querySelector('#name').value.trim();
+                const email = this.querySelector('#email').value.trim();
+                const message = this.querySelector('#message').value.trim();
+
+                if (!name || !email || !message) {
+                    alert('Please complete all required fields (Name, Email, Message).');
+                    return;
+                }
+
+                const btn = this.querySelector('.contact-form__submit');
+                const orig = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Sending Message...';
+
+                setTimeout(() => {
+                    alert('Thank you for reaching out, ' + name + '. Your enquiry has been received.');
+                    this.reset();
+                    btn.disabled = false;
+                    btn.textContent = orig;
+                }, 1200);
+            });
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional mentor recommendations and academic endorsements for Dr. Sneha Jain — Resident Ophthalmologist specializing in Cataract, Anterior Segment & Phaco-Refractive Surgery.">
+    <meta name="theme-color" content="#fafafa">
+    <title>Recommendations &amp; Mentorship — Dr. Sneha Jain</title>
+
+    <!-- Fonts: Hahmlet variable font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/sneha-jain-web-1.jpeg" sizes="32x32">
+    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpeg">
+
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f2f2f0;
+            --bg-elevated: #ffffff;
+            --text: #111111;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999999;
+            --border: #e5e5e3;
+            --border-strong: #ccccca;
+
+            --font-sans: 'Hahmlet', Georgia, 'Times New Roman', serif;
+            --font-serif: 'Hahmlet', Georgia, serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-full: 100px;
+
+            --container-max: 1400px;
+            --header-height: 72px;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-md); }
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background: rgba(250, 250, 250, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 var(--spacing-md); }
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__logo:hover { opacity: 0.7; }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+        }
+
+        .header__link {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .header__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .header__link:hover { color: var(--text); }
+        .header__link:hover::after { width: 100%; }
+
+        /* Mobile menu button */
+        .header__menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .header__menu-btn span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .header__menu-btn span:first-child { top: 35%; }
+        .header__menu-btn span:last-child { bottom: 35%; }
+
+        @media (max-width: 768px) {
+            .header__menu-btn { display: block; }
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .mobile-nav.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav__link {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav__link:hover { opacity: 0.5; }
+
+        .mobile-nav__close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .section__header {
+            max-width: 750px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: var(--spacing-md);
+            padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--text);
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .section__label::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--text);
+            border-radius: 50%;
+        }
+
+        .section__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section__desc {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .section__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* ========== RECOMMENDATION FEATURE BLOCK ========== */
+        .recommendation-feature {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recommendation-feature:hover {
+            border-color: var(--border-strong);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .recommendation-feature__grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.95fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        @media (max-width: 880px) {
+            .recommendation-feature__grid { grid-template-columns: 1fr; }
+            .recommendation-feature { padding: var(--spacing-md); }
+        }
+
+        .recommendation-feature__tag {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--text);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .recommendation-feature__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .recommendation-feature__mentor {
+            font-size: 0.9375rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .recommendation-feature__quote {
+            position: relative;
+            font-family: var(--font-serif);
+            font-size: 1.0625rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text);
+            padding-left: 1rem;
+            border-left: 2px solid var(--text);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .recommendation-feature__desc {
+            font-size: 0.9375rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .recommendation-feature__bullets {
+            list-style: none;
+            margin-top: var(--spacing-md);
+        }
+
+        .recommendation-feature__bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .recommendation-feature__bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .recommendation-feature__photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xs);
+        }
+
+        .recommendation-feature__photo {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-alt);
+            aspect-ratio: 4/3;
+        }
+
+        .recommendation-feature__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .footer__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer__brand {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .footer__link {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover { color: var(--text); }
+
+        .footer__copy {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <a href="../" class="header__logo">Dr. Sneha Jain</a>
+
+        <nav class="header__nav">
+            <a href="../about/" class="header__link">About</a>
+            <a href="../clinical/" class="header__link">Clinical</a>
+            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../research/" class="header__link">Research</a>
+            <a href="../recommendations/" class="header__link" style="color: var(--text);">Recommendations</a>
+            <a href="../highlights/" class="header__link">Highlights</a>
+            <a href="../cv/" class="header__link">CV</a>
+            <a href="../contact/" class="header__link">Contact</a>
+        </nav>
+
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <a href="../about/" class="mobile-nav__link">About</a>
+        <a href="../clinical/" class="mobile-nav__link">Clinical</a>
+        <a href="../academics/" class="mobile-nav__link">Academics</a>
+        <a href="../research/" class="mobile-nav__link">Research</a>
+        <a href="../recommendations/" class="mobile-nav__link">Recommendations</a>
+        <a href="../highlights/" class="mobile-nav__link">Highlights</a>
+        <a href="../cv/" class="mobile-nav__link">CV</a>
+        <a href="../contact/" class="mobile-nav__link">Contact</a>
+    </div>
+
+    <main style="padding-top: calc(72px + 2rem);">
+        <!-- ========== RECOMMENDATIONS HEADER ========== -->
+        <section class="section" id="recommendations">
+            <div class="container">
+                <header class="section__header">
+                    <div class="section__label">Mentorship &amp; Endorsements</div>
+                    <h2 class="section__title">Professional Recommendations for Phaco-Refractive Specialization</h2>
+                    <p class="section__desc">Testimonials, clinical assessments, and academic letters of endorsement from senior surgical faculty, department chiefs, and research mentors highlighting Dr. Sneha Jain's readiness for advanced fellowship training.</p>
+                </header>
+
+                <!-- Recommendation 1: Dr. Vishram Sangit -->
+                <article class="recommendation-feature">
+                    <span class="recommendation-feature__tag">Department Chief &amp; Primary Surgical Mentor</span>
+                    <div class="recommendation-feature__grid">
+                        <div>
+                            <h3 class="recommendation-feature__title">Endorsement for Phaco-Refractive &amp; Advanced Anterior Segment Fellowship</h3>
+                            <div class="recommendation-feature__mentor">Dr. Vishram Sangit — Chief of Ophthalmology &amp; Senior Cataract Surgeon, Jupiter Hospital, Thane</div>
+                            
+                            <blockquote class="recommendation-feature__quote">
+                                "Dr. Sneha Jain displays exceptional tissue handling, intraoperative composure, and structural precision in the operating room. As our pioneering resident, she has consistently outperformed expectations in micro-incision cataract surgery."
+                            </blockquote>
+
+                            <p class="recommendation-feature__desc">Dr. Sangit has overseen Dr. Jain's primary surgical log across 3 years of residency at Jupiter Hospital. His recommendation underscores her rapid progression in phacoemulsification, clear corneal incision architecture, continuous curvilinear capsulorhexis (CCC) consistency, and post-operative outcome tracking.</p>
+                            
+                            <ul class="recommendation-feature__bullets">
+                                <li><strong>Surgical Competency:</strong> Mastered clear corneal phacoemulsification (divide-and-conquer &amp; stop-and-chop) and manual SICS in dense cataracts.</li>
+                                <li><strong>Clinical Leadership:</strong> Played an instrumental role in establishing standardized pre-operative OPD protocols and surgical logbooks for the department.</li>
+                                <li><strong>Fellowship Assessment:</strong> Strongly recommended for high-volume phaco-refractive fellowship training, citing her dedication to spectacle independence and refractive outcomes.</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation-feature__photos">
+                            <div class="recommendation-feature__photo"><img src="../img/surgery-stock-image-1.jpg" alt="Phacoemulsification Surgery Mentorship"></div>
+                            <div class="recommendation-feature__photo"><img src="../img/sneha-jain-web-1.jpeg" alt="Dr. Sneha Jain Clinical Evaluation"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recommendation 2: Dr. Mihir Kothari -->
+                <article class="recommendation-feature">
+                    <span class="recommendation-feature__tag">Paediatric Ophthalmology &amp; Clinical Research Supervisor</span>
+                    <div class="recommendation-feature__grid">
+                        <div>
+                            <h3 class="recommendation-feature__title">Academic &amp; Research Capability Recommendation</h3>
+                            <div class="recommendation-feature__mentor">Dr. Mihir Kothari — Consultant Paediatric Ophthalmologist &amp; Squint Specialist, Jupiter Hospital &amp; Jyotirmay Eye Clinic</div>
+                            
+                            <blockquote class="recommendation-feature__quote">
+                                "Sneha possesses an analytical mind and an unwavering academic discipline. Her work in our pediatric myopia and accommodative dynamics cohort demonstrated both research acumen and meticulous clinical data collection."
+                            </blockquote>
+
+                            <p class="recommendation-feature__desc">Mentoring Dr. Jain in pediatric eye care and clinical study design, Dr. Kothari commends her scholarly aptitude, patient communication skills, and systematic approach to complex pediatric refraction and binocular vision anomalies.</p>
+                            
+                            <ul class="recommendation-feature__bullets">
+                                <li><strong>Research Execution:</strong> Co-authored observational protocols on low-dose atropine combined with optical defocus for pediatric myopia control.</li>
+                                <li><strong>Diagnostic Accuracy:</strong> Demonstrated expertise in cycloplegic retinoscopy, accommodative reserve testing, and strabismus triage.</li>
+                                <li><strong>Academic Distinction:</strong> Highlighted her ability to translate complex clinical findings into conference poster presentations and journal manuscripts.</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation-feature__photos">
+                            <div class="recommendation-feature__photo"><img src="../img/sneha-jain-web-3.jpeg" alt="Pediatric Clinical Research"></div>
+                            <div class="recommendation-feature__photo"><img src="../img/surgery-stock-image-3.jpg" alt="Diagnostic Workups"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recommendation 3: Dr. Rajesh Deshmukh -->
+                <article class="recommendation-feature">
+                    <span class="recommendation-feature__tag">Cornea &amp; Refractive Surgery Mentor</span>
+                    <div class="recommendation-feature__grid">
+                        <div>
+                            <h3 class="recommendation-feature__title">Recommendation in Corneal Surface &amp; Refractive Evaluation</h3>
+                            <div class="recommendation-feature__mentor">Dr. Rajesh Deshmukh — Senior Consultant, Cornea &amp; Refractive Services, Jupiter Hospital</div>
+                            
+                            <blockquote class="recommendation-feature__quote">
+                                "Her understanding of corneal topography, astigmatism vector analysis, and optical biometry formulas is well beyond resident level. She is uniquely suited for a premium phaco-refractive career path."
+                            </blockquote>
+
+                            <p class="recommendation-feature__desc">Having supervised Dr. Jain in specialty cornea OPDs and biometry clinics, Dr. Deshmukh emphasizes her thorough approach to pre-operative refractive planning, corneal tomography reading, and dry eye disease management.</p>
+                            
+                            <ul class="recommendation-feature__bullets">
+                                <li><strong>Refractive Planning:</strong> Skilled in IOLMaster swept-source OCT interpretation and modern power calculations (Barrett Universal II &amp; Toric).</li>
+                                <li><strong>Ocular Surface Procedures:</strong> Proficient in pterygium excision with limbal autograft (CAG) using sutureless fibrin glue.</li>
+                                <li><strong>Aesthetic &amp; Precision Focus:</strong> Keen interest in premium IOL candidacy, post-refractive cataract evaluations, and corneal endothelial health.</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation-feature__photos">
+                            <div class="recommendation-feature__photo"><img src="../img/surgery-stock-image-5.jpg" alt="Corneal Topography and Biometry"></div>
+                            <div class="recommendation-feature__photo"><img src="../img/sneha-jain-web-4.jpeg" alt="Anterior Segment Evaluation"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recommendation 4: Dr. Ananya Sharma -->
+                <article class="recommendation-feature">
+                    <span class="recommendation-feature__tag">Surgical Faculty &amp; High-Volume OPD Mentor</span>
+                    <div class="recommendation-feature__grid">
+                        <div>
+                            <h3 class="recommendation-feature__title">Endorsement for High-Volume Surgical Efficiency &amp; Patient Care</h3>
+                            <div class="recommendation-feature__mentor">Dr. Ananya Sharma — Senior Consultant Cataract &amp; Refractive Surgeon</div>
+                            
+                            <blockquote class="recommendation-feature__quote">
+                                "Dr. Jain combines surgical grace with deep empathy for her patients. She manages heavy OPD volumes with poise and demonstrates excellent surgical judgement during challenging anterior segment cases."
+                            </blockquote>
+
+                            <p class="recommendation-feature__desc">Dr. Sharma observed Dr. Jain across thousands of outpatient consultations and routine/complex cataract surgeries. Her recommendation highlights Dr. Jain's surgical adaptability, intraoperative complication management, and post-operative patient rapport.</p>
+                            
+                            <ul class="recommendation-feature__bullets">
+                                <li><strong>Volume Management:</strong> Seamlessly managed high-volume OPD clinics exceeding 8,000+ patient consultations during residency.</li>
+                                <li><strong>Complex Cataract Handling:</strong> Experience in trypan blue staining for intumescent white cataracts and pupil expansion ring deployment.</li>
+                                <li><strong>Surgical Discipline:</strong> Meticulous adherence to sterile protocols, tissue preservation, and low surgically induced astigmatism (SIA).</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation-feature__photos">
+                            <div class="recommendation-feature__photo"><img src="../img/surgery-stock-image-2.jpg" alt="Microsurgery Training"></div>
+                            <div class="recommendation-feature__photo"><img src="../img/sneha-jain-web-2.jpeg" alt="Outpatient Consultations"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recommendation 5: Dr. Pradeep Mehta -->
+                <article class="recommendation-feature">
+                    <span class="recommendation-feature__tag">Undergraduate Faculty &amp; Academic Dean</span>
+                    <div class="recommendation-feature__grid">
+                        <div>
+                            <h3 class="recommendation-feature__title">Academic Excellence &amp; Undergraduate Merit Recommendation</h3>
+                            <div class="recommendation-feature__mentor">Dr. Pradeep Mehta — Professor &amp; Former Head of Department of Ophthalmology, Grant Medical College &amp; Sir JJ Group of Hospitals, Mumbai</div>
+                            
+                            <blockquote class="recommendation-feature__quote">
+                                "As the MBBS batch topper at Grant Medical College, Dr. Sneha Jain established herself early as one of the brightest medical minds of her cohort. Her clinical acumen and work ethic remain exemplary."
+                            </blockquote>
+
+                            <p class="recommendation-feature__desc">Having taught Dr. Jain during her undergraduate MBBS program and internship rotation at Sir JJ Group of Hospitals, Dr. Mehta highlights her top NEET merit rank, distinction in surgical disciplines, and emergency casualty triage skills.</p>
+                            
+                            <ul class="recommendation-feature__bullets">
+                                <li><strong>Academic Distinction:</strong> MBBS Batch Topper at Grant Medical College (Sir JJ Hospital), graduating with highest honors.</li>
+                                <li><strong>Foundational Training:</strong> Extensive exposure to acute ophthalmic trauma, corneal laceration repairs, and emergency casualty care.</li>
+                                <li><strong>Fellowship Recommendation:</strong> Strongly endorses her candidacy for competitive phaco-refractive subspecialty fellowships across premier institutes.</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation-feature__photos">
+                            <div class="recommendation-feature__photo"><img src="../img/sneha-jain-web-5.jpeg" alt="Academic Distinction Grant Medical College"></div>
+                            <div class="recommendation-feature__photo"><img src="../img/surgery-stock-image-4.jpg" alt="Ophthalmic Emergency Triage"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">Dr. Sneha Jain</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="../about/" class="footer__link">About</a>
+                    <a href="../clinical/" class="footer__link">Clinical</a>
+                    <a href="../academics/" class="footer__link">Academics</a>
+                    <a href="../research/" class="footer__link">Research</a>
+                    <a href="../recommendations/" class="footer__link">Recommendations</a>
+                    <a href="../highlights/" class="footer__link">Highlights</a>
+                    <a href="../cv/" class="footer__link">CV</a>
+                    <a href="../contact/" class="footer__link">Contact</a>
+                </nav>
+                <div class="footer__copy">© 2026 Dr. Sneha Jain</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        'use strict';
+
+        /* ===== MOBILE NAV ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => mobileNav.classList.add('is-open'));
+        }
+
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+        }
+
+        if (mobileNav) {
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+            });
+        }
+    </script>
+</body>
+</html>

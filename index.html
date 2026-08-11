@@ -1,22 +1,14 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arthemii Ionaere — Contemporary stained glass artist exploring abstract art through light, color, and form.">
+    <meta name="description" content="Dr. Sneha Jain — Ophthalmologist | Anterior Segment & Phaco-Refractive Surgery Focus. Postgraduate Resident Ophthalmologist at Jupiter Hospital, Thane.">
     <meta name="theme-color" content="#fafafa">
-    <title>Arthemii Ionaere — Contemporary Stained Glass</title>
-
-    <link rel="dns-prefetch" href="https://i.ytimg.com">
+    <title>Dr. Sneha Jain — Ophthalmologist | Anterior Segment & Phaco-Refractive Surgery</title>
 
     <!-- Preload hero image (LCP) -->
-    <link rel="preload" as="image"
-          imagesrcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w"
-          imagesizes="(max-width: 1024px) 90vw, 520px"
-          type="image/webp"
-          fetchpriority="high">
+    <link rel="preload" as="image" href="img/sneha-jain-web-1.jpeg" fetchpriority="high">
 
     <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-32x32.jpg" sizes="32x32">
-    <link rel="icon" href="img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-192x192.jpg" sizes="192x192">
-    <link rel="apple-touch-icon" href="img/2024-05-cropped-Screenshot-2024-05-25-at-06.54.34-180x180.jpg">
+    <link rel="icon" href="img/sneha-jain-web-1.jpeg" sizes="32x32">
+    <link rel="apple-touch-icon" href="img/sneha-jain-web-1.jpeg">
 
     <style>
         /* ========== CSS CUSTOM PROPERTIES ========== */
@@ -45,7 +36,6 @@
 
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -78,9 +68,7 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
             overflow-x: hidden;
-            overscroll-behavior-x: none;
             width: 100%;
-            max-width: 100vw;
         }
 
         body {
@@ -89,9 +77,7 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            overscroll-behavior-x: none;
             width: 100%;
-            max-width: 100vw;
             position: relative;
         }
 
@@ -112,7 +98,6 @@
             background: none;
             cursor: pointer;
             font-family: inherit;
-            -webkit-tap-highlight-color: transparent;
         }
 
         ul, ol {
@@ -128,18 +113,6 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 var(--spacing-md); }
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
         }
 
         /* ========== LOADER ========== */
@@ -183,10 +156,9 @@
 
         .loader__bar-fill {
             height: 100%;
-            width: 0%;
+            width: 100%;
             background: var(--text);
             border-radius: 2px;
-            transition: width 0.3s ease;
         }
 
         @keyframes loaderFade {
@@ -205,21 +177,15 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 var(--spacing-xl);
-            background: rgba(250, 250, 250, 0.85);
+            background: rgba(250, 250, 250, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            transform: translateY(-100%);
-            animation: headerSlide 0.4s var(--ease-out-expo) 0.2s forwards;
             transition: box-shadow 0.3s ease;
         }
 
         .header.is-scrolled {
             box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        @keyframes headerSlide {
-            to { transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
@@ -268,29 +234,6 @@
 
         .header__link:hover { color: var(--text); }
         .header__link:hover::after { width: 100%; }
-
-        .header__lang {
-            display: flex;
-            gap: 2px;
-            padding: 4px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
-        }
-
-        .header__lang-btn {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            padding: 4px 10px;
-            border-radius: var(--radius-full);
-            color: var(--text-tertiary);
-            transition: all 0.3s ease;
-        }
-
-        .header__lang-btn.is-active {
-            background: var(--text);
-            color: var(--bg);
-        }
 
         /* Mobile menu button */
         .header__menu-btn {
@@ -341,7 +284,7 @@
 
         .mobile-nav__link {
             font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 400;
             color: var(--text);
             transition: opacity 0.3s ease;
@@ -358,29 +301,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
         }
-
-        .mobile-nav__close::before,
-        .mobile-nav__close::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 1.5px;
-            background: var(--text);
-        }
-
-        .mobile-nav__close::before { transform: rotate(45deg); }
-        .mobile-nav__close::after { transform: rotate(-45deg); }
 
         /* ========== HERO SECTION ========== */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
             gap: var(--spacing-2xl);
-            padding-top: calc(var(--header-height) + var(--spacing-3xl));
-            padding-bottom: var(--spacing-3xl);
+            padding-top: calc(var(--header-height) + var(--spacing-2xl));
+            padding-bottom: var(--spacing-2xl);
             padding-left: var(--spacing-xl);
             padding-right: var(--spacing-xl);
         }
@@ -410,7 +342,7 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-tertiary);
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.5s var(--ease-out-expo) 0.1s forwards;
@@ -418,9 +350,9 @@
 
         .hero__title {
             font-family: var(--font-serif);
-            font-size: clamp(2.75rem, 6vw, 5rem);
+            font-size: clamp(2.75rem, 5.5vw, 4.5rem);
             font-weight: 300;
-            line-height: 1.05;
+            line-height: 1.08;
             letter-spacing: -0.01em;
             margin-bottom: var(--spacing-md);
             opacity: 0;
@@ -444,7 +376,7 @@
             font-size: 1.0625rem;
             line-height: 1.75;
             color: var(--text-secondary);
-            max-width: 480px;
+            max-width: 520px;
             margin-bottom: var(--spacing-xl);
             opacity: 0;
             transform: translateY(20px);
@@ -463,7 +395,7 @@
         .hero__image {
             position: relative;
             aspect-ratio: 3/4;
-            max-width: 520px;
+            max-width: 480px;
             justify-self: end;
             opacity: 0;
             transform: scale(0.95);
@@ -491,7 +423,7 @@
 
         .hero__image-caption {
             position: absolute;
-            bottom: -2.5rem;
+            bottom: -2.25rem;
             left: 0;
             font-size: 0.8125rem;
             color: var(--text-tertiary);
@@ -505,7 +437,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* On mobile: instant hero content */
         @media (max-width: 768px) {
             .hero__eyebrow,
             .hero__title,
@@ -514,11 +445,6 @@
             .hero__actions,
             .hero__image {
                 opacity: 1 !important;
-                transform: none !important;
-                animation: none !important;
-            }
-
-            .header {
                 transform: none !important;
                 animation: none !important;
             }
@@ -629,89 +555,6 @@
             padding: 0 var(--spacing-xl);
         }
 
-        /* ========== VIDEO GRID ========== */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-md);
-        }
-
-        @media (max-width: 1024px) {
-            .video-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); }
-        }
-
-        @media (max-width: 480px) {
-            .video-grid { grid-template-columns: 1fr; }
-        }
-
-        .video-card {
-        }
-
-        .video-card__embed {
-            position: relative;
-            aspect-ratio: 16/10;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: #000;
-        }
-
-        .video-card__embed video,
-        .video-card__embed iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: none;
-        }
-
-        .video-card__embed .yt-placeholder {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-card__embed .yt-placeholder::after {
-            content: '▶';
-            font-size: 2.5rem;
-            color: #fff;
-            background: rgba(0,0,0,0.6);
-            width: 60px;
-            height: 42px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .video-card__embed .yt-placeholder:hover::after {
-            background: rgba(255,0,0,0.85);
-        }
-
-        .video-card__info {
-            padding-top: var(--spacing-xs);
-        }
-
-        .video-card__title {
-            font-family: var(--font-serif);
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 0.125rem;
-        }
-
-        .video-card__desc {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
         /* ========== ABOUT ========== */
         .about-grid {
             display: grid;
@@ -731,11 +574,6 @@
             margin-bottom: var(--spacing-md);
         }
 
-        .about-text p strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
         .about-quote {
             padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md);
             border-left: 2px solid var(--text);
@@ -751,31 +589,6 @@
             margin: 0 !important;
         }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-xl);
-        }
-
-        .stat {
-            padding: var(--spacing-md);
-            background: var(--bg-alt);
-            border-radius: var(--radius-sm);
-        }
-
-        .stat__number {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
-        .stat__label {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
         .about-image {
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -789,7 +602,7 @@
             color: var(--text-tertiary);
         }
 
-        /* ========== WORKS — horizontal carousel ========== */
+        /* ========== WORKS (HIGHLIGHTS) — horizontal carousel ========== */
         .works-grid {
             display: flex;
             gap: var(--spacing-md);
@@ -843,8 +656,8 @@
             bottom: 0;
             padding: var(--spacing-sm);
             color: #fff;
-            background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 100%);
-            opacity: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            opacity: 0.9;
             transition: opacity 0.35s var(--ease-out-expo);
             pointer-events: none;
             border-bottom-left-radius: var(--radius-md);
@@ -858,6 +671,12 @@
             font-size: 1.125rem;
             font-weight: 500;
             margin: 0;
+        }
+
+        .work-card__subtitle {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            margin-top: 2px;
         }
 
         /* ========== QUOTE ========== */
@@ -885,7 +704,7 @@
             font-weight: 300;
             line-height: 1.5;
             color: var(--text);
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto var(--spacing-md);
         }
 
@@ -895,7 +714,7 @@
             color: var(--text-tertiary);
         }
 
-        /* ========== PHILOSOPHY ========== */
+        /* ========== PHILOSOPHY (CORE FOCUS) ========== */
         .philosophy-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -941,7 +760,7 @@
             color: var(--text-secondary);
         }
 
-        /* ========== EXHIBITIONS ========== */
+        /* ========== EXHIBITIONS (TOP SURGERIES) ========== */
         .exhibition-block {
             margin-bottom: var(--spacing-2xl);
         }
@@ -1026,47 +845,6 @@
             font-size: 0.9375rem;
             line-height: 1.7;
             color: var(--text-secondary);
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            overflow: hidden;
-        }
-
-        .exhibition-block__desc.is-expanded {
-            display: block;
-            -webkit-line-clamp: unset;
-            line-clamp: unset;
-            overflow: visible;
-        }
-
-        .exhibition-block__toggle {
-            display: none;
-            align-items: center;
-            gap: 0.4em;
-            margin-top: 0.75em;
-            background: none;
-            border: none;
-            padding: 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        .exhibition-block__toggle.is-visible {
-            display: inline-flex;
-        }
-
-        .exhibition-block__toggle-arrow {
-            display: inline-block;
-            transition: transform 0.25s var(--ease-out-expo);
-        }
-
-        .exhibition-block__toggle.is-open .exhibition-block__toggle-arrow {
-            transform: rotate(180deg);
         }
 
         .exhibition-block__stats {
@@ -1159,136 +937,7 @@
             margin-top: var(--spacing-2xl);
         }
 
-        /* ========== WORKSPACE ========== */
-        .workspace {
-            display: grid;
-            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-            gap: var(--spacing-md);
-            align-items: stretch;
-        }
-        .workspace__video {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: #000;
-            aspect-ratio: 16/9;
-        }
-        .workspace__video video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .workspace__photos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-        .workspace__photo {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--bg-alt);
-            min-height: 0;
-            cursor: zoom-in;
-        }
-        .workspace__photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--ease-out-expo);
-        }
-        .workspace__photo:hover img { transform: scale(1.03); }
-        @media (max-width: 880px) {
-            .workspace { grid-template-columns: 1fr; }
-            .workspace__photos { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-            .workspace__photo { aspect-ratio: 4/3; }
-        }
-        @media (max-width: 480px) {
-            .workspace__photos { grid-template-columns: 1fr; }
-        }
-
-        /* ========== LIGHTBOX ========== */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(10,10,10,0.92);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: clamp(1rem, 4vw, 3rem);
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            z-index: 9999;
-            transition: opacity 0.28s var(--ease-out-expo), visibility 0s linear 0.28s;
-        }
-        .lightbox.is-open {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transition: opacity 0.28s var(--ease-out-expo);
-        }
-        .lightbox__img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 6px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-            transform: scale(0.96);
-            transition: transform 0.32s var(--ease-out-expo);
-        }
-        .lightbox.is-open .lightbox__img { transform: scale(1); }
-        .lightbox__close {
-            position: absolute;
-            top: clamp(0.75rem, 2vw, 1.5rem);
-            right: clamp(0.75rem, 2vw, 1.5rem);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255,255,255,0.12);
-            color: #fff;
-            font-size: 28px;
-            line-height: 1;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .lightbox__close:hover { background: rgba(255,255,255,0.25); }
-        @media (max-width: 768px) {
-            .lightbox { padding: 0.5rem; }
-            .lightbox__close { top: 0.5rem; right: 0.5rem; width: 48px; height: 48px; font-size: 32px; }
-            .lightbox__img { border-radius: 4px; }
-        }
-
-        /* ========== SIDE PRODUCTS ========== */
-        .side-products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-md);
-        }
-        @media (max-width: 880px) { .side-products { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xs); } }
-        @media (max-width: 480px) { .side-products { grid-template-columns: 1fr; } .side-product { aspect-ratio: 4/3; } }
-        .side-product {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--bg-alt);
-            aspect-ratio: 1/1;
-            cursor: zoom-in;
-        }
-        .side-product img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--ease-out-expo);
-        }
-        .side-product:hover img { transform: scale(1.04); }
-
-        /* ========== TECHNOLOGIES ========== */
+        /* ========== TECHNOLOGIES (ACADEMICS & ACHIEVEMENTS) ========== */
         .tech-block {
             margin-bottom: var(--spacing-2xl);
         }
@@ -1331,12 +980,8 @@
 
         .tech-block__photos {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-xs);
-        }
-
-        @media (max-width: 768px) {
-            .tech-block__photos { grid-template-columns: repeat(2, 1fr); }
         }
 
         .tech-block__photo {
@@ -1344,31 +989,12 @@
             overflow: hidden;
             background: var(--bg-alt);
             cursor: zoom-in;
-        }
-
-        @media (max-width: 768px) {
-            .tech-block__photo { }
-
-            .tech-block {
-                margin-bottom: var(--spacing-lg);
-            }
-
-            .tech-block__num {
-                font-size: 1.5rem;
-            }
-
-            .tech-block__title {
-                font-size: 1.125rem;
-            }
-
-            .tech-block__desc {
-                font-size: 0.875rem;
-            }
+            aspect-ratio: 4/3;
         }
 
         .tech-block__photo img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             object-fit: cover;
         }
@@ -1442,12 +1068,9 @@
             .gallery__grid { column-count: 2; }
         }
 
-        .gallery__grid > a,
         .gallery__grid > .gallery__item {
             display: block;
             break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
             margin-bottom: var(--spacing-xs);
         }
 
@@ -1467,81 +1090,80 @@
 
         .gallery__item:hover img { transform: scale(1.04); }
 
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 4vw, 3rem);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.28s var(--ease-out-expo), visibility 0s linear 0.28s;
+        }
+        .lightbox.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transition: opacity 0.28s var(--ease-out-expo);
+        }
+        .lightbox__img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            transform: scale(0.96);
+            transition: transform 0.32s var(--ease-out-expo);
+        }
+        .lightbox.is-open .lightbox__img { transform: scale(1); }
+        .lightbox__close {
+            position: absolute;
+            top: clamp(0.75rem, 2vw, 1.5rem);
+            right: clamp(0.75rem, 2vw, 1.5rem);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* ========== CONTACT ========== */
         .contact {
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .contact-form {
-            display: grid;
-            gap: var(--spacing-md);
-        }
-
-        .contact-form__row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-
-        @media (max-width: 640px) {
-            .contact-form__row { grid-template-columns: 1fr; }
-        }
-
-        .contact-form__label {
-            display: block;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .contact-form__input {
-            width: 100%;
-            padding: 0.875rem 1rem;
+        .contact-card {
+            text-align: center;
+            padding: var(--spacing-xl);
             background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-family: var(--font-sans);
-            font-size: 16px; /* prevents iOS zoom */
-            color: var(--text);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            border-radius: var(--radius-md);
         }
 
-        .contact-form__input:focus {
-            outline: none;
-            border-color: var(--text);
-            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        .contact-card__email {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin: var(--spacing-md) 0;
         }
 
-        .contact-form__textarea {
-            min-height: 160px;
-            resize: vertical;
-            line-height: 1.6;
-        }
-
-        .contact-form__submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--text);
-            color: var(--bg);
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form__submit:hover {
-            background: var(--text-secondary);
-            transform: translateY(-2px);
-        }
-
-        .contact-form__submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
         }
 
         /* ========== FOOTER ========== */
@@ -1601,10 +1223,8 @@
             transform: translateY(0);
         }
 
-        /* On mobile: show content immediately, no waiting */
         @media (max-width: 768px) {
             .reveal,
-            .video-card,
             .work-card,
             .philosophy-card,
             .exhibition-block,
@@ -1615,36 +1235,33 @@
             }
         }
 
-        /* ========== SCROLLBAR ========== */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
     </style>
 </head>
 <body>
     <!-- ========== LOADER ========== -->
     <div class="loader" id="loader">
-        <div class="loader__title">Arthemii Ionaere</div>
+        <div class="loader__title">Dr. Sneha Jain</div>
         <div class="loader__bar">
-            <div class="loader__bar-fill" id="loaderBar"></div>
+            <div class="loader__bar-fill"></div>
         </div>
     </div>
 
     <!-- ========== HEADER ========== -->
-    <header class="header" id="header">
-        <a href="/" class="header__logo">Arthemii Ionaere</a>
+    <header class="header">
+        <a href="../" class="header__logo">Dr. Sneha Jain</a>
 
         <nav class="header__nav">
-            <a href="about/" class="header__link" data-i18n="nav_about">About</a>
-            <a href="exhibitions/" class="header__link" data-i18n="nav_exhibitions">Exhibitions</a>
-            <a href="technologies/" class="header__link" data-i18n="nav_technologies">Technologies</a>
-            <a href="works/" class="header__link" data-i18n="nav_works">Works</a>
-            <a href="contact/" class="header__link" data-i18n="nav_contact">Contact</a>
-            <div class="header__lang" role="group" aria-label="Language selector">
-                <button class="header__lang-btn is-active" data-lang="en" aria-label="English">EN</button>
-                <button class="header__lang-btn" data-lang="es" aria-label="Español">ES</button>
-            </div>
+            <a href="../about/" class="header__link">About</a>
+            <a href="../clinical/" class="header__link">Clinical</a>
+            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../research/" class="header__link">Research</a>
+            <a href="../recommendations/" class="header__link">Recommendations</a>
+            <a href="../highlights/" class="header__link">Highlights</a>
+            <a href="../cv/" class="header__link">CV</a>
+            <a href="../contact/" class="header__link">Contact</a>
         </nav>
 
         <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
@@ -1655,33 +1272,33 @@
 
     <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
-        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu"></button>
-        <a href="about/" class="mobile-nav__link" data-i18n="nav_about">About</a>
-        <a href="exhibitions/" class="mobile-nav__link" data-i18n="nav_exhibitions">Exhibitions</a>
-        <a href="technologies/" class="mobile-nav__link" data-i18n="nav_technologies">Technologies</a>
-        <a href="works/" class="mobile-nav__link" data-i18n="nav_works">Works</a>
-        <a href="contact/" class="mobile-nav__link" data-i18n="nav_contact">Contact</a>
-        <div class="header__lang" role="group">
-            <button class="header__lang-btn is-active" data-lang="en">EN</button>
-            <button class="header__lang-btn" data-lang="es">ES</button>
-        </div>
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <a href="../about/" class="mobile-nav__link">About</a>
+        <a href="../clinical/" class="mobile-nav__link">Clinical</a>
+        <a href="../academics/" class="mobile-nav__link">Academics</a>
+        <a href="../research/" class="mobile-nav__link">Research</a>
+        <a href="../recommendations/" class="header__link">Recommendations</a>
+        <a href="../highlights/" class="mobile-nav__link">Highlights</a>
+        <a href="../cv/" class="mobile-nav__link">CV</a>
+        <a href="../contact/" class="mobile-nav__link">Contact</a>
     </div>
 
     <main>
         <!-- ========== HERO ========== -->
         <section class="hero" id="home">
             <div class="hero__content">
-                <div class="hero__eyebrow" data-i18n="hero_eyebrow">Contemporary Stained Glass Artist — Est. 2016</div>
-                <h1 class="hero__title">Arthemii<br>Ionaere</h1>
-                <p class="hero__subtitle" data-i18n="hero_subtitle">Abstract stained glass through light, color, and form</p>
-                <p class="hero__desc" data-i18n="hero_desc">Chaos striving for symmetry. Architectural discovery through a personal psychological method focused on unconscious mechanisms of form generation. Fusing classical Gothic aesthetics and abstract art into a new, dynamic visual language through colored glass.</p>
+                <div class="hero__eyebrow">Ophthalmology &amp; Microsurgery — Mumbai / Thane</div>
+                <h1 class="hero__title">Dr. Sneha<br>Jain</h1>
+                <p class="hero__subtitle">Ophthalmologist | Anterior Segment &amp; Phaco-Refractive Focus</p>
+                <p class="hero__desc">Postgraduate resident ophthalmologist centered on micro-incision cataract surgery, anterior segment evaluation, precision biometry, and clinical research in modern eye care.</p>
                 <div class="hero__actions">
-                    <a href="contact/" class="btn btn--primary" data-i18n="hero_cta_order">Commission a Project</a>
+                    <a href="clinical/" class="btn btn--primary">Clinical Experience</a>
+                    <a href="academics/" class="btn btn--outline">Academic Profile</a>
                 </div>
             </div>
             <div class="hero__image">
-                <picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.jpg" alt="Prism — Arthemii Ionaere, 2024" loading="eager" decoding="async" fetchpriority="high"></picture>
-                <div class="hero__image-caption" data-i18n="hero_caption">"Prism" — 2024</div>
+                <img src="img/sneha-jain-web-3.jpeg" alt="Dr. Sneha Jain — Resident Ophthalmologist" loading="eager" fetchpriority="high">
+                <div class="hero__image-caption">Dr. Sneha Jain — Resident Ophthalmologist</div>
             </div>
         </section>
 
@@ -1689,617 +1306,392 @@
         <section class="section" id="about">
             <div class="container">
                 <header class="section__header reveal">
-                    <div class="section__label" data-i18n="about_label">About</div>
-                    <h2 class="section__title" data-i18n="about_title">Redefining stained glass through contemporary abstraction</h2>
+                    <div class="section__label">About</div>
+                    <h2 class="section__title">Clinical precision, microsurgical dedication, and evidence-based eye care</h2>
                 </header>
 
                 <div class="about-grid">
                     <div class="about-text reveal">
-                        <p data-i18n="about_p1">The abstract and contemporary approach to the use of glass and color departs from the traditional Christian symbolism of stained glass, which usually features concrete depictions of saints, biblical scenes, or symbols. However, even in this abstract form, the exploration of potential symbolism and meanings through an innovative approach to symbolism remains relevant.</p>
+                        <p>Dr. Sneha Jain is an ophthalmologist based in Mumbai, currently completing her 3-year postgraduate residency at Jupiter Hospital, Thane. Her clinical foundation encompasses comprehensive eye care, diagnostic evaluation, and microsurgical training across high-volume tertiary outpatient clinics and surgical theaters.</p>
 
-                        <p data-i18n="about_p2">Contemporary studies of stained glass art allow us to analyze the impact of abstraction on perception and interpretation. Changing styles and techniques can have an impact on aesthetic and spiritual perception, offering new forms to be integrated into contemporary art and architecture.</p>
+                        <p>Her primary surgical interest focuses on anterior segment microsurgery, specifically phacoemulsification, small-incision cataract surgery (SICS), pre-operative biometry, corneal evaluation, and anterior segment trauma management.</p>
 
                         <blockquote class="about-quote">
-                            <p data-i18n="about_quote">Of particular importance in abstract stained glass is the viewer's personal immersion in the work. Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.</p>
+                            <p>"Precision in anterior segment microsurgery relies on meticulous biometry, sound diagnostic judgment, and an absolute commitment to patient visual outcomes."</p>
                         </blockquote>
 
-                        <p data-i18n="about_p3">These personal revelations and interactions enrich the emotional and intellectual sides of perception, making the stained glass not just an object of observation, but an active participant in a dialog with the viewer.</p>
+                        <p>In addition to surgical training, Dr. Jain actively participates in clinical auditing, case presentations, and scientific research in anterior segment and general ophthalmology, aiming to combine clinical excellence with academic medicine as she prepares for subspecialty fellowship training.</p>
                     </div>
 
                     <div class="reveal">
                         <figure class="about-image">
-                            <picture><source type="image/webp" srcset="img/opt/portrait-arthemii-800.webp 800w, img/opt/portrait-arthemii-1600.webp 1600w, img/opt/portrait-arthemii-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/portrait-arthemii-1600.jpg" alt="Arthemii Ionaere portrait — 2025, with prismatic light reflections" loading="lazy" decoding="async"></picture>
-                            <figcaption class="about-image__caption" data-i18n="about_image_caption">Portrait of the artist — 2025</figcaption>
+                            <img src="img/sneha-jain-web-4.jpeg" alt="Dr. Sneha Jain" loading="lazy">
+                            <figcaption class="about-image__caption">Dr. Sneha Jain — Postgraduate Resident Ophthalmologist</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section__divider"></div>
+
+        <!-- ========== CORE FOCUS (PHILOSOPHY) ========== -->
+        <section class="section" id="philosophy">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label">Core Focus</div>
+                    <h2 class="section__title">Professional Pillars</h2>
+                    <p class="section__desc">Three core values driving clinical practice, microsurgical development, and academic engagement.</p>
+                </header>
+
+                <div class="philosophy-grid">
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">01</div>
+                        <h3 class="philosophy-card__title">Surgical Excellence</h3>
+                        <p class="philosophy-card__text">Developing microsurgical precision, structural tissue preservation, and consistent clinical outcomes in micro-incision cataract and anterior segment procedures.</p>
+                    </article>
+
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">02</div>
+                        <h3 class="philosophy-card__title">Evidence-Based Practice</h3>
+                        <p class="philosophy-card__text">Integrating modern optical biometry, corneal diagnostics, and contemporary clinical trials directly into pre-operative surgical decision-making.</p>
+                    </article>
+
+                    <article class="philosophy-card">
+                        <div class="philosophy-card__num">03</div>
+                        <h3 class="philosophy-card__title">Lifelong Engagement</h3>
+                        <p class="philosophy-card__text">Commitment to continuous learning through fellowship subspecialization, peer-reviewed clinical research, conference presentations, and surgical auditing.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
         <div class="section__divider"></div>
 
-        <!-- ========== WORKS ========== -->
+        <!-- ========== WORKS (HIGHLIGHTS) ========== -->
         <section class="section" id="works">
             <div class="container">
                 <header class="section__header reveal">
-                    <div class="section__label" data-i18n="works_label">Selected Works</div>
-                    <h2 class="section__title" data-i18n="works_title">Portfolio of light and color</h2>
-                    <p class="section__desc" data-i18n="works_desc">A selection of significant works spanning stained glass, digital art, photography, and design.</p>
+                    <div class="section__label">Highlights</div>
+                    <h2 class="section__title">Clinical &amp; Academic Portfolio</h2>
+                    <p class="section__desc">Key milestones across surgical training, diagnostic workups, and scientific communications.</p>
                 </header>
 
                 <div class="works-grid">
-                    <a class="work-card" href="gallery/dichroic-glass-piece/">
+                    <a class="work-card" href="clinical/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-800.webp 800w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.webp 1600w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.jpg" alt="Visual Narratives" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-1.jpg" alt="Phacoemulsification Training" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_1_title">Visual Narratives</h3>
+                            <h3 class="work-card__title">Phacoemulsification &amp; SICS</h3>
+                            <div class="work-card__subtitle">Micro-incision cataract surgery focus</div>
                         </div>
                     </a>
 
-                    <a class="work-card" href="gallery/vertical-glass-work/">
+                    <a class="work-card" href="academics/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8428-scaled-800.webp 800w, img/opt/2024-12-IMG_8428-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8428-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8428-scaled-1600.jpg" alt="Vertical Horizons" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-2.jpg" alt="Academic Research" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_2_title">Vertical Horizons</h3>
+                            <h3 class="work-card__title">Paper Communications</h3>
+                            <div class="work-card__subtitle">Clinical research &amp; paper submissions</div>
                         </div>
                     </a>
 
-                    <a class="work-card" href="gallery/enhanced-glass-study/">
+                    <a class="work-card" href="highlights/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.jpg" alt="Refined Reality" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-3.jpg" alt="Conference Presentations" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_3_title">Refined Reality</h3>
+                            <h3 class="work-card__title">Conference Presentations</h3>
+                            <div class="work-card__subtitle">Oral papers &amp; poster communications</div>
                         </div>
                     </a>
 
-                    <a class="work-card" href="gallery/studio-process/">
+                    <a class="work-card" href="clinical/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.jpg" alt="Screen Captures" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-4.jpg" alt="Diagnostic Biometry" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_4_title">Screen Captures</h3>
+                            <h3 class="work-card__title">Advanced Diagnostics</h3>
+                            <div class="work-card__subtitle">Biometry &amp; corneal tomography</div>
                         </div>
                     </a>
 
-                    <a class="work-card" href="gallery/process-documentation/">
+                    <a class="work-card" href="clinical/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.jpg" alt="Process Documentation" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-5.jpg" alt="High-Volume OPD Care" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_5_title">Process Documentation</h3>
+                            <h3 class="work-card__title">High-Volume OPD Care</h3>
+                            <div class="work-card__subtitle">Outpatient clinical management</div>
                         </div>
                     </a>
 
-                    <a class="work-card" href="gallery/evening-studio-session/">
+                    <a class="work-card" href="academics/">
                         <div class="work-card__image">
-                            <picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.jpg" alt="Evening Sessions" loading="lazy" decoding="async"></picture>
+                            <img src="img/surgery-stock-image-6.jpg" alt="Surgical Auditing" loading="lazy">
                         </div>
                         <div class="work-card__info">
-                            <h3 class="work-card__title" data-i18n="work_6_title">Evening Sessions</h3>
+                            <h3 class="work-card__title">Surgical Case Series</h3>
+                            <div class="work-card__subtitle">Clinical audits &amp; outcome tracking</div>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
+
         <div class="section__divider"></div>
 
-        <!-- ========== TECHNOLOGIES ========== -->
+        <!-- ========== EXHIBITIONS (TOP SURGERIES) ========== -->
+        <section class="section" id="exhibitions">
+            <div class="container">
+                <header class="section__header reveal">
+                    <div class="section__label">Top Surgeries</div>
+                    <h2 class="section__title">Surgical &amp; Clinical Competencies</h2>
+                </header>
+
+                <!-- Surgical Block 1 -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">July 2023 — Present</div>
+                            <span class="exhibition-block__type">Primary Procedure</span>
+                            <h3 class="exhibition-block__title">Phacoemulsification Cataract Surgery</h3>
+                            <div class="exhibition-block__location">Jupiter Hospital, Thane</div>
+                            <p class="exhibition-block__desc">Clear corneal phacoemulsification procedures involving divide-and-conquer and stop-and-chop nuclear management, capsulorhexis precision, cortical aspiration, and foldable intraocular lens (IOL) implantation under local and topical anesthesia.</p>
+                            <div class="exhibition-block__stats">
+                                <div class="exhibition-block__stat">
+                                    <span class="exhibition-block__stat-num">Primary</span>
+                                    <span class="exhibition-block__stat-label">Clear Corneal Phaco</span>
+                                </div>
+                                <div class="exhibition-block__stat">
+                                    <span class="exhibition-block__stat-num">Assisted</span>
+                                    <span class="exhibition-block__stat-label">Complex Cataracts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo is-active">
+                                    <img src="img/surgery-stock-image-1.jpg" alt="Phacoemulsification Procedure">
+                                </div>
+                                <div class="exhibition-block__photo">
+                                    <img src="img/surgery-stock-image-2.jpg" alt="Micro-incision Cataract Surgery">
+                                </div>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
+
+                <!-- Surgical Block 2 -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">July 2023 — Present</div>
+                            <span class="exhibition-block__type">Surgical Competency</span>
+                            <h3 class="exhibition-block__title">Small Incision Cataract Surgery (SICS)</h3>
+                            <div class="exhibition-block__location">Jupiter Hospital, Thane</div>
+                            <p class="exhibition-block__desc">Manual SICS for dense, mature, and hyper-mature cataracts. Competency covers sclero-corneal tunnel construction, continuous curvilinear capsulorhexis / capsulotomy, nuclear prolapse, delivery, and rigid PMMA IOL implantation.</p>
+                            <div class="exhibition-block__stats">
+                                <div class="exhibition-block__stat">
+                                    <span class="exhibition-block__stat-num">Primary SICS</span>
+                                    <span class="exhibition-block__stat-label">Independent Procedures</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo is-active">
+                                    <img src="img/surgery-stock-image-3.jpg" alt="Manual SICS Surgery">
+                                </div>
+                                <div class="exhibition-block__photo">
+                                    <img src="img/surgery-stock-image-4.jpg" alt="Sclero-Corneal Tunnel Technique">
+                                </div>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exhibition-block__divider"></div>
+                </article>
+
+                <!-- Surgical Block 3 -->
+                <article class="exhibition-block reveal">
+                    <div class="exhibition-block__header">
+                        <div>
+                            <div class="exhibition-block__date">July 2023 — Present</div>
+                            <span class="exhibition-block__type">Anterior Segment Care</span>
+                            <h3 class="exhibition-block__title">Anterior Segment Diagnostics &amp; Trauma</h3>
+                            <div class="exhibition-block__location">Jupiter Hospital, Thane</div>
+                            <p class="exhibition-block__desc">Evaluation and surgical management of ocular trauma, corneal lacerations, pterygium excision with autograft, anterior segment optical biometry (IOLMaster), topography, and post-operative outcomes tracking.</p>
+                        </div>
+                        <div>
+                            <div class="exhibition-block__photos">
+                                <div class="exhibition-block__photo is-active">
+                                    <img src="img/surgery-stock-image-5.jpg" alt="Anterior Segment Diagnostics">
+                                </div>
+                                <div class="exhibition-block__photo">
+                                    <img src="img/surgery-stock-image-6.jpg" alt="Slit-Lamp Examination">
+                                </div>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
+                                <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="section__divider"></div>
+
+        <!-- ========== TECHNOLOGIES (ACADEMICS & ACHIEVEMENTS) ========== -->
         <section class="section" id="technologies">
             <div class="container">
                 <header class="section__header reveal">
-                    <div class="section__label">Technologies</div>
-                    <h2 class="section__title">Craftsmanship & Techniques</h2>
-                    <p class="section__desc">Four distinct approaches to working with colored glass — from traditional Tiffany technique to experimental shadow prism installations.</p>
+                    <div class="section__label">Academics</div>
+                    <h2 class="section__title">Education &amp; Academic Training</h2>
+                    <p class="section__desc">Postgraduate background, research projects, diagnostic coursework, and professional training milestones.</p>
                 </header>
 
-                <!-- Tech 1: Metal Frame -->
+                <!-- Academic Item 1 -->
                 <article class="tech-block reveal">
                     <div class="tech-block__inner">
                         <div>
                             <div class="tech-block__num">01</div>
-                            <h3 class="tech-block__title">Metal Frame Sculpting</h3>
-                            <p class="tech-block__desc">Specialized metal forms serve as the skeleton for stained glass, crafted using a proprietary "edge" technique for precise angles and durability. Metal forms are bent to the required radius for each design. Glass elements are kiln-fired to match the metal framework's curvature. Nearly all creations feature integrated electrical wiring for lighting elements. Can be installed on ceilings, floors, or walls. Approximately 1.5 months from initial design to final implementation.</p>
+                            <h3 class="tech-block__title">Ophthalmology Residency Training</h3>
+                            <p class="tech-block__desc">Postgraduate residency training at Jupiter Hospital, Thane. Encompasses comprehensive OPD management, emergency eye care, pre-operative biometry, surgical training in cataract procedures, and clinical rotation across glaucoma, cornea, retina, and pediatric ophthalmology.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1539-800.webp 800w, img/opt/2024-02-IMG_1539-1600.webp 1600w, img/opt/2024-02-IMG_1539-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1539-1600.jpg" alt="Metal frame" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1542-800.webp 800w, img/opt/2024-02-IMG_1542-1600.webp 1600w, img/opt/2024-02-IMG_1542-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1542-1600.jpg" alt="Frame bending" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1546-800.webp 800w, img/opt/2024-02-IMG_1546-1600.webp 1600w, img/opt/2024-02-IMG_1546-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1546-1600.jpg" alt="Glass fitting" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1548-800.webp 800w, img/opt/2024-02-IMG_1548-1600.webp 1600w, img/opt/2024-02-IMG_1548-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1548-1600.jpg" alt="Assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1555-800.webp 800w, img/opt/2024-02-IMG_1555-1600.webp 1600w, img/opt/2024-02-IMG_1555-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1555-1600.jpg" alt="Finished sculpture" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-800.webp 800w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-1600.webp 1600w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-1600.jpg" alt="Lit sculpture" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.24.31-1600.jpg" alt="Design detail" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.06-1600.jpg" alt="Final piece" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img src="img/sneha-jain-web-3.jpeg" alt="Ophthalmology Residency"></div>
+                            <div class="tech-block__photo"><img src="img/surgery-stock-image-1.jpg" alt="Clinical OPD"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
                 </article>
 
-                <!-- Tech 2: Falling Shadows -->
+                <!-- Academic Item 2 -->
                 <article class="tech-block reveal">
                     <div class="tech-block__inner">
                         <div>
                             <div class="tech-block__num">02</div>
-                            <h3 class="tech-block__title">Falling Shadows</h3>
-                            <p class="tech-block__desc">Shadow prism technology designed for easy transport and quick installation. Specially prepared glass elements are assembled on-site to create sculptures functioning as prisms. When illuminated, the glass refracts light to cast mesmerizing patterns of light and shadow onto surrounding surfaces. Setup can be completed within days before the event — approximately 2-3 hours per installation. Ideal for temporary exhibitions and immersive environments.</p>
+                            <h3 class="tech-block__title">Fellowship Preparation &amp; Subspecialty Focus</h3>
+                            <p class="tech-block__desc">Preparing for advanced fellowship specialization in phaco-refractive and anterior segment surgery outside Mumbai. Focus areas include advanced IOL power calculation formulas, toric and multifocal IOL planning, corneal topography, and refractive surgical evaluation.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7255-800.webp 800w, img/opt/2024-02-IMG_7255-1600.webp 1600w, img/opt/2024-02-IMG_7255-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7255-1600.jpg" alt="Shadow prism" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7291-800.webp 800w, img/opt/2024-02-IMG_7291-1600.webp 1600w, img/opt/2024-02-IMG_7291-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7291-1600.jpg" alt="Light patterns" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-Untitled-800.webp 800w, img/opt/2024-02-Untitled-1600.webp 1600w, img/opt/2024-02-Untitled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-Untitled-1600.jpg" alt="Shadow installation" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_2352-800.webp 800w, img/opt/2024-05-IMG_2352-1600.webp 1600w, img/opt/2024-05-IMG_2352-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_2352-1600.jpg" alt="Prism assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7250-800.webp 800w, img/opt/2024-05-IMG_7250-1600.webp 1600w, img/opt/2024-05-IMG_7250-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7250-1600.jpg" alt="Falling shadows result" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img src="img/sneha-jain-web-4.jpeg" alt="Surgical Training Focus"></div>
+                            <div class="tech-block__photo"><img src="img/surgery-stock-image-2.jpg" alt="Biometry & Topography"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
                 </article>
 
-                <!-- Tech 3: Glass Parts -->
+                <!-- Academic Item 3 -->
                 <article class="tech-block reveal">
                     <div class="tech-block__inner">
                         <div>
                             <div class="tech-block__num">03</div>
-                            <h3 class="tech-block__title">Glass Parts Sculpting</h3>
-                            <p class="tech-block__desc">Sculptures constructed from numerous glass elements meticulously soldered together. A metallic frame is crafted first, incorporating electrical wiring for lighting fixtures. Glass pieces are framed within a special edging for interconnection. These sculptures embrace the freedom of artistic expression — glass placement follows creative intuition rather than rigid plans. Pieces exhibit chaotic forms striving toward symmetry, capturing a dynamic blend of structure and spontaneity.</p>
+                            <h3 class="tech-block__title">Clinical Research &amp; Publications</h3>
+                            <p class="tech-block__desc">Active participation in ongoing research studies, dissertation work, clinical audits, and manuscript preparation focused on anterior segment surgical outcomes, biometry accuracy, and corneal conditions.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-22.25.18-1600.jpg" alt="Glass parts" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7517-800.webp 800w, img/opt/2024-05-IMG_7517-1600.webp 1600w, img/opt/2024-05-IMG_7517-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7517-1600.jpg" alt="Soldering process" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.05-1600.jpg" alt="Assembly" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-800.webp 800w, img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-1600.webp 1600w, img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-23b3926c-da00-4b16-af7b-1eee929d9fb8-1600.jpg" alt="Finished form" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-13-at-21.58.20-1600.jpg" alt="Detail" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img src="img/surgery-stock-image-3.jpg" alt="Research & Documentation"></div>
+                            <div class="tech-block__photo"><img src="img/surgery-stock-image-4.jpg" alt="Academic Presentations"></div>
                         </div>
                     </div>
                     <div class="tech-block__divider"></div>
                 </article>
 
-                <!-- Tech 4: Tiffany -->
+                <!-- Academic Item 4 -->
                 <article class="tech-block reveal">
                     <div class="tech-block__inner">
                         <div>
                             <div class="tech-block__num">04</div>
-                            <h3 class="tech-block__title">Tiffany Vitrage</h3>
-                            <p class="tech-block__desc">The copper foil method perfected by Louis Comfort Tiffany. The process begins with detailed drawings divided into individual pieces. Colored glass sheets are chosen, traced, and cut precisely. Each piece is wrapped with adhesive copper foil, then assembled and soldered with tin-lead solder. Works (60×90 cm or 80×120 cm) are installed in custom light boxes with LED backlighting — warm colours create comfort and joy, cooler colors induce calm and contemplation.</p>
+                            <h3 class="tech-block__title">Conferences, Workshops &amp; Wet Labs</h3>
+                            <p class="tech-block__desc">Participation in regional and national ophthalmic conferences, surgical skill workshops, wet labs, and diagnostic imaging courses to continuously refine microsurgical techniques and clinical knowledge.</p>
                         </div>
                         <div class="tech-block__photos">
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1008-800.webp 800w, img/opt/2024-05-IMG_1008-1600.webp 1600w, img/opt/2024-05-IMG_1008-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1008-1600.jpg" alt="Glass cutting" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1012-800.webp 800w, img/opt/2024-05-IMG_1012-1600.webp 1600w, img/opt/2024-05-IMG_1012-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1012-1600.jpg" alt="Foiling process" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1013-800.webp 800w, img/opt/2024-05-IMG_1013-1600.webp 1600w, img/opt/2024-05-IMG_1013-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1013-1600.jpg" alt="Soldering" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_2361-800.webp 800w, img/opt/2024-05-IMG_2361-1600.webp 1600w, img/opt/2024-05-IMG_2361-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_2361-1600.jpg" alt="Finished piece" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_1010-800.webp 800w, img/opt/2024-05-IMG_1010-1600.webp 1600w, img/opt/2024-05-IMG_1010-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_1010-1600.jpg" alt="Light box" loading="lazy" decoding="async"></picture></div>
-                            <div class="tech-block__photo"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_6880-800.webp 800w, img/opt/2024-05-IMG_6880-1600.webp 1600w, img/opt/2024-05-IMG_6880-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_6880-1600.jpg" alt="Installation" loading="lazy" decoding="async"></picture></div>
+                            <div class="tech-block__photo"><img src="img/sneha-jain-web-5.jpeg" alt="Conference Participation"></div>
+                            <div class="tech-block__photo"><img src="img/surgery-stock-image-5.jpg" alt="Surgical Workshops"></div>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
+
         <div class="section__divider"></div>
 
-        <!-- ========== EXHIBITIONS ========== -->
-        <section class="section" id="exhibitions">
+        <!-- ========== RESIDENCY BANNER ========== -->
+        <section class="section" id="residency">
             <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label">Exhibitions</div>
-                </header>
-
-                {% for ex in site.data.exhibitions.items %}
-                <article class="exhibition-block reveal">
-                    <div class="exhibition-block__header">
-                        <div>
-                            <div class="exhibition-block__date">{{ ex.date_start }}{% if ex.date_end != "" %} — {{ ex.date_end }}{% endif %}</div>
-                            <span class="exhibition-block__type">{{ ex.type }}</span>
-                            <h3 class="exhibition-block__title">{{ ex.title }}</h3>
-                            {% if ex.location %}<div class="exhibition-block__location">{{ ex.location }}</div>{% endif %}
-                            <p class="exhibition-block__desc">{{ ex.description }}</p>
-                            <button type="button" class="exhibition-block__toggle" aria-expanded="false">
-                                <span class="exhibition-block__toggle-label">Show more</span>
-                                <span class="exhibition-block__toggle-arrow">▾</span>
-                            </button>
-                            {% if ex.stats.size > 0 %}
-                            <div class="exhibition-block__stats">
-                                {% for s in ex.stats %}
-                                <div class="exhibition-block__stat"><span class="exhibition-block__stat-num">{{ s.num }}</span><span class="exhibition-block__stat-label">{{ s.label }}</span></div>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div>
-                            <div class="exhibition-block__photos">
-                                {% for photo in ex.photos %}
-                                <div class="exhibition-block__photo{% if forloop.first %} is-active{% endif %}"><img decoding="async" src="{{ photo }}" alt="{{ ex.title }}"></div>
-                                {% endfor %}
-                                {% if ex.photos.size > 1 %}
-                                <button type="button" class="exhibition-block__nav exhibition-block__nav--prev" aria-label="Previous photo">←</button>
-                                <button type="button" class="exhibition-block__nav exhibition-block__nav--next" aria-label="Next photo">→</button>
-                                {% endif %}
-                            </div>
-                        </div>
+                <div class="residency-banner reveal">
+                    <div class="residency-banner__image">
+                        <img src="img/surgery-stock-image-2.jpg" alt="Jupiter Hospital Thane Residency">
                     </div>
-                    {% unless forloop.last %}<div class="exhibition-block__divider"></div>{% endunless %}
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        <div class="section__divider"></div>
-
-        <!-- ========== SIDE PRODUCTS CSS handled inline below ========== -->
-        <!-- ========== WORKSPACE ========== -->
-        <section class="section" id="workspace">
-            <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label" data-i18n="workspace_label">Workspace</div>
-                    <h2 class="section__title" data-i18n="workspace_title">Inside the studio</h2>
-                    <p class="section__desc" data-i18n="workspace_desc">A vaulted basement filled with hundreds of glass sheets in every shade — the quiet workshop where every sculpture begins. Stacks of coloured glass, lead came, soldering tools and cardboard boxes of off-cuts: the raw material of light, organised and waiting.</p>
-                </header>
-
-                <div class="workspace reveal">
-                    <div class="workspace__video">
-                        <video controls preload="metadata" playsinline poster="img/workspace-01.jpg">
-                            <source src="img/workspace.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="workspace__photos">
-                        <div class="workspace__photo"><img decoding="async" loading="lazy" src="video-posters/stained-mosaic.jpg" alt="Wide view of the studio with sculptures and stained glass works"></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-01-800.webp 800w, img/opt/workspace-01-1600.webp 1600w, img/opt/workspace-01-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-01-1600.jpg" alt="Workshop with vertical glass sheet storage racks" loading="lazy" decoding="async"></picture></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-03-800.webp 800w, img/opt/workspace-03-1600.webp 1600w, img/opt/workspace-03-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-03-1600.jpg" alt="Glass podium and sculptures in the studio" loading="lazy" decoding="async"></picture></div>
-                        <div class="workspace__photo"><picture><source type="image/webp" srcset="img/opt/workspace-04-800.webp 800w, img/opt/workspace-04-1600.webp 1600w, img/opt/workspace-04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/workspace-04-1600.jpg" alt="Display cases with finished glass pieces in the atelier" loading="lazy" decoding="async"></picture></div>
+                    <div class="residency-banner__body">
+                        <div class="section__label">Residency Training</div>
+                        <h3 class="residency-banner__title">Jupiter Hospital — Thane, Mumbai Region</h3>
+                        <p class="residency-banner__desc">Three-year postgraduate residency in Ophthalmology at Jupiter Hospital, Thane. Hands-on clinical training across high-volume outpatient consultations, specialty clinics, anterior segment diagnostic evaluations, surgical training in phacoemulsification and SICS, and emergency ophthalmic trauma management.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="section__divider"></div>
 
-        <!-- ========== SIDE PRODUCTS ========== -->
-        <section class="section" id="side-products">
-            <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label" data-i18n="side_label">Side Products</div>
-                    <h2 class="section__title" data-i18n="side_title">Glass off-cuts &amp; small forms</h2>
-                    <p class="section__desc" data-i18n="side_desc">A series of small one-of-a-kind objects assembled from leftover stained-glass shapes — soldered, polished and turned into hand-sized pieces. Each fragment carries the same colour and structure as the larger sculptures, but in a form you can hold.</p>
-                </header>
-
-                <div class="side-products reveal">
-                    {% for item in site.data.side_products.items %}
-                    <div class="side-product"><img decoding="async" loading="lazy" src="{{ item.image }}" alt="{{ item.alt }}"></div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-        <div class="section__divider"></div>
-
-        <!-- ========== VIDEO ========== -->
-        <section class="section" id="videos">
-            <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label" data-i18n="video_label">Video</div>
-                    <h2 class="section__title" data-i18n="video_title">Moving images and stories</h2>
-                    <p class="section__desc" data-i18n="video_desc">Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.</p>
-                </header>
-
-                <div class="video-grid">
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/Uxb35qkESOg/hqdefault.jpg" src="video-files/yt-Uxb35qkESOg.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Vortex Void</h3>
-                            <p class="video-card__desc">Abstract visual exploration — 2024</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/Hn2z6ov6tIU/hqdefault.jpg" src="video-files/yt-Hn2z6ov6tIU.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Kinetic Art Objects</h3>
-                            <p class="video-card__desc">Movement and form in harmony — 2024</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/chromatic-flow.jpg" src="video-files/chromatic-flow.m4v" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Chromatic Flow</h3>
-                            <p class="video-card__desc">Color transitions through glass — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/glass-rotation.jpg" src="video-files/glass-rotation.m4v" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Glass Rotation</h3>
-                            <p class="video-card__desc">Spinning light through stained glass — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/installation-orbit.jpg" src="video-files/installation-orbit.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Installation Orbit</h3>
-                            <p class="video-card__desc">Camera movement around glass installation — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/prismatic-dance.jpg" src="video-files/prismatic-dance.m4v" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Prismatic Dance</h3>
-                            <p class="video-card__desc">Refracted light in motion — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/spectrum-shift.jpg" src="video-files/spectrum-shift.m4v" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Spectrum Shift</h3>
-                            <p class="video-card__desc">Color spectrum transformations — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/geometric-harmony.jpg" src="video-files/geometric-harmony.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Geometric Harmony</h3>
-                            <p class="video-card__desc">Balance of geometric glass forms — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/crystal-structure.jpg" src="video-files/crystal-structure.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Crystal Structure</h3>
-                            <p class="video-card__desc">Structural clarity in glass composition — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/color-field.jpg" src="video-files/color-field.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Color Field</h3>
-                            <p class="video-card__desc">Saturated color planes in glass — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/stained-mosaic.jpg" src="video-files/stained-mosaic.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Stained Mosaic</h3>
-                            <p class="video-card__desc">Mosaic patterns in stained glass — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="video-posters/radiant-forms.jpg" src="video-files/radiant-forms.m4v" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Radiant Forms</h3>
-                            <p class="video-card__desc">Glowing abstract shapes — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/2gF1fXEd0kY/hqdefault.jpg" src="video-files/yt-2gF1fXEd0kY.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Glass Artwork Process</h3>
-                            <p class="video-card__desc">Creative process — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/IXjQng5fbfo/hqdefault.jpg" src="video-files/yt-IXjQng5fbfo.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Glass Sculpture</h3>
-                            <p class="video-card__desc">Sculptural glass work — 2025</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/RKBr6lzgKU8/hqdefault.jpg" src="video-files/yt-RKBr6lzgKU8.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Neo-Gothic Exhibition</h3>
-                            <p class="video-card__desc">Enter the Void — Bashmet Centre, 2023</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/5ePSaUFmFHs/hqdefault.jpg" src="video-files/yt-5ePSaUFmFHs.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Stained Glass Kaleidoscope</h3>
-                            <p class="video-card__desc">18 works — chaos forming harmonious composition</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/lsR-ovRNJD4/hqdefault.jpg" src="video-files/yt-lsR-ovRNJD4.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Club der Visionäre</h3>
-                            <p class="video-card__desc">Glass installation — Berlin, 2024</p>
-                        </div>
-                    </article>
-                    <article class="video-card">
-                        <div class="video-card__embed">
-                            <video poster="https://i.ytimg.com/vi/nUtuL68gty0/hqdefault.jpg" src="video-files/yt-nUtuL68gty0.mp4" muted loop playsinline autoplay preload="auto"></video>
-                        </div>
-                        <div class="video-card__info">
-                            <h3 class="video-card__title">Light Sculptures</h3>
-                            <p class="video-card__desc">Colored glass and light — 2024</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
         <div class="section__divider"></div>
 
         <!-- ========== GALLERY ========== -->
         <section class="section" id="gallery">
             <div class="container">
                 <header class="section__header reveal">
-                    <div class="section__label" data-i18n="gallery_label">Gallery</div>
-                    <h2 class="section__title" data-i18n="gallery_title">Extended collection</h2>
+                    <div class="section__label">Gallery</div>
+                    <h2 class="section__title">Clinical &amp; Professional Photo Showcase</h2>
                 </header>
                 <div class="gallery__grid">
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/tall-sculpture-800.webp 800w, img/opt/tall-sculpture-1600.webp 1600w, img/opt/tall-sculpture-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/tall-sculpture-1600.jpg" alt="Arthemii standing next to a tall multicoloured glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/portrait-arthemii-800.webp 800w, img/opt/portrait-arthemii-1600.webp 1600w, img/opt/portrait-arthemii-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/portrait-arthemii-1600.jpg" alt="Arthemii Ionaere portrait with prismatic light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1539-800.webp 800w, img/opt/2024-02-IMG_1539-1600.webp 1600w, img/opt/2024-02-IMG_1539-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1539-1600.jpg" alt="Stained glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-prizmas-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-prizmas-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-prizmas-1600.jpg" alt="Prism sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-ionaere-lamp-fgj-800.webp 800w, img/opt/2024-12-Arthemii-ionaere-lamp-fgj-1600.webp 1600w, img/opt/2024-12-Arthemii-ionaere-lamp-fgj-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-ionaere-lamp-fgj-1600.jpg" alt="Glass lamp sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-800.webp 800w, img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-1600.webp 1600w, img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-06C52AD8-82B2-46BB-B951-3B6548D050B4-1600.jpg" alt="Glass artwork detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-800.webp 800w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.webp 1600w, img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Aerthemii-ionaere-diachrr-fpik-1600.jpg" alt="Dichroic glass piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.20.32-1600.jpg" alt="Light installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-800.webp 800w, img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-1600.webp 1600w, img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-arthemii-ionaere-professional-camera-depth__77285-1600.jpg" alt="Glass depth study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-dsaaiHHk1-1600.jpg" alt="Abstract glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-11-IMG_7791-800.webp 800w, img/opt/2024-11-IMG_7791-1600.webp 1600w, img/opt/2024-11-IMG_7791-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-11-IMG_7791-1600.jpg" alt="Exhibition installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-olymp-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-olymp-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-olymp-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-olymp-1600.jpg" alt="Olymp glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8428-scaled-800.webp 800w, img/opt/2024-12-IMG_8428-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8428-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8428-scaled-1600.jpg" alt="Vertical glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_8977-Enhanced-NR-scaled-1600.jpg" alt="Enhanced glass study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-800.webp 800w, img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-1600.webp 1600w, img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2025-07-Screenshot-2025-07-22-at-13.52.55-1600.jpg" alt="Recent glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-visual-light-installation-with-deep-coloured-shado-scaled-1600.jpg" alt="Light installation with deep colored shadows" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.14.57-1600.jpg" alt="Glass sculpture detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.09.10-1600.jpg" alt="Studio process" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-18.57.04-1600.jpg" alt="Evening studio session" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.32.58-1600.jpg" alt="Process documentation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-800.webp 800w, img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-1600.webp 1600w, img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Screenshot-2024-12-24-at-01.05.09-1600.jpg" alt="Glass composition study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0981-800.webp 800w, img/opt/2024-05-IMG_0981-1600.webp 1600w, img/opt/2024-05-IMG_0981-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0981-1600.jpg" alt="Stained glass artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Coloured-glass-sculpture-scaled-1600.jpg" alt="Colored glass sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Huerrytop-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Huerrytop-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Huerrytop-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Huerrytop-1600.jpg" alt="Huerrytop sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-Shteryit-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-Shteryit-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-Shteryit-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-Shteryit-1600.jpg" alt="Shteryit piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Arthemii-Ionaere-huweado-800.webp 800w, img/opt/2024-12-Arthemii-Ionaere-huweado-1600.webp 1600w, img/opt/2024-12-Arthemii-Ionaere-huweado-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Arthemii-Ionaere-huweado-1600.jpg" alt="Huweado artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-800.webp 800w, img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-1600.webp 1600w, img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-Artjemii-Ionaere-epsylon-scaled-1600.jpg" alt="Epsylon sculpture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9028-Enhanced-NR-scaled-1600.jpg" alt="Enhanced glass work" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9199-Enhanced-NR-scaled-1600.jpg" alt="Glass composition" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9352-Enhanced-NR-scaled-1600.jpg" alt="Light study" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9373-Enhanced-NR-scaled-1600.jpg" alt="Glass detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9376-Enhanced-NR-scaled-1600.jpg" alt="Stained glass detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9484-Enhanced-NR-scaled-1600.jpg" alt="Glass texture" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-800.webp 800w, img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-1600.webp 1600w, img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-12-IMG_9528-Enhanced-NR-scaled-1600.jpg" alt="Color and light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_1574-800.webp 800w, img/opt/2024-02-IMG_1574-1600.webp 1600w, img/opt/2024-02-IMG_1574-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_1574-1600.jpg" alt="Glass framework" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_3762-800.webp 800w, img/opt/2024-02-IMG_3762-1600.webp 1600w, img/opt/2024-02-IMG_3762-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_3762-1600.jpg" alt="Workshop scene" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-02-IMG_7252-800.webp 800w, img/opt/2024-02-IMG_7252-1600.webp 1600w, img/opt/2024-02-IMG_7252-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-02-IMG_7252-1600.jpg" alt="Shadow prism" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0054-800.webp 800w, img/opt/2024-05-IMG_0054-1600.webp 1600w, img/opt/2024-05-IMG_0054-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0054-1600.jpg" alt="Studio artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0179-scaled-800.webp 800w, img/opt/2024-05-IMG_0179-scaled-1600.webp 1600w, img/opt/2024-05-IMG_0179-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0179-scaled-1600.jpg" alt="Glass installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_0445-scaled-800.webp 800w, img/opt/2024-05-IMG_0445-scaled-1600.webp 1600w, img/opt/2024-05-IMG_0445-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_0445-scaled-1600.jpg" alt="Artwork detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7127-scaled-800.webp 800w, img/opt/2024-05-IMG_7127-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7127-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7127-scaled-1600.jpg" alt="Exhibition piece" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7158-scaled-800.webp 800w, img/opt/2024-05-IMG_7158-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7158-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7158-scaled-1600.jpg" alt="Light installation" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7175-scaled-800.webp 800w, img/opt/2024-05-IMG_7175-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7175-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7175-scaled-1600.jpg" alt="Glass and shadow" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7198-scaled-800.webp 800w, img/opt/2024-05-IMG_7198-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7198-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7198-scaled-1600.jpg" alt="Colored light" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7268-scaled-800.webp 800w, img/opt/2024-05-IMG_7268-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7268-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7268-scaled-1600.jpg" alt="Prism effect" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-IMG_7349-scaled-800.webp 800w, img/opt/2024-05-IMG_7349-scaled-1600.webp 1600w, img/opt/2024-05-IMG_7349-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-IMG_7349-scaled-1600.jpg" alt="Exhibition view" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-800.webp 800w, img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-1600.webp 1600w, img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-98C1A378-F05B-44F6-A2ED-2F142955EE0F-scaled-1600.jpg" alt="Sculpture detail" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-800.webp 800w, img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-1600.webp 1600w, img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-B540AFEB-BA43-462B-9DF3-74EF975EA30F-scaled-1600.jpg" alt="Glass artwork" loading="lazy" decoding="async"></picture></div>
-                <div class="gallery__item"><picture><source type="image/webp" srcset="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-800.webp 800w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-1600.webp 1600w, img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-D7E9A648-1E0A-4ECC-BCD6-D96AF5511CB3-scaled-1600.jpg" alt="Lit sculpture" loading="lazy" decoding="async"></picture></div>
+                    <div class="gallery__item"><img src="img/sneha-jain-web-1.jpeg" alt="Dr. Sneha Jain" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-1.jpg" alt="Ophthalmic Surgery" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/sneha-jain-web-2.jpeg" alt="Dr. Sneha Jain Portrait" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-2.jpg" alt="Cataract Microsurgery" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/sneha-jain-web-3.jpeg" alt="Clinical Practice" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-3.jpg" alt="Surgical Equipment" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/sneha-jain-web-4.jpeg" alt="Academic Profile" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-4.jpg" alt="Corneal Diagnostics" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/sneha-jain-web-5.jpeg" alt="Dr. Sneha Jain Professional Photo" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-5.jpg" alt="Outpatient Eye Evaluation" loading="lazy"></div>
+                    <div class="gallery__item"><img src="img/surgery-stock-image-6.jpg" alt="Slit-Lamp Examination" loading="lazy"></div>
                 </div>
             </div>
         </section>
+
         <div class="section__divider"></div>
 
         <!-- ========== QUOTE ========== -->
         <div class="quote reveal">
             <div class="container">
                 <div class="quote__mark" aria-hidden="true">"</div>
-                <blockquote class="quote__text" data-i18n="quote_text">Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.</blockquote>
-                <div class="quote__author">— Arthemii Ionaere</div>
+                <blockquote class="quote__text">Restoring visual clarity is both a rigorous science and a transformative art. Precision at every step defines modern ophthalmic microsurgery.</blockquote>
+                <div class="quote__author">— Dr. Sneha Jain</div>
             </div>
         </div>
-
-        
-<!-- ========== PHILOSOPHY ========== -->
-        <section class="section" id="philosophy">
-            <div class="container">
-                <header class="section__header reveal">
-                    <div class="section__label" data-i18n="philosophy_label">Philosophy</div>
-                    <h2 class="section__title" data-i18n="philosophy_title">The art of immersion</h2>
-                    <p class="section__desc" data-i18n="philosophy_desc">Three pillars of artistic practice that guide every work and define the relationship between artwork and viewer.</p>
-                </header>
-
-                <div class="philosophy-grid">
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">01</div>
-                        <h3 class="philosophy-card__title" data-i18n="phil_1_title">Personal Immersion</h3>
-                        <p class="philosophy-card__text" data-i18n="phil_1_text">Each viewer finds their own symbols, archetypes, and interpretations within the abstract work. Every encounter is unique and deeply personal. The artwork becomes a mirror of the viewer's inner world — a space of self-reflection and contemplative absorption.</p>
-                    </article>
-
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">02</div>
-                        <h3 class="philosophy-card__title" data-i18n="phil_2_title">Abstract Innovation</h3>
-                        <p class="philosophy-card__text" data-i18n="phil_2_text">Departing from traditional concrete depictions opens new paths of exploration through innovative approaches to color, light, and geometric abstraction. Stained glass becomes an experimental platform where new visual languages are explored and developed.</p>
-                    </article>
-
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">03</div>
-                        <h3 class="philosophy-card__title" data-i18n="phil_3_title">Spiritual Perception</h3>
-                        <p class="philosophy-card__text" data-i18n="phil_3_text">Changing styles and techniques influence aesthetic and spiritual perception, offering new forms for integration into contemporary art and architecture. Glass becomes a medium between light consciousness and spatial experience.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <div class="section__divider"></div>
-
-        <!-- ========== RESIDENCY ========== -->
-        <section class="section" id="residency">
-            <div class="container">
-                <div class="residency-banner reveal">
-                    <div class="residency-banner__image">
-                        <picture><source type="image/webp" srcset="img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-800.webp 800w, img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-1600.webp 1600w, img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-2400.webp 2400w" sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 800px"><img src="img/opt/2024-05-Screenshot-2024-05-25-at-17.18.33-1600.jpg" alt="Arena Contemporary Berlin" loading="lazy" decoding="async"></picture>
-                    </div>
-                    <div class="residency-banner__body">
-                        <div class="section__label">Residency</div>
-                        <h3 class="residency-banner__title">Arena Contemporary — Berlin, Treptow</h3>
-                        <p class="residency-banner__desc">1500m&sup2; independent art space joining the expansive operations of Berlin Arena Treptow. With a strong emphasis on performing and contemporary arts, equipped with artist studios, rehearsing rooms and 4D sound. Independent and inspired by modern hybrid cultural spaces such as Gaîté Lyrique and Palais de Tokyo (Paris), Arena Contemporary aims to break the stillness of established art institutions and build a bridge of opportunity, inspiration, and participation towards the higher arts.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="section__divider"></div>
-
 
         <!-- ========== CONTACT ========== -->
         <section class="section" id="contact">
             <div class="container">
-                <header class="section__header section__header--center reveal">
-                    <div class="section__label" data-i18n="contact_label">Contact</div>
-                    <h2 class="section__title" data-i18n="contact_title">Join the artist</h2>
-                    <p class="section__desc" data-i18n="contact_desc">Whether you're interested in collaboration, artworks to order or buy, discussing a project, or simply sharing your thoughts.</p>
-                </header>
-
-                <div class="contact">
-                    <form class="contact-form" id="contactForm" novalidate>
-                        <div class="contact-form__row">
-                            <div>
-                                <label class="contact-form__label" for="name" data-i18n="form_name">Name</label>
-                                <input class="contact-form__input" type="text" id="name" name="name" required autocomplete="name">
-                            </div>
-                            <div>
-                                <label class="contact-form__label" for="email" data-i18n="form_email">Email</label>
-                                <input class="contact-form__input" type="email" id="email" name="email" required autocomplete="email">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="contact-form__label" for="subject" data-i18n="form_subject">Subject</label>
-                            <input class="contact-form__input" type="text" id="subject" name="subject">
-                        </div>
-                        <div>
-                            <label class="contact-form__label" for="message" data-i18n="form_message">Message</label>
-                            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" required></textarea>
-                        </div>
-                        <button class="contact-form__submit" type="submit" data-i18n="form_submit">Send Message</button>
-                    </form>
+                <div class="contact-card reveal">
+                    <div class="section__label">Contact</div>
+                    <h2 class="section__title">Professional Enquiries</h2>
+                    <p class="section__desc">For academic communications, fellowship opportunities, or research enquiries.</p>
+                    <div class="contact-card__email">
+                        <a href="mailto:contact@drsnehajain.co.in">contact@drsnehajain.co.in</a>
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
+                        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="btn btn--outline">Google Scholar</a>
+                        <a href="https://orcid.org" target="_blank" rel="noopener" class="btn btn--outline">ORCID</a>
+                        <a href="cv/" class="btn btn--primary">View CV →</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2309,15 +1701,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <div class="footer__brand">Arthemii Ionaere</div>
+                <div class="footer__brand">Dr. Sneha Jain</div>
                 <nav class="footer__nav" aria-label="Footer navigation">
-                    <a href="about/" class="footer__link" data-i18n="nav_about">About</a>
-                    <a href="exhibitions/" class="footer__link" data-i18n="nav_exhibitions">Exhibitions</a>
-                    <a href="technologies/" class="footer__link" data-i18n="nav_technologies">Technologies</a>
-                    <a href="works/" class="footer__link" data-i18n="nav_works">Works</a>
-                    <a href="contact/" class="footer__link" data-i18n="nav_contact">Contact</a>
+                    <a href="about/" class="footer__link">About</a>
+                    <a href="clinical/" class="footer__link">Clinical</a>
+                    <a href="academics/" class="footer__link">Academics</a>
+                    <a href="highlights/" class="footer__link">Highlights</a>
+                    <a href="cv/" class="footer__link">CV</a>
+                    <a href="contact/" class="footer__link">Contact</a>
                 </nav>
-                <div class="footer__copy">© 2026</div>
+                <div class="footer__copy">© 2026 Dr. Sneha Jain</div>
             </div>
         </div>
     </footer>
@@ -2326,152 +1719,14 @@
     <script>
         'use strict';
 
-        /* ===== I18N TRANSLATIONS ===== */
-        const translations = {
-            en: {
-                nav_about: 'About',
-                nav_exhibitions: 'Exhibitions',
-                nav_technologies: 'Technologies',
-                nav_works: 'Works',
-                nav_contact: 'Contact',
-                hero_eyebrow: 'Contemporary Stained Glass Artist — Est. 2016',
-                hero_subtitle: 'Abstract stained glass through light, color, and form',
-                hero_desc: 'Exploring the intersection of abstract art and contemporary stained glass. Each piece creates an immersive experience where light transforms color and geometry into a deeply personal visual language.',
-                hero_cta_order: 'Commission a Project',
-                hero_caption: '"Prism" — 2024',
-                about_label: 'About',
-                about_title: 'Redefining stained glass through contemporary abstraction',
-                about_p1: 'The abstract and contemporary approach to the use of glass and color departs from the traditional Christian symbolism of stained glass, which usually features concrete depictions of saints, biblical scenes, or symbols. However, even in this abstract form, the exploration of potential symbolism and meanings through an innovative approach to symbolism remains relevant.',
-                about_p2: 'Contemporary studies of stained glass art allow us to analyze the impact of abstraction on perception and interpretation. Changing styles and techniques can have an impact on aesthetic and spiritual perception, offering new forms to be integrated into contemporary art and architecture.',
-                about_quote: 'Of particular importance in abstract stained glass is the viewer\'s personal immersion in the work. Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.',
-                about_p3: 'These personal revelations and interactions enrich the emotional and intellectual sides of perception, making the stained glass not just an object of observation, but an active participant in a dialog with the viewer.',
-                about_image_caption: 'Portrait of the artist — 2025',
-                video_label: 'Video',
-                video_title: 'Moving images and stories',
-                video_desc: 'Video works that explore the abstract world of light and movement — from kinetic art objects to immersive visual explorations.',
-                video_1_desc: 'Abstract visual exploration — 2024',
-                video_2_title: 'Kinetic Art Objects',
-                video_2_desc: 'Movement and form in harmony — 2024',
-                works_label: 'Selected Works',
-                works_title: 'Portfolio of light and color',
-                works_desc: 'A selection of significant works spanning stained glass, digital art, photography, and design.',
-                work_1_cat: 'Digital Art', work_1_title: 'Visual Narratives', work_1_desc: 'Digital concepts and narrative structures',
-                work_2_cat: 'Photography', work_2_title: 'Vertical Horizons', work_2_desc: 'Portrait orientation study',
-                work_3_cat: 'Enhanced', work_3_title: 'Refined Reality', work_3_desc: 'Post-processed imagery',
-                work_4_cat: 'Digital', work_4_title: 'Screen Captures', work_4_desc: 'Digital documentation of creative process',
-                work_5_cat: 'Archive', work_5_title: 'Process Documentation', work_5_desc: 'Records of the creative journey',
-                work_6_cat: 'Study', work_6_title: 'Evening Sessions', work_6_desc: 'Late night creativity',
-                quote_text: 'Due to the open-ended nature of abstraction, each viewer can find their own symbols, archetypes or interpretations within it, making each viewing a unique experience.',
-                philosophy_label: 'Philosophy',
-                philosophy_title: 'The art of immersion',
-                philosophy_desc: 'Three pillars of artistic practice that guide every work and define the relationship between artwork and viewer.',
-                phil_1_title: 'Personal Immersion', phil_1_text: 'Each viewer finds their own symbols, archetypes, and interpretations within the abstract work. Every encounter is unique and deeply personal. The artwork becomes a mirror of the viewer\'s inner world — a space of self-reflection and contemplative absorption.',
-                phil_2_title: 'Abstract Innovation', phil_2_text: 'Departing from traditional concrete depictions opens new paths of exploration through innovative approaches to color, light, and geometric abstraction. Stained glass becomes an experimental platform where new visual languages are explored and developed.',
-                phil_3_title: 'Spiritual Perception', phil_3_text: 'Changing styles and techniques influence aesthetic and spiritual perception, offering new forms for integration into contemporary art and architecture. Glass becomes a medium between light consciousness and spatial experience.',
-                gallery_label: 'Gallery',
-                gallery_title: 'Extended collection',
-                contact_label: 'Contact',
-                contact_title: 'Let\'s create together',
-                contact_desc: 'Whether you\'re interested in collaboration, discussing a project, or simply sharing your thoughts — I\'d love to hear from you.',
-                form_name: 'Name',
-                form_email: 'Email',
-                form_subject: 'Subject',
-                form_message: 'Message',
-                form_submit: 'Send Message',
-                form_success: 'Thank you! I will get back to you soon.'
-            },
-            es: {
-                nav_about: 'Acerca de',
-                nav_exhibitions: 'Exposiciones',
-                nav_technologies: 'Tecnologías',
-                nav_works: 'Obras',
-                nav_contact: 'Contacto',
-                hero_eyebrow: 'Artista Contemporáneo de Vidrieras — Est. 2016',
-                hero_subtitle: 'Vidrieras abstractas a través de la luz, el color y la forma',
-                hero_desc: 'Explorando la intersección del arte abstracto y las vidrieras contemporáneas. Cada pieza crea una experiencia inmersiva donde la luz transforma el color y la geometría en un lenguaje visual profundamente personal.',
-                hero_cta_order: 'Encargar un Proyecto',
-                hero_caption: '"Prisma" — 2024',
-                about_label: 'Acerca de',
-                about_title: 'Redefiniendo las vidrieras a través de la abstracción contemporánea',
-                about_p1: 'El enfoque abstracto y contemporáneo del uso del vidrio y el color se aparta del simbolismo cristiano tradicional de las vidrieras, que generalmente presenta representaciones concretas de santos, escenas bíblicas o símbolos. Sin embargo, incluso en esta forma abstracta, la exploración del simbolismo y los significados potenciales sigue siendo relevante.',
-                about_p2: 'Los estudios contemporáneos del arte de las vidrieras nos permiten analizar el impacto de la abstracción en la percepción y la interpretación. Los estilos y técnicas cambiantes pueden tener un impacto en la percepción estética y espiritual, ofreciendo nuevas formas para integrar en el arte y la arquitectura contemporáneos.',
-                about_quote: 'De particular importancia en las vidrieras abstractas es la inmersión personal del espectador en la obra. Debido a la naturaleza abierta de la abstracción, cada espectador puede encontrar sus propios símbolos, arquetipos o interpretaciones dentro de ella, haciendo que cada visión sea una experiencia única.',
-                about_p3: 'Estas revelaciones e interacciones personales enriquecen los lados emocional e intelectual de la percepción, haciendo que la vidriera no sea solo un objeto de observación, sino un participante activo en un diálogo con el espectador.',
-                about_image_caption: 'Retrato del artista — 2025',
-                video_label: 'Video',
-                video_title: 'Imágenes en movimiento e historias',
-                video_desc: 'Trabajos de video que exploran el mundo abstracto de la luz y el movimiento, desde objetos de arte cinético hasta exploraciones visuales inmersivas.',
-                video_1_desc: 'Exploración visual abstracta — 2024',
-                video_2_title: 'Objetos de Arte Cinético',
-                video_2_desc: 'Movimiento y forma en armonía — 2024',
-                works_label: 'Obras Seleccionadas',
-                works_title: 'Portafolio de luz y color',
-                works_desc: 'Una selección de obras significativas que abarcan vidrieras, arte digital, fotografía y diseño.',
-                work_1_cat: 'Arte Digital', work_1_title: 'Narrativas Visuales', work_1_desc: 'Conceptos digitales y estructuras narrativas',
-                work_2_cat: 'Fotografía', work_2_title: 'Horizontes Verticales', work_2_desc: 'Estudio en orientación vertical',
-                work_3_cat: 'Mejorado', work_3_title: 'Realidad Refinada', work_3_desc: 'Imaginería posprocesada',
-                work_4_cat: 'Digital', work_4_title: 'Capturas de Pantalla', work_4_desc: 'Documentación digital del proceso creativo',
-                work_5_cat: 'Archivo', work_5_title: 'Documentación del Proceso', work_5_desc: 'Registros del viaje creativo',
-                work_6_cat: 'Estudio', work_6_title: 'Sesiones Nocturnas', work_6_desc: 'Creatividad nocturna',
-                quote_text: 'Debido a la naturaleza abierta de la abstracción, cada espectador puede encontrar sus propios símbolos, arquetipos o interpretaciones dentro de ella, haciendo que cada visión sea una experiencia única.',
-                philosophy_label: 'Filosofía',
-                philosophy_title: 'El arte de la inmersión',
-                philosophy_desc: 'Tres pilares de la práctica artística que guían cada obra y definen la relación entre la obra y el espectador.',
-                phil_1_title: 'Inmersión Personal', phil_1_text: 'Cada espectador encuentra sus propios símbolos, arquetipos e interpretaciones dentro de la obra abstracta. Cada encuentro es único y profundamente personal.',
-                phil_2_title: 'Innovación Abstracta', phil_2_text: 'Alejarse de las representaciones concretas tradicionales abre nuevos caminos de exploración a través de enfoques innovadores del color, la luz y la abstracción geométrica.',
-                phil_3_title: 'Percepción Espiritual', phil_3_text: 'Los estilos y técnicas cambiantes influyen en la percepción estética y espiritual, ofreciendo nuevas formas de integración en el arte y la arquitectura contemporáneos.',
-                gallery_label: 'Galería',
-                gallery_title: 'Colección extendida',
-                contact_label: 'Contacto',
-                contact_title: 'Creemos juntos',
-                contact_desc: 'Ya sea que esté interesado en colaborar, discutir un proyecto o simplemente compartir sus pensamientos, me encantaría saber de usted.',
-                form_name: 'Nombre',
-                form_email: 'Correo',
-                form_subject: 'Asunto',
-                form_message: 'Mensaje',
-                form_submit: 'Enviar Mensaje',
-                form_success: '¡Gracias! Me pondré en contacto pronto.'
-            }
-        };
-
-        let currentLang = 'en';
-
-        /* ===== LANGUAGE TOGGLE ===== */
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            document.querySelectorAll(`[data-lang]`).forEach(btn => {
-                btn.classList.toggle('is-active', btn.dataset.lang === lang);
-            });
-
-            try { localStorage.setItem('lang', lang); } catch (e) {}
-        }
-
-        document.querySelectorAll('[data-lang]').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-        });
-
-        // Restore saved language
-        try {
-            const saved = localStorage.getItem('lang');
-            if (saved && translations[saved]) setLanguage(saved);
-        } catch (e) {}
-
         /* ===== LOADER ===== */
-        const loader = document.getElementById('loader');
-        if (loader) loader.classList.add('is-hidden');
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('is-hidden');
+        });
 
         /* ===== HEADER SCROLL STATE ===== */
         const header = document.getElementById('header');
-
         window.addEventListener('scroll', () => {
             if (header) {
                 header.classList.toggle('is-scrolled', window.pageYOffset > 50);
@@ -2497,23 +1752,7 @@
             });
         }
 
-        /* ===== SMOOTH SCROLL ===== */
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        /* ===== SCROLL REVEAL (IntersectionObserver) ===== */
+        /* ===== SCROLL REVEAL ===== */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2526,28 +1765,11 @@
             rootMargin: '0px 0px -40px 0px'
         });
 
-        document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
+        document.querySelectorAll('.reveal, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
             revealObserver.observe(el);
         });
 
-        /* ===== EXHIBITION DESCRIPTION TOGGLE ===== */
-        window.addEventListener('load', function() {
-            document.querySelectorAll('.exhibition-block__desc').forEach(function(desc) {
-                const btn = desc.nextElementSibling;
-                if (!btn || !btn.classList.contains('exhibition-block__toggle')) return;
-                if (desc.scrollHeight > desc.clientHeight + 2) {
-                    btn.classList.add('is-visible');
-                }
-                btn.addEventListener('click', function() {
-                    const expanded = desc.classList.toggle('is-expanded');
-                    btn.classList.toggle('is-open', expanded);
-                    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-                    btn.querySelector('.exhibition-block__toggle-label').textContent = expanded ? 'Show less' : 'Show more';
-                });
-            });
-        });
-
-        /* ===== EXHIBITION PHOTO CAROUSEL ===== */
+        /* ===== SURGERY PHOTO CAROUSEL ===== */
         document.querySelectorAll('.exhibition-block__photos').forEach(function(container) {
             const photos = Array.from(container.querySelectorAll('.exhibition-block__photo'));
             if (photos.length <= 1) return;
@@ -2567,120 +1789,11 @@
             if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); show(index + 1); });
         });
 
-        /* ===== CONTACT FORM ===== */
-        const contactForm = document.getElementById('contactForm');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = this.querySelector('#name').value.trim();
-                const email = this.querySelector('#email').value.trim();
-                const message = this.querySelector('#message').value.trim();
-
-                if (!name || !email || !message) {
-                    return;
-                }
-
-                const submitBtn = this.querySelector('.contact-form__submit');
-                const originalText = submitBtn.textContent;
-                submitBtn.disabled = true;
-                submitBtn.textContent = '...';
-
-                setTimeout(() => {
-                    alert(translations[currentLang].form_success);
-                    this.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                }, 1200);
-            });
-        }
-
-        /* ===== ACTIVE NAV HIGHLIGHT ===== */
-        const sections = document.querySelectorAll('section[id]');
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.header__link, .footer__link').forEach(link => {
-                        const href = link.getAttribute('href');
-                        link.style.color = href === `#${id}` ? 'var(--text)' : '';
-                    });
-                }
-            });
-        }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
-
-        sections.forEach(section => sectionObserver.observe(section));
-
-        /* ===== YOUTUBE LAZY LOAD ===== */
-        document.querySelectorAll('.yt-placeholder').forEach(el => {
-            el.addEventListener('click', function() {
-                const id = this.dataset.yt;
-                const iframe = document.createElement('iframe');
-                iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=1&modestbranding=1&rel=0';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
-                iframe.style.cssText = 'width:100%;height:100%;border:none';
-                this.replaceWith(iframe);
-            });
-        });
-
-        /* ===== VIDEO HOVER PLAY ===== */
-        document.querySelectorAll('.video-card').forEach(card => {
-            const video = card.querySelector('video');
-            if (!video) return;
-            card.addEventListener('mouseenter', () => video.play().catch(() => {}));
-            card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-        });
-
-        // Auto-play videos when scrolled into view on mobile
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const video = entry.target.querySelector('video');
-                if (!video) return;
-                if (entry.isIntersecting) {
-                    video.play().catch(() => {});
-                } else {
-                    video.pause();
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if ('ontouchstart' in window) {
-            document.querySelectorAll('.video-card').forEach(card => videoObserver.observe(card));
-        }
-
-        /* ===== PREFERS REDUCED MOTION ===== */
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('.reveal, .video-card, .work-card, .philosophy-card, .exhibition-block, .tech-block').forEach(el => {
-                el.classList.add('is-visible');
-                el.style.transition = 'none';
-            });
-        }
-
-        /* ========== AUTOPLAY VIDEOS ON SCROLL ========== */
-        (function(){
-            const videos = document.querySelectorAll('.video-card__embed video');
-            if (!videos.length || !('IntersectionObserver' in window)) return;
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    const v = entry.target;
-                    if (entry.isIntersecting) {
-                        v.play().catch(() => {});
-                    } else {
-                        v.pause();
-                    }
-                });
-            }, { threshold: 0.25 });
-            videos.forEach(v => io.observe(v));
-        })();
-
-        /* ========== LIGHTBOX ========== */
+        /* ===== LIGHTBOX ===== */
         (function(){
             const lb = document.createElement('div');
             lb.className = 'lightbox';
-            lb.innerHTML = '<button class="lightbox__close" aria-label="Close">×</button><img class="lightbox__img" alt="">';
+            lb.innerHTML = '<button class="lightbox__close" aria-label="Close">✕</button><img class="lightbox__img" alt="">';
             document.body.appendChild(lb);
             const lbImg = lb.querySelector('.lightbox__img');
             const lbClose = lb.querySelector('.lightbox__close');
@@ -2697,7 +1810,7 @@
                 setTimeout(() => { lbImg.src = ''; }, 300);
             };
 
-            const containers = '.exhibition-block__photo, .gallery__item, .side-product, .workspace__photo, .tech-block__photo';
+            const containers = '.exhibition-block__photo, .gallery__item, .tech-block__photo';
             document.addEventListener('click', (e) => {
                 const img = e.target.tagName === 'IMG' && e.target.closest(containers) ? e.target : null;
                 if (img) {
@@ -2707,14 +1820,6 @@
             });
             lb.addEventListener('click', (e) => { if (e.target === lb || e.target === lbClose) close(); });
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
-
-            /* Swipe down to close on mobile */
-            let touchStartY = 0;
-            lb.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
-            lb.addEventListener('touchend', (e) => {
-                const dy = e.changedTouches[0].clientY - touchStartY;
-                if (dy > 80) close();
-            }, { passive: true });
         })();
     </script>
 </body>

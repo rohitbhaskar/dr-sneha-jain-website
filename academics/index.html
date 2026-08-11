@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Dr. Sneha Jain — Postgraduate Resident Ophthalmologist at Jupiter Hospital, Thane. Specializing in Anterior Segment & Phaco-Refractive Surgery.">
+    <meta name="description" content="Academic background and medical education of Dr. Sneha Jain — Residency at Jupiter Hospital, MBBS at Grant Medical College & Sir JJ Hospital, and KC College.">
     <meta name="theme-color" content="#fafafa">
-    <title>About — Dr. Sneha Jain | Ophthalmologist</title>
+    <title>Academics & Training — Dr. Sneha Jain</title>
 
     <!-- Fonts: Hahmlet variable font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="../img/sneha-jain-web-1.jpg" sizes="32x32">
-    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpg">
+    <link rel="icon" href="../img/sneha-jain-web-1.jpeg" sizes="32x32">
+    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpeg">
 
     <style>
         /* ========== CSS CUSTOM PROPERTIES ========== */
@@ -292,182 +292,91 @@
             color: var(--text-secondary);
         }
 
-        .section__divider {
-            height: 1px;
-            background: var(--border);
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 var(--spacing-xl);
+        /* ========== ACADEMICS / TECH BLOCKS ========== */
+        .tech-block {
+            margin-bottom: var(--spacing-2xl);
         }
 
-        /* ========== ABOUT ========== */
-        .about-grid {
+        .tech-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .tech-block__inner {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: var(--spacing-2xl);
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
             align-items: start;
         }
 
         @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
+            .tech-block__inner { grid-template-columns: 1fr; }
         }
 
-        .about-text p {
-            font-size: 1.0625rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .about-quote {
-            padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md);
-            border-left: 2px solid var(--text);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .about-quote p {
+        .tech-block__num {
             font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-style: italic;
-            line-height: 1.6;
-            color: var(--text);
-            margin: 0 !important;
-        }
-
-        .about-image {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--bg-alt);
-        }
-
-        .about-image img { width: 100%; height: auto; }
-
-        .about-image__caption {
-            margin-top: var(--spacing-sm);
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-        }
-
-        /* ========== QUOTE ========== */
-        .quote {
-            padding: var(--spacing-3xl) 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .quote__mark {
-            font-family: var(--font-serif);
-            font-size: 5rem;
-            font-style: italic;
-            font-weight: 200;
-            line-height: 1;
-            color: var(--border);
-            margin-bottom: -1.5rem;
-        }
-
-        .quote__text {
-            font-family: var(--font-serif);
-            font-size: clamp(1.25rem, 2.5vw, 1.875rem);
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.5;
-            color: var(--text);
-            max-width: 720px;
-            margin: 0 auto var(--spacing-md);
-        }
-
-        .quote__author {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--text-tertiary);
-        }
-
-        /* ========== PHILOSOPHY (CORE FOCUS) ========== */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-        }
-
-        @media (max-width: 768px) {
-            .philosophy-grid { grid-template-columns: 1fr; }
-        }
-
-        .philosophy-card {
-            padding: var(--spacing-lg);
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-        }
-
-        .philosophy-card__num {
-            font-family: var(--font-serif);
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 300;
             color: var(--border-strong);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .philosophy-card__title {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .philosophy-card__text {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-
-        /* ========== RESIDENCY BANNER ========== */
-        .residency-banner {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--spacing-lg);
-            background: var(--bg-alt);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .residency-banner {
-                grid-template-columns: 1fr;
-            }
-
-            .residency-banner__body {
-                padding: var(--spacing-md);
-            }
-        }
-
-        .residency-banner__image {
-            overflow: hidden;
-            aspect-ratio: 4/3;
-        }
-
-        .residency-banner__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .residency-banner__body {
-            padding: var(--spacing-lg);
-        }
-
-        .residency-banner__title {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 500;
             margin-bottom: var(--spacing-xs);
         }
 
-        .residency-banner__desc {
+        .tech-block__title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-block__institution {
             font-size: 0.9375rem;
-            line-height: 1.7;
+            font-style: italic;
             color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tech-block__desc {
+            font-size: 0.9375rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .tech-block__badge {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--text);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .tech-block__photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xs);
+        }
+
+        .tech-block__photo {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--bg-alt);
+            aspect-ratio: 4/3;
+        }
+
+        .tech-block__photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .tech-block__divider {
+            height: 1px;
+            background: var(--border);
+            margin-top: var(--spacing-2xl);
         }
 
         /* ========== FOOTER ========== */
@@ -522,9 +431,9 @@
         <a href="../" class="header__logo">Dr. Sneha Jain</a>
 
         <nav class="header__nav">
-            <a href="../about/" class="header__link" style="color: var(--text);">About</a>
+            <a href="../about/" class="header__link">About</a>
             <a href="../clinical/" class="header__link">Clinical</a>
-            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../academics/" class="header__link" style="color: var(--text);">Academics</a>
             <a href="../research/" class="header__link">Research</a>
             <a href="../recommendations/" class="header__link">Recommendations</a>
             <a href="../highlights/" class="header__link">Highlights</a>
@@ -552,98 +461,85 @@
     </div>
 
     <main style="padding-top: calc(72px + 2rem);">
-        <!-- ========== ABOUT ========== -->
-        <section class="section" id="about">
+        <!-- ========== ACADEMICS & EDUCATION ========== -->
+        <section class="section" id="academics">
             <div class="container">
                 <header class="section__header">
-                    <div class="section__label">About</div>
-                    <h2 class="section__title">Clinical precision, microsurgical dedication, and evidence-based eye care</h2>
+                    <div class="section__label">Academics</div>
+                    <h2 class="section__title">Education, Academic Excellence &amp; Medical Training</h2>
+                    <p class="section__desc">Postgraduate residency in ophthalmology, undergraduate medical training, internship experience, and foundational academic achievements.</p>
                 </header>
 
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Dr. Sneha Jain is an ophthalmologist based in Mumbai, currently completing her 3-year postgraduate residency at Jupiter Hospital, Thane. Her clinical foundation encompasses comprehensive eye care, diagnostic evaluation, and microsurgical training across high-volume tertiary outpatient clinics and surgical theaters.</p>
-
-                        <p>Her primary surgical interest focuses on anterior segment microsurgery, specifically phacoemulsification, small-incision cataract surgery (SICS), pre-operative biometry, corneal evaluation, and anterior segment trauma management.</p>
-
-                        <blockquote class="about-quote">
-                            <p>"Precision in anterior segment microsurgery relies on meticulous biometry, sound diagnostic judgment, and an absolute commitment to patient visual outcomes."</p>
-                        </blockquote>
-
-                        <p>In addition to surgical training, Dr. Jain actively participates in clinical auditing, case presentations, and scientific research in anterior segment and general ophthalmology, aiming to combine clinical excellence with academic medicine as she prepares for subspecialty fellowship training.</p>
-
-                        <p>Looking ahead, Dr. Jain is focused on pursuing advanced fellowship specialization in phacoemulsification and refractive surgery outside Mumbai, expanding her skill set in premium intraocular lens (IOL) power calculations, astigmatism correction, and refractive procedures.</p>
+                <!-- Block 01: Residency -->
+                <article class="tech-block">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">01</div>
+                            <span class="tech-block__badge">Postgraduate Residency</span>
+                            <h3 class="tech-block__title">Residency in Ophthalmology</h3>
+                            <div class="tech-block__institution">Jupiter Hospital — Thane, Mumbai Region | 2023 — Present (3 Years)</div>
+                            <p class="tech-block__desc">Holds the distinction of being the <strong>first-ever resident in the Ophthalmology department</strong> at Jupiter Hospital, Thane. Over her 3-year residency, she played a key role in building clinical protocols while receiving intensive training in high-volume OPD consultations, anterior segment diagnostics, pre-operative biometry, and hands-on microsurgical training in phacoemulsification and SICS.</p>
+                        </div>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="../img/sneha-jain-web-3.jpeg" alt="Dr. Sneha Jain - Residency Training"></div>
+                            <div class="tech-block__photo"><img src="../img/surgery-stock-image-1.jpg" alt="Surgical Training - Jupiter Hospital"></div>
+                        </div>
                     </div>
+                    <div class="tech-block__divider"></div>
+                </article>
 
-                    <div>
-                        <figure class="about-image">
-                            <img src="../img/sneha-jain-web-2.jpeg" alt="Dr. Sneha Jain — Postgraduate Resident Ophthalmologist" loading="eager">
-                            <figcaption class="about-image__caption">Dr. Sneha Jain — Postgraduate Resident Ophthalmologist</figcaption>
-                        </figure>
+                <!-- Block 02: Internship -->
+                <article class="tech-block">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">02</div>
+                            <span class="tech-block__badge">Rotatory Internship</span>
+                            <h3 class="tech-block__title">Compulsory Rotatory Medical Internship</h3>
+                            <div class="tech-block__institution">Grant Medical College &amp; Sir JJ Group of Hospitals, Mumbai | 1 Year</div>
+                            <p class="tech-block__desc">Completed a comprehensive 1-year compulsory rotatory internship at Sir JJ Group of Hospitals—one of Western India's premier tertiary healthcare and trauma centers. Rotations covered general surgery, clinical medicine, emergency response, community health, and specialized ophthalmic casualty care.</p>
+                        </div>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="../img/sneha-jain-web-4.jpeg" alt="Clinical Practice"></div>
+                            <div class="tech-block__photo"><img src="../img/surgery-stock-image-3.jpg" alt="Medical Practice at JJ Hospital"></div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                    <div class="tech-block__divider"></div>
+                </article>
 
-        <div class="section__divider"></div>
-
-        <!-- ========== QUOTE ========== -->
-        <div class="quote">
-            <div class="container">
-                <div class="quote__mark" aria-hidden="true">"</div>
-                <blockquote class="quote__text">Restoring visual clarity is both a rigorous science and a transformative art. Precision at every step defines modern ophthalmic microsurgery.</blockquote>
-                <div class="quote__author">— Dr. Sneha Jain</div>
-            </div>
-        </div>
-
-        <div class="section__divider"></div>
-
-        <!-- ========== CORE FOCUS (PHILOSOPHY) ========== -->
-        <section class="section" id="philosophy">
-            <div class="container">
-                <header class="section__header">
-                    <div class="section__label">Core Focus</div>
-                    <h2 class="section__title">Professional Pillars</h2>
-                    <p class="section__desc">Three core values driving clinical practice, microsurgical development, and academic engagement.</p>
-                </header>
-
-                <div class="philosophy-grid">
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">01</div>
-                        <h3 class="philosophy-card__title">Surgical Excellence</h3>
-                        <p class="philosophy-card__text">Developing microsurgical precision, structural tissue preservation, and consistent clinical outcomes in micro-incision cataract and anterior segment procedures.</p>
-                    </article>
-
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">02</div>
-                        <h3 class="philosophy-card__title">Evidence-Based Practice</h3>
-                        <p class="philosophy-card__text">Integrating modern optical biometry, corneal diagnostics, and contemporary clinical trials directly into pre-operative surgical decision-making.</p>
-                    </article>
-
-                    <article class="philosophy-card">
-                        <div class="philosophy-card__num">03</div>
-                        <h3 class="philosophy-card__title">Lifelong Engagement</h3>
-                        <p class="philosophy-card__text">Commitment to continuous learning through fellowship subspecialization, peer-reviewed clinical research, conference presentations, and surgical auditing.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <div class="section__divider"></div>
-
-        <!-- ========== RESIDENCY ========== -->
-        <section class="section" id="residency">
-            <div class="container">
-                <div class="residency-banner">
-                    <div class="residency-banner__image">
-                        <img src="../img/surgery-stock-image-2.jpg" alt="Jupiter Hospital Thane Ophthalmology Residency">
+                <!-- Block 03: MBBS -->
+                <article class="tech-block">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">03</div>
+                            <span class="tech-block__badge">Undergraduate Degree</span>
+                            <h3 class="tech-block__title">MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+                            <div class="tech-block__institution">Grant Medical College &amp; Sir JJ Group of Hospitals, Mumbai | 4.5 Years</div>
+                            <p class="tech-block__desc">Secured admission following an <strong>outstanding top score in NEET</strong>. Graduated at the <strong>top of her batch at JJ College</strong>, demonstrating consistent academic distinction across pre-clinical, para-clinical, and clinical specialties with top marks in surgical disciplines.</p>
+                        </div>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="../img/sneha-jain-web-5.jpeg" alt="Dr. Sneha Jain Academic Profile"></div>
+                            <div class="tech-block__photo"><img src="../img/surgery-stock-image-2.jpg" alt="Grant Medical College"></div>
+                        </div>
                     </div>
-                    <div class="residency-banner__body">
-                        <div class="section__label">Residency Training</div>
-                        <h3 class="residency-banner__title">Jupiter Hospital — Thane, Mumbai Region</h3>
-                        <p class="residency-banner__desc">Three-year postgraduate residency in Ophthalmology at Jupiter Hospital, Thane. Hands-on clinical training across high-volume outpatient consultations, specialty clinics, anterior segment diagnostic evaluations, surgical training in phacoemulsification and SICS, and emergency ophthalmic trauma management.</p>
+                    <div class="tech-block__divider"></div>
+                </article>
+
+                <!-- Block 04: Science Higher Secondary -->
+                <article class="tech-block">
+                    <div class="tech-block__inner">
+                        <div>
+                            <div class="tech-block__num">04</div>
+                            <span class="tech-block__badge">Pre-Medical Science</span>
+                            <h3 class="tech-block__title">Higher Secondary Science Education</h3>
+                            <div class="tech-block__institution">Kishinchand Chellaram (KC) College — Churchgate, Mumbai</div>
+                            <p class="tech-block__desc">Achieved the rank of <strong>Batch Topper</strong> in Higher Secondary Science at the prestigious KC College in Churchgate, Mumbai. Maintained peak academic performance in Biology, Chemistry, and Physics, establishing the foundation for her entrance into Grant Medical College.</p>
+                        </div>
+                        <div class="tech-block__photos">
+                            <div class="tech-block__photo"><img src="../img/sneha-jain-web-1.jpeg" alt="Dr. Sneha Jain"></div>
+                            <div class="tech-block__photo"><img src="../img/surgery-stock-image-4.jpg" alt="Academic Achievements"></div>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
     </main>

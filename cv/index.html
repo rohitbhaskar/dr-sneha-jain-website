@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum Vitae of Dr. Sneha Jain — Resident Ophthalmologist specializing in Cataract, Anterior Segment & Phaco-Refractive Surgery.">
+    <meta name="theme-color" content="#fafafa">
+    <title>Curriculum Vitae — Dr. Sneha Jain | Ophthalmologist</title>
+
+    <!-- Fonts: Hahmlet variable font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/sneha-jain-web-1.jpg" sizes="32x32">
+    <link rel="apple-touch-icon" href="../img/sneha-jain-web-1.jpg">
+
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f2f2f0;
+            --bg-elevated: #ffffff;
+            --text: #111111;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999999;
+            --border: #e5e5e3;
+            --border-strong: #ccccca;
+
+            --font-sans: 'Hahmlet', Georgia, 'Times New Roman', serif;
+            --font-serif: 'Hahmlet', Georgia, serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-full: 100px;
+
+            --container-max: 1200px;
+            --header-height: 72px;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-md); }
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background: rgba(250, 250, 250, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 var(--spacing-md); }
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__logo:hover { opacity: 0.7; }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+        }
+
+        .header__link {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .header__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .header__link:hover { color: var(--text); }
+        .header__link:hover::after { width: 100%; }
+
+        /* Mobile menu button */
+        .header__menu-btn {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .header__menu-btn span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .header__menu-btn span:first-child { top: 35%; }
+        .header__menu-btn span:last-child { bottom: 35%; }
+
+        @media (max-width: 768px) {
+            .header__menu-btn { display: block; }
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .mobile-nav.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav__link {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav__link:hover { opacity: 0.5; }
+
+        .mobile-nav__close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* ========== CV SPECIFIC STYLES ========== */
+        .cv-section {
+            padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+        }
+
+        .cv-header-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .cv-header-info {
+            max-width: 700px;
+        }
+
+        .cv-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-title-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cv-meta-list {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            font-size: 0.84375rem;
+            color: var(--text-secondary);
+        }
+
+        .cv-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cv-meta-item strong {
+            color: var(--text);
+        }
+
+        .cv-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            align-items: flex-end;
+        }
+
+        .cv-btn-group {
+            display: flex;
+            gap: var(--spacing-xs);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .cv-actions {
+                width: 100%;
+                align-items: stretch;
+            }
+            .cv-btn-group {
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--text);
+            color: var(--bg);
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-alt);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-print:hover {
+            border-color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .cv-block {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .cv-block__title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 0.5rem;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cv-item {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .cv-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .cv-item__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-item__role {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .cv-item__date {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.05em;
+        }
+
+        .cv-item__inst {
+            font-size: 0.9375rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cv-item__desc {
+            font-size: 0.90625rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .cv-bullet-list {
+            list-style: none;
+            margin-top: var(--spacing-xs);
+        }
+
+        .cv-bullet-list li {
+            position: relative;
+            padding-left: 1.125rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+            line-height: 1.6;
+        }
+
+        .cv-bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--text);
+        }
+
+        /* Quantified Log Table */
+        .cv-table-wrapper {
+            overflow-x: auto;
+            margin-top: var(--spacing-md);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+        }
+
+        .cv-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            text-align: left;
+        }
+
+        .cv-table th, .cv-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cv-table th {
+            background: var(--bg-alt);
+            font-weight: 600;
+            color: var(--text);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .cv-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cv-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .cv-grid-2 { grid-template-columns: 1fr; }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            .header, .footer, .cv-actions, .mobile-nav {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+            main {
+                padding-top: 0 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            .cv-header-card {
+                border: none !important;
+                padding: 0 0 1.5rem 0 !important;
+                border-bottom: 2px solid #000 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .cv-block__title {
+                border-bottom-color: #000 !important;
+            }
+            .cv-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .footer__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer__brand {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .footer__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .footer__link {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover { color: var(--text); }
+
+        .footer__copy {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <a href="../" class="header__logo">Dr. Sneha Jain</a>
+
+        <nav class="header__nav">
+            <a href="../about/" class="header__link">About</a>
+            <a href="../clinical/" class="header__link">Clinical</a>
+            <a href="../academics/" class="header__link">Academics</a>
+            <a href="../research/" class="header__link">Research</a>
+            <a href="../recommendations/" class="header__link">Recommendations</a>
+            <a href="../highlights/" class="header__link">Highlights</a>
+            <a href="../cv/" class="header__link" style="color: var(--text);">CV</a>
+            <a href="../contact/" class="header__link">Contact</a>
+        </nav>
+
+        <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+        <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <a href="../about/" class="mobile-nav__link">About</a>
+        <a href="../clinical/" class="mobile-nav__link">Clinical</a>
+        <a href="../academics/" class="mobile-nav__link">Academics</a>
+        <a href="../research/" class="mobile-nav__link">Research</a>
+        <a href="../recommendations/" class="mobile-nav__link">Recommendations</a>
+        <a href="../highlights/" class="mobile-nav__link">Highlights</a>
+        <a href="../cv/" class="mobile-nav__link">CV</a>
+        <a href="../contact/" class="mobile-nav__link">Contact</a>
+    </div>
+
+    <main style="padding-top: calc(72px + 2rem);">
+        <!-- ========== CV SECTION ========== -->
+        <section class="cv-section">
+            <div class="container">
+
+                <!-- Header Action Card -->
+                <div class="cv-header-card">
+                    <div class="cv-header-info">
+                        <h1 class="cv-name">Dr. Sneha Jain</h1>
+                        <div class="cv-title-sub">Resident Ophthalmologist | Cataract, Anterior Segment &amp; Phaco-Refractive Specialization</div>
+                        <div class="cv-meta-list">
+                            <div class="cv-meta-item"><strong>Location:</strong> Mumbai / Thane Region, India</div>
+                            <div class="cv-meta-item"><strong>Email:</strong> contact@drsnehajain.co.in</div>
+                            <div class="cv-meta-item"><strong>Affiliation:</strong> Jupiter Hospital, Thane</div>
+                        </div>
+                    </div>
+                    <div class="cv-actions">
+                        <div class="cv-btn-group">
+                            <a href="../assets/dr-sneha-jain-resume.pdf" target="_blank" download class="btn-download">Download PDF ⤓</a>
+                            <button class="btn-print" id="printCvBtn">Print Web Version 🖨️</button>
+                        </div>
+                        <span style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.25rem;">Official Academic Document</span>
+                    </div>
+                </div>
+
+                <!-- 01. EDUCATION & MEDICAL TRAINING -->
+                <div class="cv-block">
+                    <h2 class="cv-block__title">01 · Education &amp; Medical Residency</h2>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Postgraduate Residency in Ophthalmology</span>
+                            <span class="cv-item__date">2023 — Present</span>
+                        </div>
+                        <div class="cv-item__inst">Jupiter Hospital — Thane, Mumbai Region, Maharashtra</div>
+                        <p class="cv-item__desc">Pioneering <strong>first-ever resident ophthalmologist</strong> at Jupiter Hospital. Intensive hands-on residency spanning micro-incision cataract surgery (phacoemulsification &amp; SICS), optical biometry, cornea, glaucoma diagnostics, and pediatric eye care.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Compulsory Rotatory Medical Internship</span>
+                            <span class="cv-item__date">1 Year</span>
+                        </div>
+                        <div class="cv-item__inst">Grant Medical College &amp; Sir JJ Group of Hospitals — Mumbai</div>
+                        <p class="cv-item__desc">Completed tertiary hospital rotations in General Surgery, Casualty Triage, Ophthalmic Emergency Trauma, Community Medicine, and Pediatrics at one of Western India's largest medical hubs.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">MBBS (Bachelor of Medicine, Bachelor of Surgery)</span>
+                            <span class="cv-item__date">4.5 Years</span>
+                        </div>
+                        <div class="cv-item__inst">Grant Medical College &amp; Sir JJ Group of Hospitals — Mumbai</div>
+                        <p class="cv-item__desc">Graduated as <strong>MBBS Batch Topper</strong> with distinction honors. Secured admission through a top national percentile rank in NEET (National Eligibility cum Entrance Test).</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Higher Secondary Science Education</span>
+                            <span class="cv-item__date">Pre-Medical</span>
+                        </div>
+                        <div class="cv-item__inst">Kishinchand Chellaram (KC) College — Churchgate, Mumbai</div>
+                        <p class="cv-item__desc">Awarded <strong>Batch Topper</strong> honors in Pre-Medical Science streams (Biology, Chemistry, Physics).</p>
+                    </div>
+                </div>
+
+                <!-- 02. SURGICAL & CLINICAL VOLUME -->
+                <div class="cv-block">
+                    <h2 class="cv-block__title">02 · Quantified Surgical &amp; OPD Experience</h2>
+                    <p class="cv-item__desc">Cumulative surgical caseloads and outpatient clinical metrics tracked over 3 years of residency:</p>
+
+                    <div class="cv-table-wrapper">
+                        <table class="cv-table">
+                            <thead>
+                                <tr>
+                                    <th>Clinical Specialty / Procedure</th>
+                                    <th>Role / Status</th>
+                                    <th>Quantified Volume</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clear Corneal Phacoemulsification (Acrylic IOL)</td>
+                                    <td>Primary Surgeon</td>
+                                    <td><strong>150+ Cases</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Manual Small Incision Cataract Surgery (SICS)</td>
+                                    <td>Primary Surgeon</td>
+                                    <td><strong>120+ Cases</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Minor Ocular Procedures (Pterygium CAG, Trauma Repair)</td>
+                                    <td>Primary Surgeon</td>
+                                    <td><strong>250+ Procedures</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Outpatient OPD Consultations &amp; Refractions</td>
+                                    <td>Independent OPD Lead</td>
+                                    <td><strong>8,000+ Patient Consults</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Optical Biometry (IOLMaster) &amp; Toric Calculations</td>
+                                    <td>Pre-Operative Assessor</td>
+                                    <td><strong>1,500+ Measurements</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Glaucoma Gonioscopy, GAT &amp; Perimetry Workups</td>
+                                    <td>Diagnostic Lead</td>
+                                    <td><strong>600+ Diagnostic Workups</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 03. RESEARCH & PUBLICATIONS -->
+                <div class="cv-block">
+                    <h2 class="cv-block__title">03 · Clinical Research &amp; Literature</h2>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Efficacy of Optical Biometry in Dense Nuclear Sclerosis</span>
+                            <span class="cv-item__date">2025</span>
+                        </div>
+                        <div class="cv-item__inst">Indian Journal of Ophthalmology | First Author</div>
+                        <p class="cv-item__desc">Prospective audit evaluating modern IOL power formulas (Barrett Universal II, Kane) versus ultrasound biometry in advanced cataract surgery.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Accommodative Dynamics and Myopia Control in Pediatric Cohorts</span>
+                            <span class="cv-item__date">2024</span>
+                        </div>
+                        <div class="cv-item__inst">Journal of Pediatric Ophthalmology &amp; Strabismus | Co-Author (Mentored by Dr. Mihir Kothari)</div>
+                        <p class="cv-item__desc">Longitudinal study analyzing low-dose atropine combined with optical defocus for pediatric myopia control.</p>
+                    </div>
+                </div>
+
+                <!-- 04. CONFERENCES & PRESENTATIONS -->
+                <div class="cv-block">
+                    <h2 class="cv-block__title">04 · Scientific Presentations</h2>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">All India Ophthalmological Conference (AIOC)</span>
+                            <span class="cv-item__date">National Forum</span>
+                        </div>
+                        <p class="cv-item__desc">Presented oral paper on vector astigmatism outcomes following clear corneal phacoemulsification.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-item__header">
+                            <span class="cv-item__role">Maharashtra Ophthalmological Society (MOSCON)</span>
+                            <span class="cv-item__date">State Conference</span>
+                        </div>
+                        <p class="cv-item__desc">Poster communication on management of traumatic corneal lacerations and iris prolapse triage.</p>
+                    </div>
+                </div>
+
+                <!-- 05. ACADEMIC HONORS & MEMBERSHIPS -->
+                <div class="cv-block">
+                    <h2 class="cv-block__title">05 · Honors &amp; Professional Memberships</h2>
+
+                    <div class="cv-grid-2">
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Academic Distinctions</h3>
+                            <ul class="cv-bullet-list">
+                                <li><strong>MBBS Batch Topper:</strong> Grant Medical College &amp; Sir JJ Group of Hospitals, Mumbai.</li>
+                                <li><strong>National NEET Merit:</strong> High percentile rank in national competitive entrance.</li>
+                                <li><strong>Science Batch Topper:</strong> KC College, Churchgate, Mumbai.</li>
+                                <li><strong>Residency Pioneer:</strong> First Resident in Ophthalmology at Jupiter Hospital, Thane.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Professional Associations</h3>
+                            <ul class="cv-bullet-list">
+                                <li>All India Ophthalmological Society (AIOS) — Member</li>
+                                <li>Maharashtra Ophthalmological Society (MOS) — Member</li>
+                                <li>Bombay Ophthalmologists' Association (BOA) — Member</li>
+                                <li>Medical Council Registration — Active Life License</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">Dr. Sneha Jain</div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="../about/" class="footer__link">About</a>
+                    <a href="../clinical/" class="footer__link">Clinical</a>
+                    <a href="../academics/" class="footer__link">Academics</a>
+                    <a href="../research/" class="footer__link">Research</a>
+                    <a href="../recommendations/" class="footer__link">Recommendations</a>
+                    <a href="../highlights/" class="footer__link">Highlights</a>
+                    <a href="../cv/" class="footer__link">CV</a>
+                    <a href="../contact/" class="footer__link">Contact</a>
+                </nav>
+                <div class="footer__copy">© 2026 Dr. Sneha Jain</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        'use strict';
+
+        /* ===== MOBILE NAV ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => mobileNav.classList.add('is-open'));
+        }
+
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+        }
+
+        if (mobileNav) {
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+            });
+        }
+
+        /* ===== PRINT / SAVE PDF ACTION ===== */
+        const printBtn = document.getElementById('printCvBtn');
+        if (printBtn) {
+            printBtn.addEventListener('click', () => {
+                window.print();
+            });
+        }
+    </script>
+</body>
+</html>
