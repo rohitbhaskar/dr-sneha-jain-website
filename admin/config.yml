@@ -3,6 +3,7 @@ backend:
   repo: rohitbhaskar/dr-sneha-jain-website
   branch: main
   base_url: https://dr-sneha-jain-cms-auth.rohitbfirephoenix3.workers.dev
+  auth_endpoint: auth
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
@@ -13,79 +14,70 @@ collections:
   - name: "content"
     label: "Site Content"
     files:
-      # ========== EXHIBITIONS ==========
-      - label: "Exhibitions"
-        name: "exhibitions"
-        file: "_data/exhibitions.json"
+      # ========== ABOUT & PROFILE ==========
+      - label: "About & Profile"
+        name: "about"
+        file: "_data/settings/about.json"
         fields:
-          - label: "Exhibitions"
+          - { label: "Full Name & Title", name: "name", widget: "string", default: "Dr. Sneha Jain" }
+          - { label: "Specialty / Tagline", name: "subtitle", widget: "string", default: "Resident Ophthalmologist | Phaco-Refractive Specialist" }
+          - { label: "Biography & Overview", name: "bio", widget: "text" }
+          - { label: "Profile Photo", name: "portrait", widget: "image" }
+
+      # ========== CONTACT DETAILS ==========
+      - label: "Contact Details"
+        name: "contact"
+        file: "_data/settings/contact.json"
+        fields:
+          - { label: "Official Email", name: "email", widget: "string", default: "contact@drsnehajain.co.in" }
+          - { label: "Hospital / Affiliation", name: "hospital", widget: "string", default: "Jupiter Hospital, Thane" }
+          - { label: "Location", name: "location", widget: "string", default: "Thane / Mumbai, Maharashtra" }
+          - { label: "LinkedIn Profile", name: "linkedin", widget: "string", required: false }
+          - { label: "Google Scholar URL", name: "google_scholar", widget: "string", required: false }
+          - { label: "ORCID ID", name: "orcid", widget: "string", required: false }
+
+      # ========== PUBLICATIONS & RESEARCH ==========
+      - label: "Publications & Research"
+        name: "publications"
+        file: "_data/publications.json"
+        fields:
+          - label: "Publications"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Paper Title", name: "title", widget: "string" }
+              - { label: "Journal Name", name: "journal", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Authors", name: "authors", widget: "string" }
+              - { label: "Abstract / Summary", name: "abstract", widget: "text" }
+              - { label: "DOI Link", name: "doi", widget: "string", required: false }
+              - { label: "PDF Document", name: "pdf", widget: "file", required: false }
+
+      # ========== MENTOR RECOMMENDATIONS ==========
+      - label: "Mentor Recommendations"
+        name: "recommendations"
+        file: "_data/recommendations.json"
+        fields:
+          - label: "Recommendations"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Mentor Name", name: "name", widget: "string" }
+              - { label: "Designation & Hospital", name: "designation", widget: "string" }
+              - { label: "Category", name: "category", widget: "string", hint: "e.g., Surgical Competence, Clinical Acumen" }
+              - { label: "Recommendation Text", name: "text", widget: "text" }
+              - { label: "Mentor Photo", name: "photo", widget: "image", required: false }
+
+      # ========== SURGICAL & CLINICAL HIGHLIGHTS ==========
+      - label: "Clinical & Surgical Highlights"
+        name: "highlights"
+        file: "_data/highlights.json"
+        fields:
+          - label: "Highlights Cards"
             name: "items"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Type", name: "type", widget: "select", options: ["Solo Exhibition", "Group Exhibition", "Installation"] }
-              - { label: "Date Start", name: "date_start", widget: "string", hint: "DD.MM.YYYY" }
-              - { label: "Date End", name: "date_end", widget: "string", hint: "DD.MM.YYYY", required: false, default: "" }
-              - { label: "Location", name: "location", widget: "string", required: false }
+              - { label: "Category", name: "category", widget: "select", options: ["Surgical Highlights", "OPD & Clinical Diversity", "Academic & Research"] }
               - { label: "Description", name: "description", widget: "text" }
-              - label: "Stats"
-                name: "stats"
-                widget: "list"
-                required: false
-                fields:
-                  - { label: "Number", name: "num", widget: "string" }
-                  - { label: "Label", name: "label", widget: "string" }
-              - label: "Photos"
-                name: "photos"
-                widget: "list"
-                field:
-                  label: "Photo"
-                  name: "photo"
-                  widget: "image"
-
-      # ========== SIDE PRODUCTS ==========
-      - label: "Side Products"
-        name: "side_products"
-        file: "_data/side_products.json"
-        fields:
-          - label: "Products"
-            name: "items"
-            widget: "list"
-            fields:
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Description", name: "alt", widget: "string" }
-
-      # ========== ABOUT ==========
-      - label: "About"
-        name: "about"
-        file: "_data/settings/about.json"
-        fields:
-          - { label: "Artist Name", name: "name", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Bio", name: "bio", widget: "text" }
-          - { label: "Portrait", name: "portrait", widget: "image" }
-
-      # ========== CONTACT ==========
-      - label: "Contact"
-        name: "contact"
-        file: "_data/settings/contact.json"
-        fields:
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "Telegram", name: "telegram", widget: "string", required: false }
-
-      # ========== WORKSPACE ==========
-      - label: "Workspace"
-        name: "workspace"
-        file: "_data/settings/workspace.json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Video", name: "video", widget: "file", required: false }
-          - label: "Photos"
-            name: "photos"
-            widget: "list"
-            field:
-              label: "Photo"
-              name: "photo"
-              widget: "image"
